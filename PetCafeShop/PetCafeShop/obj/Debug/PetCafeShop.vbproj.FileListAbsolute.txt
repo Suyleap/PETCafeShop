@@ -1,0 +1,14 @@
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
+C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
