@@ -21,12 +21,14 @@ Public Class ConnectionDBPetCafe
     End Sub
 
     Public Function ConnectDatabase() As Object
-        SQL = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShopDatabase.accdb;"
-        cnn = New OleDbConnection(SQL)
+        Dim LEAPSQL As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\cafe\PetCafeShop\PetCafeShop\PetCafeShopDatabase.accdb;"
+        Dim DYSQL As String = ""
         Try
+            cnn = New OleDbConnection(LEAPSQL)
             cnn.Open()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            cnn = New OleDbConnection(DYSQL)
+            cnn.Open()
         End Try
         Return cnn
     End Function

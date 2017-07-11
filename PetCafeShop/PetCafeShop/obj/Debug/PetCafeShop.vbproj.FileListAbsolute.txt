@@ -12,3 +12,7 @@ C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj
 C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
 C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
 C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
