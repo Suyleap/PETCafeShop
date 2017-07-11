@@ -1,38 +1,4 @@
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
-C:\Users\Shiwu\Documents\Visual Studio 2012\Projects\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
-<<<<<<< HEAD
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-=======
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
->>>>>>> e89dd67bad1e2f7355f24d51d2497c4b20e316e0
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
@@ -43,3 +9,6 @@ E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resou
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb

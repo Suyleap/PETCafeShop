@@ -41,16 +41,16 @@
         End Try
     End Sub
 
-    Public Sub DeleteHotDrink(ByVal tableid As String)
+    Public Sub DeleteTABLE(ByVal tablenumber As String)
         Try
-            con.SQLs = "Delete * from HotDrink Where TableID='" & tableid & "'"
+            con.SQLs = "Delete * from TablePetCafe Where NumberTable=" & Convert.ToInt16(tablenumber)
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox("Sorry we can't")
         End Try
     End Sub
 
-    Public Sub UpdateHotDrink(ByVal tableid As String, ByVal tablenumber As Integer)
+    Public Sub UpdateTable(ByVal tableid As String, ByVal tablenumber As Integer)
         Try
             con.SQLs = "Update HotDrink Set NumberTable='" & tablenumber & "' Where TableID='" & tableid & "'"
             con.UseDatabase(con.SQLs)
@@ -133,5 +133,4 @@
         odf.txtTable.Text = tablenumber.Name
         odf.Refresh()
     End Sub
-
 End Class
