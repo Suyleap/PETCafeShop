@@ -9,6 +9,7 @@ Public Class TableForm
         flpnTable.Controls.Add(tbpcc.ShowTableButton())
         Me.Refresh()
     End Sub
+
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         tbpcc.Insert(txtID.Text, txtName.Text)
         Me.Refresh()
