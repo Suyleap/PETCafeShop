@@ -246,7 +246,6 @@
                     Quantity = con.reader.Item(1) + 1
                     con.SQLs = "Insert into PreOrder values('" & Me.Name & "','" & Quantity & "'," & Me.Price & "," & Me.Price * Quantity & "," & TableNumber & ")"
                     con.UseDatabase(con.SQLs)
-                    Exit While
                 ElseIf TableNumber = TableNumber And Drinkname = Me.Name Then
                     Quantity = con.reader.Item(1) + 1
                     con.SQLs = "Update PreOrder Set Quantity=" & Quantity & ",GrandTotal=" & Me.Price * Quantity & " Where DrinkName='" & Me.Name & "' and Table=" & TableNumber & ""
