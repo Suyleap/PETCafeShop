@@ -4,8 +4,8 @@
     Private dfc As New DrinkFoodClass
     Private Total As Double
     Private Quantity As Integer
-    Private Shared Drinkname As String
-    Private Shared TableNumber As String
+    Private Drinkname As String = "Nothing"
+    Private TableNumber As String = 0
 
     Public Sub New()
 
@@ -294,7 +294,7 @@
 
     Public Sub CancelPreOrder()
         Try
-            con.SQLs = "Delete * from PreOrder Where Quantity <> 0"
+            con.SQLs = "Delete * from PreOrder Where DrinkName <>'" & "Nothing" & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
