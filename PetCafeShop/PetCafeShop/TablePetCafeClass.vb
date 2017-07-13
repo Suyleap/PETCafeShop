@@ -117,12 +117,12 @@
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 numberoftable = con.reader.Item(0)
-                If numberoftable = "Nothing" Then
-                    con.SQLs = "Insert into PreOrder values('" & tablenumber.Name + "Nothing" & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ")"
-                    con.UseDatabase(con.SQLs)
+                If numberoftable = tablenumber.Name Then
                     odf.Show()
                     Exit While
                 ElseIf numberoftable = "Nothing" Then
+                    con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ")"
+                    con.UseDatabase(con.SQLs)
                     odf.Show()
                     Exit While
                 End If

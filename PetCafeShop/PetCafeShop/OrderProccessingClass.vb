@@ -4,8 +4,8 @@
     Private dfc As New DrinkFoodClass
     Private Total As Double
     Private Quantity As Integer
-    Private Drinkname As String = "Nothing"
-    Private TableNumber As String = 0
+    Private Shared Drinkname As String
+    Private Shared TableNumber As String
 
     Public Sub New()
 
@@ -242,7 +242,7 @@
             While con.reader.Read
                 Drinkname = con.reader.Item(0)
                 TableNumber = con.reader.Item(4)
-                If TableNumber = TableNumber And Drinkname = TableNumber + "Nothing" Then
+                If TableNumber = TableNumber And Drinkname = TableNumber Then
                     Quantity = con.reader.Item(1) + 1
                     con.SQLs = "Insert into PreOrder values('" & Me.Name & "','" & Quantity & "'," & Me.Price & "," & Me.Price * Quantity & "," & TableNumber & ")"
                     con.UseDatabase(con.SQLs)
@@ -252,7 +252,6 @@
                     con.UseDatabase(con.SQLs)
                     Exit While
                 End If
-
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
