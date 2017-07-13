@@ -242,18 +242,16 @@
             While con.reader.Read
                 Drinkname = con.reader.Item(0)
                 TableNumber = con.reader.Item(4)
-                If TableNumber = TableNumber And Drinkname = TableNumber + "Nothing" Then
+                If TableNumber = TableNumber And Drinkname = TableNumber Then
                     Quantity = con.reader.Item(1) + 1
                     con.SQLs = "Insert into PreOrder values('" & Me.Name & "','" & Quantity & "'," & Me.Price & "," & Me.Price * Quantity & "," & TableNumber & ")"
                     con.UseDatabase(con.SQLs)
-                    Exit While
                 ElseIf TableNumber = TableNumber And Drinkname = Me.Name Then
                     Quantity = con.reader.Item(1) + 1
                     con.SQLs = "Update PreOrder Set Quantity=" & Quantity & ",GrandTotal=" & Me.Price * Quantity & " Where DrinkName='" & Me.Name & "' and Table=" & TableNumber & ""
                     con.UseDatabase(con.SQLs)
                     Exit While
                 End If
-
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -296,7 +294,7 @@
 
     Public Sub CancelPreOrder()
         Try
-            con.SQLs = "Delete * from PreOrder Where Quantity <> 0"
+            con.SQLs = "Delete * from PreOrder Where DrinkName <>'" & "Nothing" & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
