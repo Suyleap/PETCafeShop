@@ -237,6 +237,8 @@
 
     Public Sub InsertPreOrder()
         Try
+            Dim odf As New OrderForm
+            odf.Controls.Add(ShowPreOrder())
             con.SQLs = "Select * from PreOrder "
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
