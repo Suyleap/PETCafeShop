@@ -85,6 +85,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderProccessingClass.vb" />
+    <Compile Include="StaffClass.vb" />
     <Compile Include="TablePetCafeClass.vb" />
     <Compile Include="TableForm.vb">
       <SubType>Form</SubType>
