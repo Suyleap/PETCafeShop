@@ -100,23 +100,26 @@
             Me.st_StartDateWork = value
         End Set
     End Property
+
     Protected Function CountAge() As Byte
         Return (Convert.ToInt32((Today - st_DOB)) / 365)
     End Function
+
     Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal salary As Double, ByVal sdw As Date)
         Try
             con.SQLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & CountAge() & ",'" & address & "','" & phone & "','" & email & "','" & salary & "','" & sdw.ToString() & "')"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
-            MsgBox("Sorry We Can't")
+            MsgBox(ex.Message)
         End Try
     End Sub
+
     Public Sub DeleteStaff(ByVal id As String)
         Try
             con.SQLs = "DELETE * From Staff Where StaffID=('" & id & "')"
-
+            con.UseDatabase(con.SQLs)
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
