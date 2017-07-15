@@ -1,5 +1,5 @@
 ﻿Public Class OrderProccessingClass
-
+    Private odf As OrderForm
     Private con As New ConnectionDBPetCafe
     Private dfc As New DrinkFoodClass
     Private Total As Double
@@ -236,9 +236,9 @@
     End Sub
 
     Public Sub InsertPreOrder()
+        odf = New OrderForm
+        odf.btnTotal = New Button
         Try
-            Dim odf As New OrderForm
-            odf.Controls.Add(ShowPreOrder())
             con.SQLs = "Select * from PreOrder "
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
@@ -255,19 +255,21 @@
                     Exit While
                 End If
             End While
+            AddHandler odf.btnTotal.Click, AddressOf DynamicbtnTotalClick
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        odf.btnTotal.PerformClick()
         con.CloseConnection()
     End Sub
 
-    Public Function ShowPreOrder() As Windows.Forms.FlowLayoutPanel
+    Public Function ShowPreOrder() As Windows.Forms.DataGridView
         Dim bs As New BindingSource
-        Dim flpnOrders As New Windows.Forms.FlowLayoutPanel
-        flpnOrders.Name = "flpnOrder"
-        flpnOrders.Size = New Size(362, 395)
-        flpnOrders.Location = New Point(55, 213)
-        flpnOrders.AutoScroll = True
+        ' Dim flpnOrders As New Windows.Forms.FlowLayoutPanel
+        ' flpnOrders.Name = "flpnOrder"
+        ' flpnOrders.Size = New Size(362, 395)
+        ' flpnOrders.Location = New Point(55, 213)
+        ' flpnOrders.AutoScroll = True
         Dim dtgOrder As New Windows.Forms.DataGridView
         dtgOrder.Name = "dtgOrder"
         dtgOrder.Size = New Size(362, 567)
@@ -285,13 +287,14 @@
             End While
             dtgOrder.DataSource = bs
             dtgOrder.Refresh()
-            flpnOrders.Controls.Add(dtgOrder)
-            flpnOrders.Refresh()
+            '     flpnOrders.Controls.Add(dtgOrder)
+            '    flpnOrders.Refresh()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         con.CloseConnection()
-        Return flpnOrders
+        'Return flpnOrders
+        Return dtgOrder
     End Function
 
     Public Sub CancelPreOrder()
@@ -302,6 +305,18 @@
             MsgBox(ex.Message)
         End Try
         con.CloseConnection()
+    End Sub
+
+    Public Sub DynamicbtnTotalClick()
+        odf = New OrderForm
+        odf.flpnOrders = New Windows.Forms.FlowLayoutPanel
+        odf.flpnOrders.Name = "flpnOrder"
+        odf.flpnOrders.Size = New Size(362, 395)
+        odf.flpnOrders.Location = New Point(55, 213)
+        odf.flpnOrders.AutoScroll = True
+        odf.flpnOrders.Controls.Clear()
+        odf.flpnOrders.Controls.Add(ShowPreOrder())
+        odf.Refresh()
     End Sub
 
 End Class
