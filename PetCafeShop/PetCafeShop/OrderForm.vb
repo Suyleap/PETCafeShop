@@ -7,7 +7,12 @@
         Me.Refresh()
         rdoFood.Checked = True
         Me.Refresh()
-        Me.btnTotal.PerformClick()
+    End Sub
+
+    Private Sub Mouse_Hover(sender As Object, e As EventArgs) Handles MyBase.MouseHover
+        flpnOrders.Controls.Clear()
+        flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
+        Me.Refresh()
     End Sub
 
     Private Sub rdoHot_CheckedChanged(sender As Object, e As EventArgs) Handles rdoHot.CheckedChanged
@@ -42,8 +47,7 @@
     End Sub
 
     Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnTotal.Click
-        flpnOrders.Controls.Clear()
-        flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
-        Me.Refresh()
+       
     End Sub
+
 End Class
