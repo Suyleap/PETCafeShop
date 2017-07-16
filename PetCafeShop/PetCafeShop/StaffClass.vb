@@ -154,8 +154,8 @@
     Public Sub selectedStaffChange(ByVal sender As Object, ByVal e As EventArgs)
         Try
             Dim dgvSt As New DataGridView
-            dgvSt.Name = sender.ToString.Remove(0, 35)
-            con.SQLs = "Select * from Staff Where Name='" & dgvSt.Name & "'"
+            sender = dgvSt
+            con.SQLs = "Select * from Staff Where Name='" & dgvSt.SelectedRows.Item(1).ToString() & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
                 Me.st_ID = con.reader.Item(0)
@@ -172,13 +172,6 @@
 
         Catch ex As Exception
             MsgBox(ex.Message)
-        End Try
-    End Sub
-    Public Sub InsertToTextBox()
-        Try
-
-        Catch ex As Exception
-
         End Try
     End Sub
 End Class
