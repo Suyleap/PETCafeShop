@@ -125,11 +125,11 @@
     End Sub
     Public Function Show() As Object
         Dim bs As New BindingSource
-        Dim dtgStaff As New Windows.Forms.DataGridView
-        dtgStaff.Name = "dtgStaff"
-        dtgStaff.Size = New Size(362, 567)
-        dtgStaff.Location = New Point(47, 112)
-        dtgStaff.ReadOnly = True
+        'Dim dtgStaff As New Windows.Forms.DataGridView
+        'dtgStaff.Name = "dtgStaff"
+        'dtgStaff.Size = New Size(362, 567)
+        'dtgStaff.Location = New Point(47, 112)
+        'dtgStaff.ReadOnly = True
         Dim stcl As StaffClass
         Dim stcls As New List(Of StaffClass)
         Try
@@ -141,22 +141,44 @@
                 stcls.Add(stcl)
                 bs.DataSource = stcls
             End While
-            dtgStaff.DataSource = bs
-            dtgStaff.Refresh()
+            'dtgStaff.DataSource = bs
+            'dtgStaff.Refresh()
+            Return bs
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         con.CloseConnection()
-        Return dtgStaff
+        'Return dtgStaff
     End Function
     ' Public Event DataModified(sender As Object, e As EventArgs)
-    Public Property FieldData(ByVal field As String) As Object
-        Get
-            If field.Equals("txtID") Then Return Me.st_ID
+    Public Sub selectedStaffChange(ByVal sender As Object, ByVal e As EventArgs)
+        Try
+            Dim dgvSt As New DataGridView
+            dgvSt.Name = sender.ToString.Remove(0, 35)
+            con.SQLs = "Select * from Staff Where Name='" & dgvSt.Name & "'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read()
+                Me.st_ID = con.reader.Item(0)
+                Me.st_Name = con.reader.Item(1)
+                Me.st_Gender = con.reader.Item(2)
+                Me.st_DOB = con.reader.Item(3)
+                Me.st_Age = con.reader.Item(4)
+                Me.st_Address = con.reader.Item(5)
+                Me.st_Phone = con.reader.Item(6)
+                Me.st_Email = con.reader.Item(7)
+                Me.st_Salary = con.reader.Item(8)
+                Me.st_StartDateWork = con.reader.Item(9)
+            End While
 
-        End Get
-        Set(value As Object)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Sub InsertToTextBox()
+        Try
 
-        End Set
-    End Property
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
