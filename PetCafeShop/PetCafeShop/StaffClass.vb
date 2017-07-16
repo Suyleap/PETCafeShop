@@ -4,7 +4,7 @@
     Public st_Name As String
     Public st_Gender As String
     Public st_DOB As Date
-    'Public st_Age As Byte
+    Public st_Age As Byte
     Public st_Address As String
     Public st_Phone As String
     Public st_Email As String
@@ -16,11 +16,12 @@
 
     End Sub
 
-    Public Sub New(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal salary As Double, ByVal sdw As Date)
+    Public Sub New(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Integer, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal salary As Double, ByVal sdw As Date)
         Me.st_ID = id
         Me.st_Name = name
         Me.st_Gender = gender
         Me.st_DOB = dob
+        Me.st_Age = age
         Me.st_Address = address
         Me.st_Phone = phone
         Me.st_Email = email
@@ -122,6 +123,40 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+    Public Function Show() As Object
+        Dim bs As New BindingSource
+        Dim dtgStaff As New Windows.Forms.DataGridView
+        dtgStaff.Name = "dtgStaff"
+        dtgStaff.Size = New Size(362, 567)
+        dtgStaff.Location = New Point(47, 112)
+        dtgStaff.ReadOnly = True
+        Dim stcl As StaffClass
+        Dim stcls As New List(Of StaffClass)
+        Try
+            con.SQLs = "Select * from Staff"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                stcl = New StaffClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4),
+                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9))
+                stcls.Add(stcl)
+                bs.DataSource = stcls
+            End While
+            dtgStaff.DataSource = bs
+            dtgStaff.Refresh()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        con.CloseConnection()
+        Return dtgStaff
+    End Function
+    ' Public Event DataModified(sender As Object, e As EventArgs)
+    Public Property FieldData(ByVal field As String) As Object
+        Get
+            If field.Equals("txtID") Then Return Me.st_ID
 
+        End Get
+        Set(value As Object)
 
+        End Set
+    End Property
 End Class
