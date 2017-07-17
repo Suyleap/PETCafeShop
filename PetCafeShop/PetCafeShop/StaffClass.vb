@@ -151,11 +151,11 @@
         'Return dtgStaff
     End Function
     ' Public Event DataModified(sender As Object, e As EventArgs)
-    Public Sub selectedStaffChange(ByVal sender As Object, ByVal e As EventArgs)
+    Public Sub selectedStaffChange(ByVal sender As Object)
         Try
-            Dim dgvSt As New DataGridView
-            sender = dgvSt
-            con.SQLs = "Select * from Staff Where Name='" & dgvSt.SelectedRows.Item(1).ToString() & "'"
+            'Dim dgvSt As New DataGridView
+
+            con.SQLs = "Select * from Staff Where StaffID='" & sender.ToString() & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
                 Me.st_ID = con.reader.Item(0)
