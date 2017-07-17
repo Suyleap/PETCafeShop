@@ -86,6 +86,12 @@
     </Compile>
     <Compile Include="OrderProccessingClass.vb" />
     <Compile Include="StaffClass.vb" />
+    <Compile Include="StaffForm.Designer.vb">
+      <DependentUpon>StaffForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StaffForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TablePetCafeClass.vb" />
     <Compile Include="TableForm.vb">
       <SubType>Form</SubType>
@@ -118,6 +124,9 @@
       <DependentUpon>OrderForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SellReport.rdlc" />
+    <EmbeddedResource Include="StaffForm.resx">
+      <DependentUpon>StaffForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableForm.resx">
       <DependentUpon>TableForm.vb</DependentUpon>
     </EmbeddedResource>
