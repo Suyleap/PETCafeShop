@@ -2,6 +2,7 @@
     Dim st As New StaffClass
     Private Sub StaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvStaff.DataSource = st.Show()
+        'dgvStaff.Enabled = False
         dgvStaff.ReadOnly = True
         Clear()
     End Sub
@@ -42,6 +43,13 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
+        dgvStaff.DataSource = st.Show()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+        st.DeleteStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString())
         dgvStaff.DataSource = st.Show()
         Me.Refresh()
     End Sub
