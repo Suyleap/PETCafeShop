@@ -8,6 +8,7 @@
     Public st_Address As String
     Public st_Phone As String
     Public st_Email As String
+    Public st_Position As String
     Public st_Salary As Double
     Public st_StartDateWork As Date
     Private con As New ConnectionDBPetCafe
@@ -16,7 +17,7 @@
 
     End Sub
 
-    Public Sub New(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Integer, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal salary As Double, ByVal sdw As Date)
+    Public Sub New(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Integer, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
         Me.st_ID = id
         Me.st_Name = name
         Me.st_Gender = gender
@@ -25,6 +26,7 @@
         Me.st_Address = address
         Me.st_Phone = phone
         Me.st_Email = email
+        Me.st_Position = position
         Me.st_Salary = salary
         Me.st_StartDateWork = sdw
     End Sub
@@ -85,6 +87,14 @@
             Me.st_Email = value
         End Set
     End Property
+    Public Property StaffPosition As String
+        Get
+            Return Me.st_Position
+        End Get
+        Set(value As String)
+            Me.st_Position = value
+        End Set
+    End Property
     Public Property StaffSalary As Double
         Get
             Return Me.st_Salary
@@ -106,9 +116,9 @@
         Return (Convert.ToInt32((Today - st_DOB)) / 365)
     End Function
 
-    Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal salary As Double, ByVal sdw As Date)
+    Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
         Try
-            con.SQLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & CountAge() & ",'" & address & "','" & phone & "','" & email & "','" & salary & "','" & sdw.ToString() & "')"
+            con.SQLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & CountAge() & ",'" & address & "','" & phone & "','" & email & "','" & position & "','" & salary & "','" & sdw.ToString() & "')"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -125,11 +135,6 @@
     End Sub
     Public Function Show() As Object
         Dim bs As New BindingSource
-        'Dim dtgStaff As New Windows.Forms.DataGridView
-        'dtgStaff.Name = "dtgStaff"
-        'dtgStaff.Size = New Size(362, 567)
-        'dtgStaff.Location = New Point(47, 112)
-        'dtgStaff.ReadOnly = True
         Dim stcl As StaffClass
         Dim stcls As New List(Of StaffClass)
         Try
@@ -137,12 +142,10 @@
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 stcl = New StaffClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4),
-                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9))
+                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9),con.reader.Item(10))
                 stcls.Add(stcl)
                 bs.DataSource = stcls
             End While
-            'dtgStaff.DataSource = bs
-            'dtgStaff.Refresh()
             Return bs
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -166,8 +169,9 @@
                 Me.st_Address = con.reader.Item(5)
                 Me.st_Phone = con.reader.Item(6)
                 Me.st_Email = con.reader.Item(7)
-                Me.st_Salary = con.reader.Item(8)
-                Me.st_StartDateWork = con.reader.Item(9)
+                Me.st_Position = con.reader.Item(8)
+                Me.st_Salary = con.reader.Item(9)
+                Me.st_StartDateWork = con.reader.Item(10)
             End While
 
         Catch ex As Exception
