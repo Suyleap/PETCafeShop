@@ -43,10 +43,13 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
-        dgvStaff.DataSource = st.Show()
+        reload()
+        'Clear()
         Me.Refresh()
     End Sub
-
+    Private Sub reload()
+        dgvStaff.DataSource = st.Show()
+    End Sub
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
 
         st.DeleteStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString())
