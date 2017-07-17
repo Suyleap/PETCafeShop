@@ -6,6 +6,7 @@
     Private Quantity As Integer
     Private Drinkname As String = "Nothing"
     Private TableNumber As String = 0
+    Private Seller As String = ""
 
     Public Sub New()
 
@@ -236,16 +237,16 @@
     End Sub
 
     Public Sub InsertPreOrder()
-        
         Try
             con.SQLs = "Select * from PreOrder "
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 Drinkname = con.reader.Item(0)
                 TableNumber = con.reader.Item(4)
+                Seller = "hello"
                 If TableNumber = TableNumber And Drinkname = TableNumber Then
                     Quantity = con.reader.Item(1) + 1
-                    con.SQLs = "Insert into PreOrder values('" & Me.Name & "','" & Quantity & "'," & Me.Price & "," & Me.Price * Quantity & "," & TableNumber & ")"
+                    con.SQLs = "Insert into PreOrder values('" & Me.Name & "','" & Quantity & "'," & Me.Price & "," & Me.Price * Quantity & "," & TableNumber & ",'" & Seller & "')"
                     con.UseDatabase(con.SQLs)
                 ElseIf TableNumber = TableNumber And Drinkname = Me.Name Then
                     Quantity = con.reader.Item(1) + 1
@@ -254,11 +255,9 @@
                     Exit While
                 End If
             End While
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
         con.CloseConnection()
     End Sub
 
@@ -297,5 +296,23 @@
         End Try
         con.CloseConnection()
     End Sub
+
+    Public Sub AutoGenerateInvoiceID()
+
+    End Sub
+
+    Public Function CalculateGrandTotal() As String
+        Dim grandtotal As Double = 0
+        Try
+            con.SQLs = "Select * from PreOrder where Quantity<> 0"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                grandtotal = grandtotal + con.reader.Item(3)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return grandtotal
+    End Function
 
 End Class

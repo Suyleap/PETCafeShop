@@ -171,6 +171,7 @@ Partial Class OrderForm
         '
         'flpnOrders
         '
+        Me.flpnOrders.AutoScroll = True
         Me.flpnOrders.Location = New System.Drawing.Point(55, 213)
         Me.flpnOrders.Name = "flpnOrders"
         Me.flpnOrders.Size = New System.Drawing.Size(362, 395)

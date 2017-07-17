@@ -4,7 +4,6 @@
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rdoHot.Checked = True
-        Me.Refresh()
         rdoFood.Checked = True
         Me.Refresh()
     End Sub
@@ -12,6 +11,8 @@
     Private Sub Mouse_Hover(sender As Object, e As EventArgs) Handles MyBase.MouseHover
         flpnOrders.Controls.Clear()
         flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
+        txtTotalDollar.Text = odpc.CalculateGrandTotal + " $"
+        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal) * 4100).ToString + " R"
         Me.Refresh()
     End Sub
 

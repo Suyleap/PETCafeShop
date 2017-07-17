@@ -112,13 +112,14 @@
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
         Try
-            con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ")"
+            con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
             con.UseDatabase(con.SQLs)
             odf.Show()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         odf.txtTable.Text = tablenumber.Name
+        odf.txtSeller.Text = "hello"
         odf.Refresh()
     End Sub
 End Class
