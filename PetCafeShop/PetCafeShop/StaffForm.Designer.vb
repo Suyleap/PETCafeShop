@@ -23,10 +23,7 @@ Partial Class StaffForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgvStaff = New System.Windows.Forms.DataGridView()
-<<<<<<< HEAD
         Me.btnEdit = New System.Windows.Forms.Button()
-=======
->>>>>>> 7e765c3f85cff7a17d852c0a35d5685e2a24c85e
         Me.cboGender = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtID = New System.Windows.Forms.TextBox()
@@ -68,7 +65,6 @@ Partial Class StaffForm
         Me.dgvStaff.Size = New System.Drawing.Size(1338, 293)
         Me.dgvStaff.TabIndex = 0
         '
-<<<<<<< HEAD
         'btnEdit
         '
         Me.btnEdit.Location = New System.Drawing.Point(1206, 104)
@@ -78,8 +74,6 @@ Partial Class StaffForm
         Me.btnEdit.Text = "EDIT"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
-=======
->>>>>>> 7e765c3f85cff7a17d852c0a35d5685e2a24c85e
         'cboGender
         '
         Me.cboGender.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -110,7 +104,7 @@ Partial Class StaffForm
         'dtpDOB
         '
         Me.dtpDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDOB.Location = New System.Drawing.Point(136, 288)
         Me.dtpDOB.Name = "dtpDOB"
         Me.dtpDOB.Size = New System.Drawing.Size(235, 30)
@@ -389,10 +383,7 @@ Partial Class StaffForm
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboGender)
-<<<<<<< HEAD
         Me.Controls.Add(Me.btnEdit)
-=======
->>>>>>> 7e765c3f85cff7a17d852c0a35d5685e2a24c85e
         Me.Controls.Add(Me.dgvStaff)
         Me.Name = "StaffForm"
         Me.Text = "StaffForm"
@@ -402,10 +393,9 @@ Partial Class StaffForm
 
     End Sub
     Friend WithEvents dgvStaff As System.Windows.Forms.DataGridView
-<<<<<<< HEAD
+
     Friend WithEvents btnEdit As System.Windows.Forms.Button
-=======
->>>>>>> 7e765c3f85cff7a17d852c0a35d5685e2a24c85e
+
     Friend WithEvents cboGender As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtID As System.Windows.Forms.TextBox

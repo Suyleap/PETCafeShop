@@ -63,6 +63,14 @@
             Me.st_DOB = value
         End Set
     End Property
+    Public Property StaffAge As Byte
+        Get
+            Return Me.st_Age
+        End Get
+        Set(value As Byte)
+            Me.st_Age = value
+        End Set
+    End Property
     Public Property StaffAddress As String
         Get
             Return Me.st_Address
@@ -113,7 +121,9 @@
     End Property
 
     Protected Function CountAge() As Byte
-        Return (Convert.ToInt32((Today - st_DOB)) / 365)
+        Dim c As Byte
+        c = (Today.Year - st_DOB.Year)
+        Return c
     End Function
 
     Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
