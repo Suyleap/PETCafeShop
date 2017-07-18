@@ -56,6 +56,7 @@ Partial Class TableForm
         '
         'flpnTable
         '
+        Me.flpnTable.AutoScroll = True
         Me.flpnTable.Location = New System.Drawing.Point(95, 112)
         Me.flpnTable.Name = "flpnTable"
         Me.flpnTable.Size = New System.Drawing.Size(806, 406)
