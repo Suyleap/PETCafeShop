@@ -51,4 +51,11 @@
        
     End Sub
 
+    Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
+        txtCmd.Text = odpc.CalculateChangeCashDolar(txtRmd.Text) + " $"
+    End Sub
+
+    Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
+        txtCmr.Text = odpc.CalculateChangeCashRiel(txtRmr.Text) + " R"
+    End Sub
 End Class
