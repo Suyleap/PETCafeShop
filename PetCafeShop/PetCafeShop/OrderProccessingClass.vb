@@ -324,7 +324,15 @@
     End Function
 
     Public Function CalculateGrandTotalWithDiscount(ByVal discount As Double) As String
-        Dim dc As Double = (CalculateGrandTotal() * discount) / 100
+        Dim dc, dcs As Double
+        dcs = discount
+        If dcs = Nothing Then
+            Return Nothing
+        ElseIf dcs < 0 Then
+            Return Nothing
+        ElseIf dcs > 0 Then
+            dc = (CalculateGrandTotal() * dcs) / 100
+        End If
         Return dc
     End Function
 

@@ -421,6 +421,7 @@ Partial Class OrderForm
         Me.txtDiscount.Name = "txtDiscount"
         Me.txtDiscount.Size = New System.Drawing.Size(175, 26)
         Me.txtDiscount.TabIndex = 7
+        Me.txtDiscount.Text = "0"
         Me.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label15

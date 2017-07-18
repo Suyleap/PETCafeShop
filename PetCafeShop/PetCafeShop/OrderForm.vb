@@ -11,8 +11,8 @@
     Private Sub Mouse_Hover(sender As Object, e As EventArgs) Handles MyBase.MouseHover
         flpnOrders.Controls.Clear()
         flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
-        txtTotalDollar.Text = odpc.CalculateGrandTotal + " $"
-        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal) * 4100).ToString + " R"
+        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
+        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
         Me.Refresh()
     End Sub
 
@@ -52,10 +52,15 @@
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
-        txtCmd.Text = odpc.CalculateChangeCashDolar(txtRmd.Text) + " $"
+        txtCmd.Text = Convert.ToDouble(odpc.CalculateChangeCashDolar(txtRmd.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
     End Sub
 
     Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
-        txtCmr.Text = odpc.CalculateChangeCashRiel(txtRmr.Text) + " R"
+        txtCmr.Text = Convert.ToDouble(odpc.CalculateChangeCashRiel(txtRmr.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " R"
+    End Sub
+
+    Private Sub txtDiscount_TextChanged(sender As Object, e As EventArgs) Handles txtDiscount.TextChanged
+        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
+        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
     End Sub
 End Class
