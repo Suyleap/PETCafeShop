@@ -32,6 +32,8 @@ Partial Class TableForm
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.gbtable = New System.Windows.Forms.GroupBox()
+        Me.gbtable.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -47,15 +49,16 @@ Partial Class TableForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Mistral", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(89, 76)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 33)
+        Me.Label2.Size = New System.Drawing.Size(62, 34)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Table"
         '
         'flpnTable
         '
+        Me.flpnTable.AutoScroll = True
         Me.flpnTable.Location = New System.Drawing.Point(95, 112)
         Me.flpnTable.Name = "flpnTable"
         Me.flpnTable.Size = New System.Drawing.Size(806, 406)
@@ -63,9 +66,9 @@ Partial Class TableForm
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(980, 274)
+        Me.btnAdd.Location = New System.Drawing.Point(6, 140)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(269, 61)
+        Me.btnAdd.Size = New System.Drawing.Size(170, 61)
         Me.btnAdd.TabIndex = 15
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -73,7 +76,7 @@ Partial Class TableForm
         'txtID
         '
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID.Location = New System.Drawing.Point(1103, 125)
+        Me.txtID.Location = New System.Drawing.Point(191, 57)
         Me.txtID.Multiline = True
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(182, 29)
@@ -82,27 +85,27 @@ Partial Class TableForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(930, 123)
+        Me.Label3.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(83, 53)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(42, 31)
+        Me.Label3.Size = New System.Drawing.Size(107, 33)
         Me.Label3.TabIndex = 17
-        Me.Label3.Text = "ID"
+        Me.Label3.Text = "ID        :"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(930, 209)
+        Me.Label4.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(83, 92)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(92, 31)
+        Me.Label4.Size = New System.Drawing.Size(102, 33)
         Me.Label4.TabIndex = 19
-        Me.Label4.Text = "NAME"
+        Me.Label4.Text = "Number :"
         '
         'txtName
         '
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(1103, 211)
+        Me.txtName.Location = New System.Drawing.Point(191, 92)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(182, 29)
@@ -112,39 +115,52 @@ Partial Class TableForm
         '
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(980, 455)
+        Me.btnClose.Location = New System.Drawing.Point(1054, 396)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(269, 63)
+        Me.btnClose.Size = New System.Drawing.Size(170, 63)
         Me.btnClose.TabIndex = 22
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(980, 366)
+        Me.btnDelete.Location = New System.Drawing.Point(259, 140)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(269, 57)
+        Me.btnDelete.Size = New System.Drawing.Size(170, 61)
         Me.btnDelete.TabIndex = 21
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'gbtable
+        '
+        Me.gbtable.Controls.Add(Me.txtID)
+        Me.gbtable.Controls.Add(Me.btnAdd)
+        Me.gbtable.Controls.Add(Me.btnDelete)
+        Me.gbtable.Controls.Add(Me.Label3)
+        Me.gbtable.Controls.Add(Me.Label4)
+        Me.gbtable.Controls.Add(Me.txtName)
+        Me.gbtable.Font = New System.Drawing.Font("Mistral", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbtable.Location = New System.Drawing.Point(907, 112)
+        Me.gbtable.Name = "gbtable"
+        Me.gbtable.Size = New System.Drawing.Size(435, 226)
+        Me.gbtable.TabIndex = 23
+        Me.gbtable.TabStop = False
+        Me.gbtable.Text = "Add-Table"
         '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.gbtable)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtID)
-        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.flpnTable)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "TableForm"
         Me.Text = "Form1"
+        Me.gbtable.ResumeLayout(False)
+        Me.gbtable.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,5 +175,6 @@ Partial Class TableForm
     Friend WithEvents txtName As System.Windows.Forms.TextBox
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents gbtable As System.Windows.Forms.GroupBox
 
 End Class

@@ -297,9 +297,31 @@
         con.CloseConnection()
     End Sub
 
-    Public Sub AutoGenerateInvoiceID()
+    Public Function CalculateChangeCashDolar(ByVal receivdolar As String) As String
+        Dim rcd As Double
+        Dim cgtt As Double = CalculateGrandTotal()
+        If receivdolar = Nothing Then
+            Return Nothing
+        ElseIf receivdolar < cgtt Then
+            Return Nothing
+        ElseIf receivdolar > cgtt Then
+            rcd = receivdolar - cgtt
+        End If
+        Return rcd
+    End Function
 
-    End Sub
+    Public Function CalculateChangeCashRiel(ByVal receivriel As String) As String
+        Dim rcr As Double
+        Dim cgtt As Double = CalculateGrandTotal() * 4100
+        If receivriel = Nothing Then
+            Return Nothing
+        ElseIf receivriel < cgtt Then
+            Return Nothing
+        ElseIf receivriel > cgtt Then
+            rcr = receivriel - cgtt
+        End If
+        Return rcr
+    End Function
 
     Public Function CalculateGrandTotal() As String
         Dim grandtotal As Double = 0

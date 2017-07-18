@@ -45,6 +45,18 @@ Partial Class OrderForm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtTotalRiel = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.gb = New System.Windows.Forms.GroupBox()
+        Me.txtRmr = New System.Windows.Forms.TextBox()
+        Me.txtRmd = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCmr = New System.Windows.Forms.TextBox()
+        Me.txtCmd = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.gb.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -277,11 +289,121 @@ Partial Class OrderForm
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "GrandTotal-R"
         '
+        'gb
+        '
+        Me.gb.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.gb.Controls.Add(Me.txtRmr)
+        Me.gb.Controls.Add(Me.txtRmd)
+        Me.gb.Controls.Add(Me.Label11)
+        Me.gb.Controls.Add(Me.Label10)
+        Me.gb.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gb.Location = New System.Drawing.Point(1049, 153)
+        Me.gb.Name = "gb"
+        Me.gb.Size = New System.Drawing.Size(293, 120)
+        Me.gb.TabIndex = 35
+        Me.gb.TabStop = False
+        Me.gb.Text = "Receive-Money"
+        '
+        'txtRmr
+        '
+        Me.txtRmr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRmr.Location = New System.Drawing.Point(112, 78)
+        Me.txtRmr.Name = "txtRmr"
+        Me.txtRmr.Size = New System.Drawing.Size(175, 26)
+        Me.txtRmr.TabIndex = 7
+        Me.txtRmr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtRmd
+        '
+        Me.txtRmd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRmd.Location = New System.Drawing.Point(112, 41)
+        Me.txtRmd.Name = "txtRmd"
+        Me.txtRmd.Size = New System.Drawing.Size(175, 26)
+        Me.txtRmd.TabIndex = 7
+        Me.txtRmd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(6, 69)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(95, 38)
+        Me.Label11.TabIndex = 6
+        Me.Label11.Text = "Riel R:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(6, 32)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(99, 38)
+        Me.Label10.TabIndex = 5
+        Me.Label10.Text = "Dolar$:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.GroupBox1.Controls.Add(Me.txtCmr)
+        Me.GroupBox1.Controls.Add(Me.txtCmd)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(1049, 287)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(293, 120)
+        Me.GroupBox1.TabIndex = 36
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Change-Money"
+        '
+        'txtCmr
+        '
+        Me.txtCmr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCmr.Location = New System.Drawing.Point(112, 78)
+        Me.txtCmr.Name = "txtCmr"
+        Me.txtCmr.ReadOnly = True
+        Me.txtCmr.Size = New System.Drawing.Size(175, 26)
+        Me.txtCmr.TabIndex = 7
+        Me.txtCmr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtCmd
+        '
+        Me.txtCmd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCmd.Location = New System.Drawing.Point(112, 41)
+        Me.txtCmd.Name = "txtCmd"
+        Me.txtCmd.ReadOnly = True
+        Me.txtCmd.Size = New System.Drawing.Size(175, 26)
+        Me.txtCmd.TabIndex = 7
+        Me.txtCmd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(6, 69)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(95, 38)
+        Me.Label12.TabIndex = 6
+        Me.Label12.Text = "Riel R:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(6, 32)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(99, 38)
+        Me.Label13.TabIndex = 5
+        Me.Label13.Text = "Dolar$:"
+        '
         'OrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gb)
         Me.Controls.Add(Me.txtTotalDollar)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtTotalRiel)
@@ -307,6 +429,10 @@ Partial Class OrderForm
         Me.Controls.Add(Me.Label1)
         Me.Name = "OrderForm"
         Me.Text = "OrderForm"
+        Me.gb.ResumeLayout(False)
+        Me.gb.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -334,4 +460,14 @@ Partial Class OrderForm
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtTotalRiel As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents gb As System.Windows.Forms.GroupBox
+    Friend WithEvents txtRmr As System.Windows.Forms.TextBox
+    Friend WithEvents txtRmd As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents txtCmr As System.Windows.Forms.TextBox
+    Friend WithEvents txtCmd As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 End Class

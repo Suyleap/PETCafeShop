@@ -4,7 +4,6 @@
     Public TableNumber As Integer
     Private con As New ConnectionDBPetCafe
 
-
     Public Sub New()
 
     End Sub
@@ -105,6 +104,21 @@
         Return flpn
     End Function
 
+    Private Function AutoIDInvoice() As String
+        Dim id As Long
+        Try
+            con.SQLs = "Select * from Orders"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                id = con.reader.Item(0)
+                id = id + 1
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return id
+    End Function
+
     Private Sub GointoOrderForm(sender As Object, e As EventArgs)
         Dim tablenumber As New Button
         Dim odf As New OrderForm
@@ -120,6 +134,7 @@
         End Try
         odf.txtTable.Text = tablenumber.Name
         odf.txtSeller.Text = "hello"
+        odf.txtInvoice.Text = AutoIDInvoice()
         odf.Refresh()
     End Sub
 End Class
