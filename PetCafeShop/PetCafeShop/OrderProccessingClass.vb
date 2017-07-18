@@ -323,6 +323,11 @@
         Return rcr
     End Function
 
+    Public Function CalculateGrandTotalWithDiscount(ByVal discount As Double) As String
+        Dim dc As Double = (CalculateGrandTotal() * discount) / 100
+        Return dc
+    End Function
+
     Public Function CalculateGrandTotal() As String
         Dim grandtotal As Double = 0
         Try
