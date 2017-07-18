@@ -50,7 +50,7 @@ Partial Class StaffForm
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cboChoose = New System.Windows.Forms.ComboBox()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -76,8 +76,10 @@ Partial Class StaffForm
         '
         'cboGender
         '
+        Me.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGender.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGender.FormattingEnabled = True
+        Me.cboGender.Items.AddRange(New Object() {"Female", "Male"})
         Me.cboGender.Location = New System.Drawing.Point(136, 231)
         Me.cboGender.Name = "cboGender"
         Me.cboGender.Size = New System.Drawing.Size(235, 33)
@@ -98,6 +100,7 @@ Partial Class StaffForm
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.Location = New System.Drawing.Point(136, 106)
         Me.txtID.Name = "txtID"
+        Me.txtID.ReadOnly = True
         Me.txtID.Size = New System.Drawing.Size(235, 30)
         Me.txtID.TabIndex = 4
         '
@@ -222,6 +225,7 @@ Partial Class StaffForm
         Me.txtAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAge.Location = New System.Drawing.Point(136, 350)
         Me.txtAge.Name = "txtAge"
+        Me.txtAge.ReadOnly = True
         Me.txtAge.Size = New System.Drawing.Size(235, 30)
         Me.txtAge.TabIndex = 17
         '
@@ -312,13 +316,13 @@ Partial Class StaffForm
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtSearch
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(1000, 388)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(200, 30)
-        Me.TextBox1.TabIndex = 30
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(1000, 388)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(200, 30)
+        Me.txtSearch.TabIndex = 30
         '
         'Label13
         '
@@ -354,7 +358,7 @@ Partial Class StaffForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
         Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.cboChoose)
         Me.Controls.Add(Me.btnDelete)
@@ -422,7 +426,7 @@ Partial Class StaffForm
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents cboChoose As System.Windows.Forms.ComboBox
     Friend WithEvents btnSearch As System.Windows.Forms.Button

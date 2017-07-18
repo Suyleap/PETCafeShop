@@ -120,15 +120,17 @@
         End Set
     End Property
 
-    Protected Function CountAge() As Byte
-        Dim c As Byte
-        c = (Today.Year - st_DOB.Year)
-        Return c
-    End Function
-
-    Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
+    Public Sub InsertStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Byte, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
         Try
-            con.SQLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & CountAge() & ",'" & address & "','" & phone & "','" & email & "','" & position & "','" & salary & "','" & sdw.ToString() & "')"
+            con.SQLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & age & ",'" & address & "','" & phone & "','" & email & "','" & position & "','" & salary & "','" & sdw.ToString() & "')"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Sub UpdateStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Byte, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
+        Try
+            con.SQLs = "UPDATE Staff set Name='" & name & "',Gender ='" & gender & "', BirthDay ='" & dob.ToString() & "',Age =" & age & ",Address ='" & address & "',Phone ='" & phone & "',Email ='" & email & "',Salary =" & salary & ",StartWorkDay ='" & sdw.ToString() & "' Where StaffID='" & id & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -152,7 +154,7 @@
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 stcl = New StaffClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4),
-                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9),con.reader.Item(10))
+                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9), con.reader.Item(10))
                 stcls.Add(stcl)
                 bs.DataSource = stcls
             End While
@@ -188,4 +190,43 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+    Public Function autoGenerateStaffID() As String
+        Try
+            Dim StringID As String
+            Dim intID As Integer
+            Dim dt As New DataTable
+            Dim ds As New DataSet
+            con.adp = New OleDb.OleDbDataAdapter("Select StaffID from Staff", con.cnn)
+            con.adp.Fill(ds)
+            If ds.Tables(0).Rows.Count = 0 Then
+                st_ID = "St1"
+            Else
+                StringID = ds.Tables(0).Rows.Count.ToString()
+                intID = Convert.ToInt32(StringID)
+                intID += 1
+                st_ID = String.Concat("St", intID)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return st_ID
+    End Function
+    Public Function SearchAll(ByVal sender As Object) As Object
+        Try
+            Dim bs As New BindingSource
+            Dim stcl As New StaffClass
+            Dim stcls As New List(Of StaffClass)
+            con.SQLs = "Select * From Staff where StaffID like'%" & sender.ToString() & "%' OR Name like '%" & sender.ToString() & "%'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                stcl = New StaffClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4),
+                                                 con.reader.Item(5), con.reader.Item(6), con.reader.Item(7), con.reader.Item(8), con.reader.Item(9), con.reader.Item(10))
+                stcls.Add(stcl)
+                bs.DataSource = stcls
+            End While
+            Return bs
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Function
 End Class

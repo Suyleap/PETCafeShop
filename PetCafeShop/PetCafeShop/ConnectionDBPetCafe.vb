@@ -5,6 +5,7 @@ Public Class ConnectionDBPetCafe
     Public cnn As OleDbConnection
     Public cmd As OleDbCommand
     Public reader As OleDbDataReader
+    Public adp As OleDbDataAdapter
     Public SQL As String
 
     Public Property SQLs As String
