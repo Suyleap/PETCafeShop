@@ -55,8 +55,12 @@ Partial Class OrderForm
         Me.txtCmd = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.gbDiscount = New System.Windows.Forms.GroupBox()
+        Me.txtDiscount = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.gb.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.gbDiscount.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -397,11 +401,45 @@ Partial Class OrderForm
         Me.Label13.TabIndex = 5
         Me.Label13.Text = "Dolar$:"
         '
+        'gbDiscount
+        '
+        Me.gbDiscount.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.gbDiscount.Controls.Add(Me.txtDiscount)
+        Me.gbDiscount.Controls.Add(Me.Label15)
+        Me.gbDiscount.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDiscount.Location = New System.Drawing.Point(1049, 413)
+        Me.gbDiscount.Name = "gbDiscount"
+        Me.gbDiscount.Size = New System.Drawing.Size(293, 89)
+        Me.gbDiscount.TabIndex = 37
+        Me.gbDiscount.TabStop = False
+        Me.gbDiscount.Text = "Discount"
+        '
+        'txtDiscount
+        '
+        Me.txtDiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscount.Location = New System.Drawing.Point(112, 41)
+        Me.txtDiscount.Name = "txtDiscount"
+        Me.txtDiscount.Size = New System.Drawing.Size(175, 26)
+        Me.txtDiscount.TabIndex = 7
+        Me.txtDiscount.Text = "0"
+        Me.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(6, 32)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(109, 38)
+        Me.Label15.TabIndex = 5
+        Me.Label15.Text = "Percents"
+        '
         'OrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.gbDiscount)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gb)
         Me.Controls.Add(Me.txtTotalDollar)
@@ -433,6 +471,8 @@ Partial Class OrderForm
         Me.gb.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.gbDiscount.ResumeLayout(False)
+        Me.gbDiscount.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -470,4 +510,7 @@ Partial Class OrderForm
     Friend WithEvents txtCmd As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents gbDiscount As System.Windows.Forms.GroupBox
+    Friend WithEvents txtDiscount As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class
