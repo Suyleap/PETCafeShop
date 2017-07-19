@@ -52,8 +52,8 @@ Partial Class StaffForm
         Me.btnClose = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.cboChoose = New System.Windows.Forms.ComboBox()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnDS = New System.Windows.Forms.Button()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -328,20 +328,11 @@ Partial Class StaffForm
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(790, 395)
+        Me.Label13.Location = New System.Drawing.Point(901, 395)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(67, 22)
         Me.Label13.TabIndex = 29
         Me.Label13.Text = "Search"
-        '
-        'cboChoose
-        '
-        Me.cboChoose.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboChoose.FormattingEnabled = True
-        Me.cboChoose.Location = New System.Drawing.Point(882, 385)
-        Me.cboChoose.Name = "cboChoose"
-        Me.cboChoose.Size = New System.Drawing.Size(95, 33)
-        Me.cboChoose.TabIndex = 28
         '
         'btnSearch
         '
@@ -352,15 +343,24 @@ Partial Class StaffForm
         Me.btnSearch.Text = "SEARCH"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
+        'btnDS
+        '
+        Me.btnDS.Location = New System.Drawing.Point(1206, 378)
+        Me.btnDS.Name = "btnDS"
+        Me.btnDS.Size = New System.Drawing.Size(144, 56)
+        Me.btnDS.TabIndex = 32
+        Me.btnDS.Text = "Disable Search"
+        Me.btnDS.UseVisualStyleBackColor = True
+        '
         'StaffForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.Controls.Add(Me.btnDS)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.cboChoose)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnAdd)
@@ -428,6 +428,6 @@ Partial Class StaffForm
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents cboChoose As System.Windows.Forms.ComboBox
     Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents btnDS As System.Windows.Forms.Button
 End Class

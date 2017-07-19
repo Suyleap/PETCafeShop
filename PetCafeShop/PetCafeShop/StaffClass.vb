@@ -194,18 +194,19 @@
         Try
             Dim StringID As String
             Dim intID As Integer
-            Dim dt As New DataTable
-            Dim ds As New DataSet
-            con.adp = New OleDb.OleDbDataAdapter("Select StaffID from Staff", con.cnn)
-            con.adp.Fill(ds)
-            If ds.Tables(0).Rows.Count = 0 Then
-                st_ID = "St1"
-            Else
-                StringID = ds.Tables(0).Rows
-                intID = Convert.ToInt32(StringID)
-                intID += 1
-                st_ID = String.Concat("St", intID)
-            End If
+            con.SQLs = "Select Last(StaffID) from Staff"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read()
+                If con.reader.Item(0) = Nothing Then
+                    st_ID = "St1"
+                Else
+                    StringID = con.reader.Item(0).ToString()
+                    intID = Convert.ToInt16(StringID.Substring(2))
+                    intID += 1
+                    st_ID = String.Concat("St", intID)
+                End If
+            End While
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
