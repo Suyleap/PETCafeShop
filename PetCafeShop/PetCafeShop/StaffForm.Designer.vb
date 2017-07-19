@@ -54,23 +54,26 @@ Partial Class StaffForm
         Me.Label13 = New System.Windows.Forms.Label()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnDS = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvStaff
         '
+        Me.dgvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvStaff.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvStaff.Location = New System.Drawing.Point(12, 448)
         Me.dgvStaff.Name = "dgvStaff"
         Me.dgvStaff.Size = New System.Drawing.Size(1338, 293)
-        Me.dgvStaff.TabIndex = 0
+        Me.dgvStaff.TabIndex = 14
         '
         'btnEdit
         '
         Me.btnEdit.Location = New System.Drawing.Point(1206, 104)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(144, 56)
-        Me.btnEdit.TabIndex = 1
+        Me.btnEdit.TabIndex = 16
         Me.btnEdit.Text = "EDIT"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -102,16 +105,17 @@ Partial Class StaffForm
         Me.txtID.Name = "txtID"
         Me.txtID.ReadOnly = True
         Me.txtID.Size = New System.Drawing.Size(235, 30)
-        Me.txtID.TabIndex = 4
+        Me.txtID.TabIndex = 17
         '
         'dtpDOB
         '
         Me.dtpDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDOB.Location = New System.Drawing.Point(136, 288)
+        Me.dtpDOB.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpDOB.Name = "dtpDOB"
         Me.dtpDOB.Size = New System.Drawing.Size(235, 30)
-        Me.dtpDOB.TabIndex = 5
+        Me.dtpDOB.TabIndex = 3
         '
         'Label2
         '
@@ -208,9 +212,10 @@ Partial Class StaffForm
         Me.dtpSWD.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpSWD.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpSWD.Location = New System.Drawing.Point(567, 350)
+        Me.dtpSWD.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
         Me.dtpSWD.Name = "dtpSWD"
         Me.dtpSWD.Size = New System.Drawing.Size(200, 30)
-        Me.dtpSWD.TabIndex = 15
+        Me.dtpSWD.TabIndex = 9
         '
         'txtName
         '
@@ -218,7 +223,7 @@ Partial Class StaffForm
         Me.txtName.Location = New System.Drawing.Point(136, 166)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(235, 30)
-        Me.txtName.TabIndex = 16
+        Me.txtName.TabIndex = 1
         '
         'txtAge
         '
@@ -235,7 +240,7 @@ Partial Class StaffForm
         Me.txtAddress.Location = New System.Drawing.Point(136, 415)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(235, 30)
-        Me.txtAddress.TabIndex = 18
+        Me.txtAddress.TabIndex = 4
         '
         'txtPhone
         '
@@ -243,7 +248,7 @@ Partial Class StaffForm
         Me.txtPhone.Location = New System.Drawing.Point(567, 104)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(200, 30)
-        Me.txtPhone.TabIndex = 19
+        Me.txtPhone.TabIndex = 5
         '
         'txtEmail
         '
@@ -251,7 +256,7 @@ Partial Class StaffForm
         Me.txtEmail.Location = New System.Drawing.Point(567, 166)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(200, 30)
-        Me.txtEmail.TabIndex = 20
+        Me.txtEmail.TabIndex = 6
         '
         'txtSalary
         '
@@ -259,7 +264,7 @@ Partial Class StaffForm
         Me.txtSalary.Location = New System.Drawing.Point(567, 286)
         Me.txtSalary.Name = "txtSalary"
         Me.txtSalary.Size = New System.Drawing.Size(200, 30)
-        Me.txtSalary.TabIndex = 21
+        Me.txtSalary.TabIndex = 8
         '
         'txtPosition
         '
@@ -267,7 +272,7 @@ Partial Class StaffForm
         Me.txtPosition.Location = New System.Drawing.Point(567, 229)
         Me.txtPosition.Name = "txtPosition"
         Me.txtPosition.Size = New System.Drawing.Size(200, 30)
-        Me.txtPosition.TabIndex = 23
+        Me.txtPosition.TabIndex = 7
         '
         'Label11
         '
@@ -294,7 +299,7 @@ Partial Class StaffForm
         Me.btnAdd.Location = New System.Drawing.Point(960, 104)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(144, 56)
-        Me.btnAdd.TabIndex = 25
+        Me.btnAdd.TabIndex = 10
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
@@ -303,7 +308,7 @@ Partial Class StaffForm
         Me.btnDelete.Location = New System.Drawing.Point(960, 212)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(144, 56)
-        Me.btnDelete.TabIndex = 27
+        Me.btnDelete.TabIndex = 12
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
@@ -322,7 +327,7 @@ Partial Class StaffForm
         Me.txtSearch.Location = New System.Drawing.Point(1000, 388)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(200, 30)
-        Me.txtSearch.TabIndex = 30
+        Me.txtSearch.TabIndex = 15
         '
         'Label13
         '
@@ -348,15 +353,25 @@ Partial Class StaffForm
         Me.btnDS.Location = New System.Drawing.Point(1206, 378)
         Me.btnDS.Name = "btnDS"
         Me.btnDS.Size = New System.Drawing.Size(144, 56)
-        Me.btnDS.TabIndex = 32
+        Me.btnDS.TabIndex = 15
         Me.btnDS.Text = "Disable Search"
         Me.btnDS.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(1206, 104)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(144, 56)
+        Me.btnUpdate.TabIndex = 11
+        Me.btnUpdate.Text = "UPDATE"
+        Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'StaffForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDS)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
@@ -430,4 +445,5 @@ Partial Class StaffForm
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents btnDS As System.Windows.Forms.Button
+    Friend WithEvents btnUpdate As System.Windows.Forms.Button
 End Class

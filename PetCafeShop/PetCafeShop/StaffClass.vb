@@ -197,7 +197,7 @@
             con.SQLs = "Select Last(StaffID) from Staff"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
-                If con.reader.Item(0) = Nothing Then
+                If con.reader.Item(0).ToString() = "" Then
                     st_ID = "St1"
                 Else
                     StringID = con.reader.Item(0).ToString()
