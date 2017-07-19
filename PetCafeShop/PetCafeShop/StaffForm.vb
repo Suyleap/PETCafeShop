@@ -33,7 +33,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        
+
     End Sub
     Private Sub Clear()
         txtID.Text = ""
@@ -78,7 +78,7 @@
         txtID.Text = st.autoGenerateStaffID()
     End Sub
 
-  
+
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         st.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
         AddHandler MouseLeave, AddressOf moove
@@ -164,5 +164,13 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        Dim objFormAcc As New CreateAcc
+        Dim acc As New Account
+        objFormAcc.getID = acc.AutoGenerateAccID()
+        objFormAcc.getStaffID = txtID.Text
+        objFormAcc.Show()
     End Sub
 End Class

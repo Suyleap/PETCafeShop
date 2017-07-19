@@ -70,7 +70,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.vb" />
     <Compile Include="ConnectionDBPetCafe.vb" />
+    <Compile Include="CreateAcc.Designer.vb">
+      <DependentUpon>CreateAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DrinkFoodClass.vb" />
     <Compile Include="DrinkFoodForm.Designer.vb">
       <DependentUpon>DrinkFoodForm.vb</DependentUpon>
@@ -115,8 +122,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Update Account.Designer.vb">
+      <DependentUpon>Update Account.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update Account.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreateAcc.resx">
+      <DependentUpon>CreateAcc.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrinkFoodForm.resx">
       <DependentUpon>DrinkFoodForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +151,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update Account.resx">
+      <DependentUpon>Update Account.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

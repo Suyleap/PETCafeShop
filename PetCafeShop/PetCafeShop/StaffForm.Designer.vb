@@ -55,6 +55,7 @@ Partial Class StaffForm
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnDS = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnNew = New System.Windows.Forms.Button()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -70,9 +71,9 @@ Partial Class StaffForm
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(1206, 104)
+        Me.btnEdit.Location = New System.Drawing.Point(1164, 102)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(144, 56)
+        Me.btnEdit.Size = New System.Drawing.Size(176, 72)
         Me.btnEdit.TabIndex = 16
         Me.btnEdit.Text = "EDIT"
         Me.btnEdit.UseVisualStyleBackColor = True
@@ -296,27 +297,27 @@ Partial Class StaffForm
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(960, 104)
+        Me.btnAdd.Location = New System.Drawing.Point(875, 104)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(144, 56)
+        Me.btnAdd.Size = New System.Drawing.Size(175, 70)
         Me.btnAdd.TabIndex = 10
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(960, 212)
+        Me.btnDelete.Location = New System.Drawing.Point(875, 212)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(144, 56)
+        Me.btnDelete.Size = New System.Drawing.Size(175, 68)
         Me.btnDelete.TabIndex = 12
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(1206, 212)
+        Me.btnClose.Location = New System.Drawing.Point(1164, 212)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(144, 56)
+        Me.btnClose.Size = New System.Drawing.Size(176, 68)
         Me.btnClose.TabIndex = 26
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
@@ -359,18 +360,28 @@ Partial Class StaffForm
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(1206, 104)
+        Me.btnUpdate.Location = New System.Drawing.Point(1164, 104)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(144, 56)
+        Me.btnUpdate.Size = New System.Drawing.Size(176, 70)
         Me.btnUpdate.TabIndex = 11
         Me.btnUpdate.Text = "UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
-        'StaffForm
+        'btnNew
+        '
+        Me.btnNew.Location = New System.Drawing.Point(1024, 300)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(176, 70)
+        Me.btnNew.TabIndex = 32
+        Me.btnNew.Text = "NEW ACCOUNT"
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnNewAcc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDS)
         Me.Controls.Add(Me.btnSearch)
@@ -404,7 +415,7 @@ Partial Class StaffForm
         Me.Controls.Add(Me.cboGender)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.dgvStaff)
-        Me.Name = "StaffForm"
+        Me.Name = "btnNewAcc"
         Me.Text = "StaffForm"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -446,4 +457,5 @@ Partial Class StaffForm
     Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents btnDS As System.Windows.Forms.Button
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
+    Friend WithEvents btnNew As System.Windows.Forms.Button
 End Class
