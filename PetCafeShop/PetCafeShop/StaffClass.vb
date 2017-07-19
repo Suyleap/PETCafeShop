@@ -201,7 +201,7 @@
             If ds.Tables(0).Rows.Count = 0 Then
                 st_ID = "St1"
             Else
-                StringID = ds.Tables(0).Rows.Count.ToString()
+                StringID = ds.Tables(0).Rows
                 intID = Convert.ToInt32(StringID)
                 intID += 1
                 st_ID = String.Concat("St", intID)

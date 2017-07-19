@@ -11,8 +11,8 @@
     Private Sub Mouse_Hover(sender As Object, e As EventArgs) Handles MyBase.MouseHover
         flpnOrders.Controls.Clear()
         flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
-        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString
-        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString
+        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
+        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
         Me.Refresh()
     End Sub
 
@@ -52,30 +52,15 @@
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
-        Try
-            If txtRmd.Text = "" Then
-                txtCmd.Text = "0 $"
-            ElseIf txtRmd.Text < txtTotalDollar.Text Then
-                txtCmd.Text = "0 $"
-            ElseIf txtRmd.Text > txtTotalDollar.Text Then
-                txtCmd.Text = Convert.ToDouble(txtRmd.Text - txtTotalDollar.Text).ToString + " $"
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        txtCmd.Text = Convert.ToDouble(odpc.CalculateChangeCashDolar(txtRmd.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
     End Sub
 
     Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
-        Try
-            If txtRmr.Text = "" Then
-                txtCmr.Text = "0 R"
-            ElseIf txtRmr.Text < txtTotalRiel.Text Then
-                txtCmr.Text = "0 R"
-            ElseIf txtRmr.Text > txtTotalRiel.Text Then
-                txtCmr.Text = Convert.ToDouble(txtRmr.Text - txtTotalRiel.Text).ToString + " R"
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        txtCmr.Text = Convert.ToDouble(odpc.CalculateChangeCashRiel(txtRmr.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " R"
+    End Sub
+
+    Private Sub txtDiscount_TextChanged(sender As Object, e As EventArgs) Handles txtDiscount.TextChanged
+        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
+        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
     End Sub
 End Class

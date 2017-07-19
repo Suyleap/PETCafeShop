@@ -7,6 +7,7 @@
         Clear()
         cboGender.Text = "Female"
         txtID.Text = st.autoGenerateStaffID()
+        txtSearch.Enabled = False
     End Sub
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
         Try
@@ -73,12 +74,24 @@
         txtID.Text = st.autoGenerateStaffID()
         Me.Refresh()
     End Sub
+    Private Sub DisableInput()
+        txtAddress.Enabled = False
+        txtName.Enabled = False
+        cboGender.Enabled = False
+        dtpDOB.Enabled = False
+        dtpSWD.Enabled = False
+        txtPhone.Enabled = False
+    End Sub
 
     Private Sub dtpDOB_LostFocus(sender As Object, e As EventArgs) Handles dtpDOB.LostFocus
         txtAge.Text = Today.Year - Convert.ToDateTime(dtpDOB.Text).Year
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        txtSearch.Enabled = True
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         dgvStaff.DataSource = st.SearchAll(txtSearch.Text)
         Clear()
     End Sub
