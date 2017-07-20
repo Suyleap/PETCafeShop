@@ -52,7 +52,7 @@
 
     Public Sub InsertAcc(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
         Try
-            con.SQLs = "INSERT INTO Login values('" & id & "','" & stid & "','" & username & "','" & pw & "')"
+            con.SQLs = "INSERT INTO Login_Acc values('" & id.ToString() & "','" & stid.ToString() & "','" & username & "','" & pw & "')"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -61,7 +61,7 @@
 
     Public Sub UpdateAcc(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
         Try
-            con.SQLs = "UPDATE Login set UserName='" & username & "',PassWord ='" & pw & "' where StaffID='" & stid & "' AND Acc_ID='" & id & "'"
+            con.SQLs = "UPDATE Login_Acc SET ( Acc_ID='" & id & "', StaffID='" & stid & "',UserName='" & username & "',PassWord='" & pw & "')"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -70,18 +70,20 @@
 
     Public Sub DeleteAcc(ByVal id As String, ByVal stid As String)
         Try
-            con.SQLs = "DELETE * From Login where Acc_ID='" & id & "' AND StaffID='" & stid & "'"
+            con.SQLs = "DELETE * From Login_Acc where Acc_ID='" & id & "' AND StaffID='" & stid & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
-    Public Sub Show(ByVal id As String, ByVal stid As String)
+    Public Sub Show(ByVal stid As String)
         Try
-            con.SQLs = "SELECT UserName , PassWord From Login Where Acc_ID='" & id & "' AND StaffID='" & stid & "'"
+            con.SQLs = "SELECT * From Login_Acc Where StaffID='" & stid & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
+                Me.acc_ID = con.reader.Item(0)
+                Me.st.st_ID = con.reader.Item(1)
                 Me.acc_UserName = con.reader.Item(2)
                 Me.acc_Password = con.reader.Item(3)
             End While
@@ -90,11 +92,24 @@
         End Try
     End Sub
 
+    Public Function CheckingAcc(ByVal stid As String) As String
+        Try
+            con.SQLs = "SELECT * From Login_Acc WHERE StaffID='" & stid & "'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read()
+                Me.st.st_ID = con.reader.Item(1)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return Me.st.st_ID
+    End Function
+
     Public Function AutoGenerateAccID() As String
         Try
             Dim StringID As String
             Dim intID As Integer
-            con.SQLs = "Select Last(Acc_ID) from Login"
+            con.SQLs = "Select Last(Acc_ID) from Login_Acc"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
                 If con.reader.Item(0).ToString() = "" Then

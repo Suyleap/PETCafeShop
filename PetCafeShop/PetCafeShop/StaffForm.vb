@@ -1,8 +1,10 @@
 ﻿Public Class StaffForm
     Dim st As New StaffClass
+
+
+    Dim acc As New Account
     Private Sub StaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvStaff.DataSource = st.Show()
-        'dgvStaff.Enabled = False
         dgvStaff.ReadOnly = True
         Clear()
         cboGender.Text = "Female"
@@ -14,6 +16,8 @@
         btnDelete.Enabled = False
         btnUpdate.Enabled = False
         btnUpdate.Visible = False
+        btnUpdateAcc.Visible = False
+        btnUpdateAcc.Enabled = False
     End Sub
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
         Try
@@ -164,13 +168,28 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Try
+            If acc.CheckingAcc(txtID.Text) = st.st_ID Then
+                btnUpdateAcc.Enabled = True
+                btnUpdateAcc.Visible = True
+                btnNew.Visible = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         Dim objFormAcc As New CreateAcc
-        Dim acc As New Account
         objFormAcc.getID = acc.AutoGenerateAccID()
         objFormAcc.getStaffID = txtID.Text
         objFormAcc.Show()
+    End Sub
+
+    Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
+        Dim udpAcc As New Update_Account
+        udpAcc.getStaffID = txtID.Text
+        ' udpAcc.getID = acc.acc_ID
+        udpAcc.Show()
     End Sub
 End Class
