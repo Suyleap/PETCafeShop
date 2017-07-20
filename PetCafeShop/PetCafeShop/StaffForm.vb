@@ -1,12 +1,8 @@
 ﻿Public Class StaffForm
 
     Dim st As New StaffClass
-
-<<<<<<< HEAD
-=======
-
     Dim acc As New Account
->>>>>>> 133a2bcc7baf81e81884dbd2c8c88030dd05b607
+
     Private Sub StaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvStaff.DataSource = st.Show()
         dgvStaff.ReadOnly = True
@@ -191,13 +187,11 @@
         objFormAcc.Show()
     End Sub
 
-<<<<<<< HEAD
-=======
     Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
         Dim udpAcc As New Update_Account
         udpAcc.getStaffID = txtID.Text
         ' udpAcc.getID = acc.acc_ID
         udpAcc.Show()
     End Sub
->>>>>>> 133a2bcc7baf81e81884dbd2c8c88030dd05b607
+
 End Class
