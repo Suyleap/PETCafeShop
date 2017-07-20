@@ -8,14 +8,6 @@
         Me.Refresh()
     End Sub
 
-    Private Sub Mouse_Hover(sender As Object, e As EventArgs) Handles MyBase.MouseHover
-        flpnOrders.Controls.Clear()
-        flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
-        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
-        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
-        Me.Refresh()
-    End Sub
-
     Private Sub rdoHot_CheckedChanged(sender As Object, e As EventArgs) Handles rdoHot.CheckedChanged
         flpnDrink.Controls.Clear()
         flpnDrink.Controls.Add(odpc.ShowHotButton)
@@ -52,15 +44,47 @@
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
-        txtCmd.Text = Convert.ToDouble(odpc.CalculateChangeCashDolar(txtRmd.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
+        Try
+            If txtRmd.Text = "" Then
+                txtCmd.Text = 0
+            ElseIf Convert.ToDouble(txtRmd.Text < txtTotalDollar.Text) Then
+                txtCmd.Text = 0
+            ElseIf Convert.ToDouble(txtRmd.Text >= txtTotalDollar.Text) Then
+                txtCmd.Text = Convert.ToDouble(txtRmd.Text - txtTotalDollar.Text).ToString
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
-        txtCmr.Text = Convert.ToDouble(odpc.CalculateChangeCashRiel(txtRmr.Text) - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " R"
+        Try
+            If txtRmr.Text = Nothing Then
+                txtCmr.Text = 0
+            ElseIf Convert.ToDouble(txtRmr.Text < txtTotalRiel.Text) Then
+                txtCmr.Text = 0
+            ElseIf Convert.ToDouble(txtRmr.Text >= txtTotalRiel.Text) Then
+                txtCmr.Text = Convert.ToDouble(txtRmr.Text - txtTotalRiel.Text).ToString
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
-    Private Sub txtDiscount_TextChanged(sender As Object, e As EventArgs) Handles txtDiscount.TextChanged
-        txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString + " $"
-        txtTotalRiel.Text = (Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString + " R"
+    Private Sub Mouse_Enter(sender As Object, e As EventArgs) Handles MyBase.MouseEnter
+        Try
+            flpnOrders.Controls.Clear()
+            flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
+            If txtDiscount.Text = Nothing Then
+                txtTotalDollar.Text = odpc.CalculateGrandTotal().ToString
+                txtTotalRiel.Text = Convert.ToDouble(odpc.CalculateGrandTotal() * 4100).ToString
+            Else
+                txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString
+                txtTotalRiel.Text = Convert.ToDouble((odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Me.Refresh()
     End Sub
 End Class
