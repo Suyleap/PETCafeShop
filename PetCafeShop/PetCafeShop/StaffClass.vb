@@ -39,6 +39,7 @@
             Me.st_ID = value
         End Set
     End Property
+
     Public Property StaffName As String
         Get
             Return Me.st_Name
@@ -47,6 +48,7 @@
             Me.st_Name = value
         End Set
     End Property
+
     Public Property StaffGender As String
         Get
             Return Me.st_Gender
@@ -55,6 +57,7 @@
             Me.st_Gender = value
         End Set
     End Property
+
     Public Property StaffDateOfBirth As Date
         Get
             Return Me.st_DOB
@@ -63,6 +66,7 @@
             Me.st_DOB = value
         End Set
     End Property
+
     Public Property StaffAge As Byte
         Get
             Return Me.st_Age
@@ -71,6 +75,7 @@
             Me.st_Age = value
         End Set
     End Property
+
     Public Property StaffAddress As String
         Get
             Return Me.st_Address
@@ -79,6 +84,7 @@
             Me.st_Address = value
         End Set
     End Property
+
     Public Property StaffPhone As String
         Get
             Return Me.st_Phone
@@ -87,6 +93,7 @@
             Me.st_Phone = value
         End Set
     End Property
+
     Public Property StaffEmail As String
         Get
             Return Me.st_Email
@@ -95,6 +102,7 @@
             Me.st_Email = value
         End Set
     End Property
+
     Public Property StaffPosition As String
         Get
             Return Me.st_Position
@@ -103,6 +111,7 @@
             Me.st_Position = value
         End Set
     End Property
+
     Public Property StaffSalary As Double
         Get
             Return Me.st_Salary
@@ -111,6 +120,7 @@
             Me.st_Salary = value
         End Set
     End Property
+
     Public Property StaffStartDateWork As Date
         Get
             Return Me.st_StartDateWork
@@ -128,6 +138,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Public Sub UpdateStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Byte, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
         Try
             con.SQLs = "UPDATE Staff set Name='" & name & "',Gender ='" & gender & "', BirthDay ='" & dob.ToString() & "',Age =" & age & ",Address ='" & address & "',Phone ='" & phone & "',Email ='" & email & "',Salary =" & salary & ",StartWorkDay ='" & sdw.ToString() & "' Where StaffID='" & id & "'"
@@ -145,6 +156,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Public Function Show() As Object
         Dim bs As New BindingSource
         Dim stcl As StaffClass
@@ -158,18 +170,15 @@
                 stcls.Add(stcl)
                 bs.DataSource = stcls
             End While
-            Return bs
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Return bs
         con.CloseConnection()
-        'Return dtgStaff
     End Function
-    ' Public Event DataModified(sender As Object, e As EventArgs)
+
     Public Sub selectedStaffChange(ByVal sender As Object)
         Try
-            'Dim dgvSt As New DataGridView
-
             con.SQLs = "Select * from Staff Where StaffID='" & sender.ToString() & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
@@ -185,11 +194,11 @@
                 Me.st_Salary = con.reader.Item(9)
                 Me.st_StartDateWork = con.reader.Item(10)
             End While
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Public Function autoGenerateStaffID() As String
         Try
             Dim StringID As String
@@ -206,15 +215,15 @@
                     st_ID = String.Concat("St", intID)
                 End If
             End While
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         Return st_ID
     End Function
+
     Public Function SearchAll(ByVal sender As Object) As Object
+        Dim bs As New BindingSource
         Try
-            Dim bs As New BindingSource
             Dim stcl As New StaffClass
             Dim stcls As New List(Of StaffClass)
             con.SQLs = "Select * From Staff where StaffID like'%" & sender.ToString() & "%' OR Name like '%" & sender.ToString() & "%'"
@@ -225,9 +234,10 @@
                 stcls.Add(stcl)
                 bs.DataSource = stcls
             End While
-            Return bs
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Return bs
     End Function
+
 End Class
