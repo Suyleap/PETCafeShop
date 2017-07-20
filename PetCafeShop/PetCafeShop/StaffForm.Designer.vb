@@ -56,6 +56,7 @@ Partial Class StaffForm
         Me.btnDS = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnUpdateAcc = New System.Windows.Forms.Button()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,7 +72,7 @@ Partial Class StaffForm
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(1164, 102)
+        Me.btnEdit.Location = New System.Drawing.Point(1164, 106)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(176, 72)
         Me.btnEdit.TabIndex = 16
@@ -360,7 +361,7 @@ Partial Class StaffForm
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(1164, 104)
+        Me.btnUpdate.Location = New System.Drawing.Point(1164, 107)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(176, 70)
         Me.btnUpdate.TabIndex = 11
@@ -376,11 +377,21 @@ Partial Class StaffForm
         Me.btnNew.Text = "NEW ACCOUNT"
         Me.btnNew.UseVisualStyleBackColor = True
         '
-        'btnNewAcc
+        'btnUpdateAcc
+        '
+        Me.btnUpdateAcc.Location = New System.Drawing.Point(1024, 300)
+        Me.btnUpdateAcc.Name = "btnUpdateAcc"
+        Me.btnUpdateAcc.Size = New System.Drawing.Size(176, 70)
+        Me.btnUpdateAcc.TabIndex = 33
+        Me.btnUpdateAcc.Text = "UPDATE ACCOUNT"
+        Me.btnUpdateAcc.UseVisualStyleBackColor = True
+        '
+        'StaffForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.Controls.Add(Me.btnUpdateAcc)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDS)
@@ -415,7 +426,7 @@ Partial Class StaffForm
         Me.Controls.Add(Me.cboGender)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.dgvStaff)
-        Me.Name = "btnNewAcc"
+        Me.Name = "StaffForm"
         Me.Text = "StaffForm"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -458,4 +469,5 @@ Partial Class StaffForm
     Friend WithEvents btnDS As System.Windows.Forms.Button
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnNew As System.Windows.Forms.Button
+    Friend WithEvents btnUpdateAcc As System.Windows.Forms.Button
 End Class
