@@ -30,3 +30,5 @@ D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.reso
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Update_Account.resources
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Update_Account.resources

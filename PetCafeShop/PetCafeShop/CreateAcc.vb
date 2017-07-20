@@ -1,12 +1,15 @@
 ﻿Public Class CreateAcc
+
     Dim acc As New Account()
     Dim stf As New StaffForm()
     Property getID As String
     Property getStaffID As String
+
     Private Sub CreateAcc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Clear()
         cmd()
     End Sub
+
     Private Sub cmd()
         Try
             txtConfirm.PasswordChar = "$"
@@ -18,6 +21,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub Clear()
         txtConfirm.Text = ""
         txtPassword.Text = ""
@@ -40,4 +44,5 @@
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
+
 End Class
