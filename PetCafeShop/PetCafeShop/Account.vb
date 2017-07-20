@@ -61,7 +61,7 @@
 
     Public Sub UpdateAcc(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
         Try
-            con.SQLs = "UPDATE Login_Acc SET ( Acc_ID='" & id & "', StaffID='" & stid & "',UserName='" & username & "',PassWord='" & pw & "')"
+            con.SQLs = "UPDATE Login_Acc SET [StaffID]='" & stid & "',[UserName]='" & username & "',[PassWord]='" & pw & "' WHERE [Acc_ID]='" & id & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
