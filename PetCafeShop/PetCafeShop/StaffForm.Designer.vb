@@ -125,9 +125,9 @@ Partial Class StaffForm
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(409, 348)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 22)
+        Me.Label2.Size = New System.Drawing.Size(129, 22)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Start WOrk day"
+        Me.Label2.Text = "Start Work day"
         '
         'Label3
         '

@@ -14,8 +14,8 @@
 
     Private Sub cmd()
         Try
-            txtConfirm.PasswordChar = "$"
-            txtPassword.PasswordChar = "$"
+            txtConfirm.PasswordChar = "*"
+            txtPassword.PasswordChar = "*"
             txtConfirm.MaxLength = 14
             txtPassword.MaxLength = 14
         Catch ex As Exception

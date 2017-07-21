@@ -18,6 +18,42 @@
         btnUpdate.Visible = False
         btnUpdateAcc.Visible = False
         btnUpdateAcc.Enabled = False
+        btnSearch.Enabled = True
+        btnNew.Visible = True
+        btnNew.Enabled = True
+    End Sub
+
+    Private Sub EmptyInput()
+        Try
+            If txtName.Text.Trim = "" Then
+                MsgBox("Please fill Name")
+                txtName.Focus()
+            ElseIf txtAddress.Text.Trim = "" Then
+                MsgBox("Please fill Address")
+                txtAddress.Focus()
+            ElseIf txtPhone.Text.Trim = "" Then
+                MsgBox("Please fill Phone")
+                txtPhone.Focus()
+            ElseIf txtEmail.Text.Trim = "" Then
+                MsgBox("Please fill Email")
+                txtEmail.Focus()
+            ElseIf txtPosition.Text.Trim = "" Then
+                MsgBox("Please fill Position")
+                txtPosition.Focus()
+            ElseIf txtSalary.Text.Trim = "" Then
+                MsgBox("Please fill Salary")
+                txtSalary.Focus()
+            ElseIf dtpDOB.Value >= Today Then
+                MsgBox("Incorrect Date of Birth")
+                dtpDOB.Focus()
+            ElseIf dtpSWD.Value > Today.AddDays(1) Then
+                MsgBox("Incorrect Start Work Date ")
+                dtpSWD.Focus()
+                dtpSWD.Value = Today
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
@@ -58,10 +94,16 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
-        AddHandler MouseLeave, AddressOf moove
-        txtID.Text = st.autoGenerateStaffID()
-        Me.Refresh()
+        Try
+            EmptyInput()
+            st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
+            AddHandler MouseLeave, AddressOf moove
+            txtID.Text = st.autoGenerateStaffID()
+            Me.StaffForm_Load(Me, e)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
@@ -74,6 +116,8 @@
         btnUpdate.Visible = False
         btnDelete.Enabled = False
         btnAdd.Enabled = True
+        btnDS.PerformClick()
+        Me.StaffForm_Load(Me, e)
     End Sub
 
     Private Sub moove(sender As Object, e As EventArgs)
@@ -84,16 +128,26 @@
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        st.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
-        AddHandler MouseLeave, AddressOf moove
-        txtID.Text = st.autoGenerateStaffID()
-        Me.Refresh()
-        btnUpdate.Visible = False
-        btnUpdate.Enabled = False
-        btnEdit.Visible = True
-        btnEdit.Enabled = True
-        btnDelete.Enabled = False
-        btnAdd.Enabled = True
+
+        Try
+            EmptyInput()
+            st.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
+            AddHandler MouseLeave, AddressOf moove
+            txtID.Text = st.autoGenerateStaffID()
+            Me.Refresh()
+            btnUpdate.Visible = False
+            btnUpdate.Enabled = False
+            btnEdit.Visible = True
+            btnEdit.Enabled = True
+            btnDelete.Enabled = False
+            btnAdd.Enabled = True
+            btnDS.PerformClick()
+
+            Me.StaffForm_Load(Me, e)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+       
     End Sub
 
     Private Sub DisableInput()
@@ -129,6 +183,8 @@
         DisableInput()
         btnSearch.Visible = False
         btnDS.Visible = True
+        btnAdd.Enabled = False
+        btnNew.Enabled = False
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
@@ -152,7 +208,8 @@
         btnDelete.Enabled = True
         dgvStaff.Focus()
         btnAdd.Enabled = False
-        btnDS.PerformClick()
+        EnableInput()
+        btnSearch.Enabled = False
         Try
             st.selectedStaffChange(dgvStaff.CurrentRow.Cells(0).Value.ToString())
             txtID.Text = st.st_ID
