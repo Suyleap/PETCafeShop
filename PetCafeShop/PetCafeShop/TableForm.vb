@@ -11,7 +11,7 @@ Public Class TableForm
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        tbpcc.Insert(txtID.Text, txtName.Text)
+        tbpcc.Insert(txtID.Text, txtName.Text, False)
         Me.Refresh()
         Application.Restart()
     End Sub

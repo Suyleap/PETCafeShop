@@ -39,8 +39,8 @@
         Application.Restart()
     End Sub
 
-    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnTotal.Click
-       
+    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnpn.Click
+
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged

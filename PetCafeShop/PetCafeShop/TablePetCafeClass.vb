@@ -31,12 +31,12 @@
         End Set
     End Property
 
-    Public Sub Insert(ByVal tableid As String, ByVal tablenumber As Integer)
+    Public Sub Insert(ByVal tableid As String, ByVal tablenumber As Integer, ByVal free As Boolean)
         Try
-            con.SQLs = "Insert into TablePetCafe values('" & tableid & "','" & tablenumber & "')"
+            con.SQLs = "Insert into TablePetCafe values('" & tableid & "','" & tablenumber & "'," & free & ")"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
-            MsgBox("Sorry we can't")
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -58,22 +58,6 @@
         End Try
     End Sub
 
-    Public Function Showtable(ByVal showall As List(Of TablePetCafeClass)) As Object
-        showall = New List(Of TablePetCafeClass)
-        Try
-            Dim tbpcc As TablePetCafeClass
-            con.SQLs = "Select * from HotDrink"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                tbpcc = New TablePetCafeClass(con.reader.Item(0), con.reader.Item(1))
-                showall.Add(tbpcc)
-            End While
-        Catch ex As Exception
-            MsgBox("Sorry we Can't")
-        End Try
-        Return showall
-    End Function
-
     Public Function ShowTableButton() As Windows.Forms.FlowLayoutPanel
         Dim flpn As New Windows.Forms.FlowLayoutPanel
         flpn.Controls.Clear()
@@ -91,6 +75,10 @@
                 bt(i).Size = New Size(166, 55)
                 bt(i).Text = con.reader.Item(1)
                 bt(i).Name = con.reader.Item(1)
+                If con.reader.Item(2) = True Then
+                    bt(i).BackColor = Color.Red
+                Else : bt(i).BackColor = Color.Green
+                End If
                 bt(i).Refresh()
                 flpn.Controls.AddRange({bt(i)})
                 flpn.Refresh()
