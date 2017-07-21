@@ -23,7 +23,6 @@ Partial Class TableForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.flpnTable = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
@@ -33,7 +32,9 @@ Partial Class TableForm
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.gbtable = New System.Windows.Forms.GroupBox()
+        Me.gbTablelable = New System.Windows.Forms.GroupBox()
         Me.gbtable.SuspendLayout()
+        Me.gbTablelable.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -46,22 +47,12 @@ Partial Class TableForm
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Pet Cafe Shop"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Mistral", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(89, 76)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 34)
-        Me.Label2.TabIndex = 13
-        Me.Label2.Text = "Table"
-        '
         'flpnTable
         '
         Me.flpnTable.AutoScroll = True
-        Me.flpnTable.Location = New System.Drawing.Point(95, 112)
+        Me.flpnTable.Location = New System.Drawing.Point(6, 39)
         Me.flpnTable.Name = "flpnTable"
-        Me.flpnTable.Size = New System.Drawing.Size(806, 406)
+        Me.flpnTable.Size = New System.Drawing.Size(839, 516)
         Me.flpnTable.TabIndex = 14
         '
         'btnAdd
@@ -147,26 +138,38 @@ Partial Class TableForm
         Me.gbtable.TabStop = False
         Me.gbtable.Text = "Add-Table"
         '
+        'gbTablelable
+        '
+        Me.gbTablelable.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbTablelable.Controls.Add(Me.flpnTable)
+        Me.gbTablelable.Font = New System.Drawing.Font("Mistral", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTablelable.Location = New System.Drawing.Point(28, 91)
+        Me.gbTablelable.Name = "gbTablelable"
+        Me.gbTablelable.Size = New System.Drawing.Size(851, 561)
+        Me.gbTablelable.TabIndex = 24
+        Me.gbTablelable.TabStop = False
+        Me.gbTablelable.Text = "Table"
+        '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.gbTablelable)
         Me.Controls.Add(Me.gbtable)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.flpnTable)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "TableForm"
         Me.Text = "Form1"
         Me.gbtable.ResumeLayout(False)
         Me.gbtable.PerformLayout()
+        Me.gbTablelable.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents flpnTable As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents txtID As System.Windows.Forms.TextBox
@@ -176,5 +179,6 @@ Partial Class TableForm
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents gbtable As System.Windows.Forms.GroupBox
+    Friend WithEvents gbTablelable As System.Windows.Forms.GroupBox
 
 End Class

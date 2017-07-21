@@ -39,7 +39,7 @@
         Application.Restart()
     End Sub
 
-    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnpn.Click
+    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnPn.Click
 
     End Sub
 

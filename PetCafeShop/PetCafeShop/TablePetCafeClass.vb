@@ -63,8 +63,8 @@
         flpn.Controls.Clear()
         flpn.Name = "flpnTables"
         flpn.AutoScroll = True
-        flpn.Location = New Point(246, 128)
-        flpn.Size = New Size(806, 406)
+        flpn.Location = New Point(6, 39)
+        flpn.Size = New Size(839, 516)
         Try
             con.SQLs = "Select * from TablePetCafe"
             con.UseDatabasetoread(con.SQLs)
@@ -72,7 +72,7 @@
             Dim bt(50) As Windows.Forms.Button
             While con.reader.Read
                 bt(i) = New Windows.Forms.Button
-                bt(i).Size = New Size(166, 55)
+                bt(i).Size = New Size(190, 55)
                 bt(i).Text = con.reader.Item(1)
                 bt(i).Name = con.reader.Item(1)
                 If con.reader.Item(2) = True Then
