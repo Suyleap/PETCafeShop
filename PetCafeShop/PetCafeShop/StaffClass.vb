@@ -226,7 +226,9 @@
         Try
             Dim stcl As New StaffClass
             Dim stcls As New List(Of StaffClass)
-            con.SQLs = "Select * From Staff where StaffID like'%" & sender.ToString() & "%' OR Name like '%" & sender.ToString() & "%'"
+            con.SQLs = "Select * From Staff where StaffID like'%" & sender.ToString() & "%' OR Name like '%" & sender.ToString() & "%' OR Gender like '%" &
+                        sender.ToString() & "%' OR Age like '%" & sender.ToString() & "%' OR Address like '%" & sender.ToString() & "%' OR Phone like '%" &
+                        sender.ToString() & "%' OR Email like '%" & sender.ToString() & "%' OR Salary like '%" & sender.ToString() & "%'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 stcl = New StaffClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4),

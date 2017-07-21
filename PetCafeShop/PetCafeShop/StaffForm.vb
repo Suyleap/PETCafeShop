@@ -18,6 +18,9 @@
         btnUpdate.Visible = False
         btnUpdateAcc.Visible = False
         btnUpdateAcc.Enabled = False
+        btnSearch.Enabled = True
+        btnNew.Visible = True
+        btnNew.Enabled = True
     End Sub
 
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
@@ -61,7 +64,7 @@
         st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
         AddHandler MouseLeave, AddressOf moove
         txtID.Text = st.autoGenerateStaffID()
-        Me.Refresh()
+        Me.StaffForm_Load(Me, e)
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
@@ -74,6 +77,8 @@
         btnUpdate.Visible = False
         btnDelete.Enabled = False
         btnAdd.Enabled = True
+        btnDS.PerformClick()
+        Me.StaffForm_Load(Me, e)
     End Sub
 
     Private Sub moove(sender As Object, e As EventArgs)
@@ -94,6 +99,8 @@
         btnEdit.Enabled = True
         btnDelete.Enabled = False
         btnAdd.Enabled = True
+        btnDS.PerformClick()
+        Me.StaffForm_Load(Me, e)
     End Sub
 
     Private Sub DisableInput()
@@ -129,6 +136,8 @@
         DisableInput()
         btnSearch.Visible = False
         btnDS.Visible = True
+        btnAdd.Enabled = False
+        btnNew.Enabled = False
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
@@ -152,7 +161,8 @@
         btnDelete.Enabled = True
         dgvStaff.Focus()
         btnAdd.Enabled = False
-        btnDS.PerformClick()
+        EnableInput()
+        btnSearch.Enabled = False
         Try
             st.selectedStaffChange(dgvStaff.CurrentRow.Cells(0).Value.ToString())
             txtID.Text = st.st_ID

@@ -16,7 +16,7 @@
             txtPassword.PasswordChar = "$"
             txtConfirm.MaxLength = 14
             txtPassword.MaxLength = 14
-            
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
