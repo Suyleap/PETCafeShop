@@ -326,6 +326,49 @@
             Next
             con.SQLs = "Insert into Orders values('" & ordernumber & "','" & sellname & "','" & table & "','" & dct & "','" & grandtotaldolar & "','" & grandtotalriel & "','" & discount & "')"
             con.UseDatabase(con.SQLs)
+            UpdateTableToFree(table)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub PayLatter(ByVal ordernumber As String, ByVal sellname As String, ByVal table As String, ByVal grandtotaldolar As String, ByVal grandtotalriel As String, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts(20) As String
+        Dim i As Integer = 0
+        Try
+            con.SQLs = "Select * from PreOrder where Quantity<> 0"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read.ToString
+                dcts(i) = con.reader.Item(0) + " " + con.reader.Item(1).ToString + " x " + con.reader.Item(2).ToString + " $ =" + con.reader.Item(3).ToString + " $ " + vbNewLine
+                i = i + 1
+            End While
+            For i = 0 To 20
+                dct = dct + dcts(i)
+            Next
+            con.SQLs = "Insert into Orders values('" & ordernumber & "','" & sellname & "','" & table & "','" & dct & "','" & grandtotaldolar & "','" & grandtotalriel & "','" & discount & "')"
+            con.UseDatabase(con.SQLs)
+            UpdateTableToBusy(table)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub UpdateTableToFree(ByVal table As String)
+        Try
+            Dim frees As Boolean = False
+            con.SQLs = "Update TablePetCafe Set Frees='" & frees & "' Where NumberTable='" & table & "'"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub UpdateTableToBusy(ByVal table As String)
+        Try
+            Dim frees As Boolean = True
+            con.SQLs = "Update TablePetCafe Set Frees='" & frees & "' Where NumberTable='" & table & "'"
+            con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

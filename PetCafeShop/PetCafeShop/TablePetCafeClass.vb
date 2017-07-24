@@ -49,15 +49,6 @@
         End Try
     End Sub
 
-    Public Sub UpdateTable(ByVal tableid As String, ByVal tablenumber As Integer)
-        Try
-            con.SQLs = "Update HotDrink Set NumberTable='" & tablenumber & "' Where TableID='" & tableid & "'"
-            con.UseDatabase(con.SQLs)
-        Catch ex As Exception
-            MsgBox("Sorry we can't")
-        End Try
-    End Sub
-
     Public Function ShowTableButton() As Windows.Forms.FlowLayoutPanel
         Dim flpn As New Windows.Forms.FlowLayoutPanel
         flpn.Controls.Clear()
