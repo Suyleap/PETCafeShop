@@ -73,7 +73,11 @@
                 bt(i).Refresh()
                 flpn.Controls.AddRange({bt(i)})
                 flpn.Refresh()
-                AddHandler bt(i).Click, AddressOf GointoOrderForm
+                If bt(i).BackColor = Color.Green Then
+                    AddHandler bt(i).Click, AddressOf GointoOrderForm_GreenButton
+                ElseIf bt(i).BackColor = Color.Red Then
+                    AddHandler bt(i).Click, AddressOf GointoOrderForm_RedButton
+                End If
                 i = i + 1
             End While
         Catch ex As Exception
@@ -98,7 +102,37 @@
         Return id
     End Function
 
-    Private Sub GointoOrderForm(sender As Object, e As EventArgs)
+    Private Sub GointoOrderForm_RedButton(sender As Object, e As EventArgs)
+        Dim tablenumber As New Button
+        Dim odf As New OrderForm
+        Dim seller As String
+        Dim bs As New BindingSource
+        Dim invoice As Integer
+        tablenumber = sender
+        tablenumber.Name = sender.ToString.Remove(0, 35)
+        tablenumber.Refresh()
+        Try
+            con.SQLs = "Select * from PayLatter where Table=" & Convert.ToInt16(tablenumber.Name) & ""
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                seller = con.reader.Item(7)
+                invoice = con.reader.Item(1)
+                bs.DataSource = seller
+                con.SQLs = "Insert into PreOrder values('" & con.reader.Item(2) & "'," & Convert.ToInt16(con.reader.Item(3)) & "," & Convert.ToDouble(con.reader.Item(4)) & "," & Convert.ToDouble(con.reader.Item(5)) & "," & tablenumber.Name & ",'" & con.reader.Item(7) & "')"
+                con.UseDatabase(con.SQLs)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        seller = bs.DataSource
+        odf.Show()
+        odf.txtTable.Text = tablenumber.Name
+        odf.txtInvoice.Text = invoice
+        odf.txtSeller.Text = seller
+        odf.Refresh()
+    End Sub
+
+    Private Sub GointoOrderForm_GreenButton(sender As Object, e As EventArgs)
         Dim tablenumber As New Button
         Dim odf As New OrderForm
         tablenumber = sender
