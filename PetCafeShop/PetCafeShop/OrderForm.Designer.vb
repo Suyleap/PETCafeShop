@@ -28,7 +28,7 @@ Partial Class OrderForm
         Me.rdoHot = New System.Windows.Forms.RadioButton()
         Me.rdoIce = New System.Windows.Forms.RadioButton()
         Me.rdoFrab = New System.Windows.Forms.RadioButton()
-        Me.btnpn = New System.Windows.Forms.Button()
+        Me.btnPn = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.rdoFood = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -65,6 +65,7 @@ Partial Class OrderForm
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.btnPlt = New System.Windows.Forms.Button()
         Me.gb.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gbDiscount.SuspendLayout()
@@ -136,18 +137,18 @@ Partial Class OrderForm
         Me.rdoFrab.Text = "Frappe"
         Me.rdoFrab.UseVisualStyleBackColor = True
         '
-        'btnpn
+        'btnPn
         '
-        Me.btnpn.Location = New System.Drawing.Point(423, 624)
-        Me.btnpn.Name = "btnpn"
-        Me.btnpn.Size = New System.Drawing.Size(166, 55)
-        Me.btnpn.TabIndex = 0
-        Me.btnpn.Text = "Pay-Now"
-        Me.btnpn.UseVisualStyleBackColor = True
+        Me.btnPn.Location = New System.Drawing.Point(454, 623)
+        Me.btnPn.Name = "btnPn"
+        Me.btnPn.Size = New System.Drawing.Size(166, 55)
+        Me.btnPn.TabIndex = 0
+        Me.btnPn.Text = "Pay-Now"
+        Me.btnPn.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(835, 625)
+        Me.btnCancel.Location = New System.Drawing.Point(798, 623)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(167, 55)
         Me.btnCancel.TabIndex = 11
@@ -516,11 +517,21 @@ Partial Class OrderForm
         Me.Label20.TabIndex = 46
         Me.Label20.Text = "$"
         '
+        'btnPlt
+        '
+        Me.btnPlt.Location = New System.Drawing.Point(626, 623)
+        Me.btnPlt.Name = "btnPlt"
+        Me.btnPlt.Size = New System.Drawing.Size(166, 55)
+        Me.btnPlt.TabIndex = 48
+        Me.btnPlt.Text = "Pay-Latter"
+        Me.btnPlt.UseVisualStyleBackColor = True
+        '
         'OrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.btnPlt)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.gbDiscount)
         Me.Controls.Add(Me.Label20)
@@ -542,7 +553,7 @@ Partial Class OrderForm
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.rdoFood)
         Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnpn)
+        Me.Controls.Add(Me.btnPn)
         Me.Controls.Add(Me.rdoFrab)
         Me.Controls.Add(Me.rdoIce)
         Me.Controls.Add(Me.rdoHot)
@@ -567,7 +578,7 @@ Partial Class OrderForm
     Friend WithEvents rdoHot As System.Windows.Forms.RadioButton
     Friend WithEvents rdoIce As System.Windows.Forms.RadioButton
     Friend WithEvents rdoFrab As System.Windows.Forms.RadioButton
-    Friend WithEvents btnpn As System.Windows.Forms.Button
+    Friend WithEvents btnPn As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents rdoFood As System.Windows.Forms.RadioButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -604,4 +615,5 @@ Partial Class OrderForm
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents btnPlt As System.Windows.Forms.Button
 End Class

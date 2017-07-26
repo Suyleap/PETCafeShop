@@ -49,22 +49,13 @@
         End Try
     End Sub
 
-    Public Sub UpdateTable(ByVal tableid As String, ByVal tablenumber As Integer)
-        Try
-            con.SQLs = "Update HotDrink Set NumberTable='" & tablenumber & "' Where TableID='" & tableid & "'"
-            con.UseDatabase(con.SQLs)
-        Catch ex As Exception
-            MsgBox("Sorry we can't")
-        End Try
-    End Sub
-
     Public Function ShowTableButton() As Windows.Forms.FlowLayoutPanel
         Dim flpn As New Windows.Forms.FlowLayoutPanel
         flpn.Controls.Clear()
         flpn.Name = "flpnTables"
         flpn.AutoScroll = True
-        flpn.Location = New Point(246, 128)
-        flpn.Size = New Size(806, 406)
+        flpn.Location = New Point(6, 39)
+        flpn.Size = New Size(839, 516)
         Try
             con.SQLs = "Select * from TablePetCafe"
             con.UseDatabasetoread(con.SQLs)
@@ -72,7 +63,7 @@
             Dim bt(50) As Windows.Forms.Button
             While con.reader.Read
                 bt(i) = New Windows.Forms.Button
-                bt(i).Size = New Size(166, 55)
+                bt(i).Size = New Size(190, 55)
                 bt(i).Text = con.reader.Item(1)
                 bt(i).Name = con.reader.Item(1)
                 If con.reader.Item(2) = True Then
@@ -82,7 +73,11 @@
                 bt(i).Refresh()
                 flpn.Controls.AddRange({bt(i)})
                 flpn.Refresh()
-                AddHandler bt(i).Click, AddressOf GointoOrderForm
+                If bt(i).BackColor = Color.Green Then
+                    AddHandler bt(i).Click, AddressOf GointoOrderForm_GreenButton
+                ElseIf bt(i).BackColor = Color.Red Then
+                    AddHandler bt(i).Click, AddressOf GointoOrderForm_RedButton
+                End If
                 i = i + 1
             End While
         Catch ex As Exception
@@ -107,7 +102,37 @@
         Return id
     End Function
 
-    Private Sub GointoOrderForm(sender As Object, e As EventArgs)
+    Private Sub GointoOrderForm_RedButton(sender As Object, e As EventArgs)
+        Dim tablenumber As New Button
+        Dim odf As New OrderForm
+        Dim seller As String
+        Dim bs As New BindingSource
+        Dim invoice As Integer
+        tablenumber = sender
+        tablenumber.Name = sender.ToString.Remove(0, 35)
+        tablenumber.Refresh()
+        Try
+            con.SQLs = "Select * from PayLatter where Table=" & Convert.ToInt16(tablenumber.Name) & ""
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                seller = con.reader.Item(7)
+                invoice = con.reader.Item(1)
+                bs.DataSource = seller
+                con.SQLs = "Insert into PreOrder values('" & con.reader.Item(2) & "'," & Convert.ToInt16(con.reader.Item(3)) & "," & Convert.ToDouble(con.reader.Item(4)) & "," & Convert.ToDouble(con.reader.Item(5)) & "," & tablenumber.Name & ",'" & con.reader.Item(7) & "')"
+                con.UseDatabase(con.SQLs)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        seller = bs.DataSource
+        odf.Show()
+        odf.txtTable.Text = tablenumber.Name
+        odf.txtInvoice.Text = invoice
+        odf.txtSeller.Text = seller
+        odf.Refresh()
+    End Sub
+
+    Private Sub GointoOrderForm_GreenButton(sender As Object, e As EventArgs)
         Dim tablenumber As New Button
         Dim odf As New OrderForm
         tablenumber = sender

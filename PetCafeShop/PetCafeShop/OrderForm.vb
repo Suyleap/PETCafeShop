@@ -30,17 +30,12 @@
         flpnbuttonFood.Controls.Clear()
         flpnbuttonFood.Controls.Add(odpc.ShowFoodButton)
         Me.Refresh()
-
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.odpc.CancelPreOrder()
         Me.Refresh()
         Application.Restart()
-    End Sub
-
-    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnpn.Click
-
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
@@ -88,4 +83,17 @@
         Me.Refresh()
     End Sub
 
+    Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
+        odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        Application.Restart()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
+        odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        Application.Restart()
+        Me.Refresh()
+    End Sub
 End Class
