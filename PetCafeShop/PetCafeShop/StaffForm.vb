@@ -21,6 +21,7 @@
         btnUpdateAcc.Enabled = False
         btnSearch.Enabled = True
         btnNew.Visible = True
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         btnNew.Enabled = True
     End Sub
 

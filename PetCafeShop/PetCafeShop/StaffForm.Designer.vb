@@ -391,6 +391,7 @@ Partial Class StaffForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnUpdateAcc)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnUpdate)
@@ -427,6 +428,7 @@ Partial Class StaffForm
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.dgvStaff)
         Me.Name = "StaffForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StaffForm"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

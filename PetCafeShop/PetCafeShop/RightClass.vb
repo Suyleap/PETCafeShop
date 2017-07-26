@@ -187,4 +187,23 @@
         Return right_ID
     End Function
 
+    Public Function SearchAll(ByVal sender As Object)
+        Dim bs As New BindingSource
+        Try
+            Dim ri As New RightClass
+            Dim lri As New List(Of RightClass)
+            con.SQLs = "Select * from Rightss where Right_ID like '%" & sender & "%' OR Acc_ID like '%" & sender & "%' OR Acc_UserName like'%" & sender & "%'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                ri = New RightClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4), con.reader.Item(5))
+
+                lri.Add(ri)
+                bs.DataSource = lri
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return bs
+    End Function
+
 End Class

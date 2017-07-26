@@ -14,4 +14,12 @@
         Dim sell As New TableForm
         sell.Show()
     End Sub
+
+    Private Sub Choose_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+    End Sub
 End Class

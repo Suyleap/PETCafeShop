@@ -35,3 +35,4 @@ D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Update_Account
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources

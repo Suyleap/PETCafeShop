@@ -37,7 +37,7 @@ Partial Class LoginForm
         Me.btnOK.Location = New System.Drawing.Point(463, 64)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(169, 82)
-        Me.btnOK.TabIndex = 0
+        Me.btnOK.TabIndex = 3
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -57,7 +57,7 @@ Partial Class LoginForm
         Me.txtUserName.Location = New System.Drawing.Point(164, 105)
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Size = New System.Drawing.Size(239, 41)
-        Me.txtUserName.TabIndex = 2
+        Me.txtUserName.TabIndex = 1
         '
         'Label2
         '
@@ -85,7 +85,7 @@ Partial Class LoginForm
         Me.txtPassword.Location = New System.Drawing.Point(164, 230)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(239, 41)
-        Me.txtPassword.TabIndex = 5
+        Me.txtPassword.TabIndex = 2
         '
         'btnClose
         '
@@ -94,7 +94,7 @@ Partial Class LoginForm
         Me.btnClose.Location = New System.Drawing.Point(463, 202)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(169, 82)
-        Me.btnClose.TabIndex = 6
+        Me.btnClose.TabIndex = 4
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -103,6 +103,7 @@ Partial Class LoginForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(668, 332)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.Label3)
@@ -110,7 +111,10 @@ Partial Class LoginForm
         Me.Controls.Add(Me.txtUserName)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnOK)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "LoginForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LoginForm"
         Me.ResumeLayout(False)
         Me.PerformLayout()
