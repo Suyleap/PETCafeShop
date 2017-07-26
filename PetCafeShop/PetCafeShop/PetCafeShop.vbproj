@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.vb" />
+    <Compile Include="Choose.Designer.vb">
+      <DependentUpon>Choose.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Choose.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ConnectionDBPetCafe.vb" />
     <Compile Include="CreateAcc.Designer.vb">
       <DependentUpon>CreateAcc.vb</DependentUpon>
@@ -85,6 +91,12 @@
     <Compile Include="DrinkFoodForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OrderForm.Designer.vb">
       <DependentUpon>OrderForm.vb</DependentUpon>
     </Compile>
@@ -92,6 +104,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderProccessingClass.vb" />
+    <Compile Include="RightClass.vb" />
+    <Compile Include="RightForm.Designer.vb">
+      <DependentUpon>RightForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RightForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StaffClass.vb" />
     <Compile Include="StaffForm.Designer.vb">
       <DependentUpon>StaffForm.vb</DependentUpon>
@@ -130,14 +149,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Choose.resx">
+      <DependentUpon>Choose.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAcc.resx">
       <DependentUpon>CreateAcc.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrinkFoodForm.resx">
       <DependentUpon>DrinkFoodForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RightForm.resx">
+      <DependentUpon>RightForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SellReport.rdlc" />
     <EmbeddedResource Include="StaffForm.resx">
