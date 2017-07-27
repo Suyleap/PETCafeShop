@@ -3,6 +3,7 @@
     Private odpc As New OrderProccessingClass
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TableForm.Hide()
         rdoHot.Checked = True
         rdoFood.Checked = True
         Me.Refresh()

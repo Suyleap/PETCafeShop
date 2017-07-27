@@ -118,8 +118,12 @@
                 seller = con.reader.Item(7)
                 invoice = con.reader.Item(1)
                 bs.DataSource = seller
-                con.SQLs = "Insert into PreOrder values('" & con.reader.Item(2) & "'," & Convert.ToInt16(con.reader.Item(3)) & "," & Convert.ToDouble(con.reader.Item(4)) & "," & Convert.ToDouble(con.reader.Item(5)) & "," & tablenumber.Name & ",'" & con.reader.Item(7) & "')"
-                con.UseDatabase(con.SQLs)
+                Try
+                    con.SQLs = "Insert into PreOrder values('" & con.reader.Item(2) & "'," & Convert.ToInt16(con.reader.Item(3)) & "," & Convert.ToDouble(con.reader.Item(4)) & "," & Convert.ToDouble(con.reader.Item(5)) & "," & tablenumber.Name & ",'" & con.reader.Item(7) & "')"
+                    con.UseDatabase(con.SQLs)
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
             End While
         Catch ex As Exception
             MsgBox(ex.Message)

@@ -324,9 +324,15 @@
             For i = 0 To 20
                 dct = dct + dcts(i)
             Next
-            con.SQLs = "Insert into Orders values('" & ordernumber & "','" & sellname & "','" & table & "','" & dct & "','" & grandtotaldolar & "','" & grandtotalriel & "','" & discount & "')"
-            con.UseDatabase(con.SQLs)
-            UpdateTableToFree(table)
+            Try
+                con.SQLs = "Insert into Orders values('" & ordernumber & "','" & sellname & "','" & table & "','" & dct & "','" & grandtotaldolar & "','" & grandtotalriel & "','" & discount & "')"
+                con.UseDatabase(con.SQLs)
+                con.SQLs = "Delete * from PayLatter Where OrderNumber='" & ordernumber & "' and Table=" & table & ""
+                con.UseDatabase(con.SQLs)
+                UpdateTableToFree(table)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -335,17 +341,26 @@
     Public Sub PayLatter(ByVal ordernumber As String, ByVal sellname As String, ByVal table As Integer, ByVal grandtotaldolar As String, ByVal grandtotalriel As String, ByVal discount As String)
         Try
             Dim i As Integer
-            con.SQLs = "Select * from PayLatter"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                i = con.reader.Item(0)
-            End While
+            Try
+                con.SQLs = "Select * from PayLatter"
+                con.UseDatabasetoread(con.SQLs)
+                While con.reader.Read.ToString
+                    i = con.reader.Item(0)
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try            
             con.SQLs = "Select * from PreOrder where Quantity<> 0"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read.ToString
                 i = i + 1
-                con.SQLs = "Insert into PayLatter values(" & i & ",'" & ordernumber & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & "," & con.reader.Item(4) & ",'" & con.reader.Item(5) & "')"
-                con.UseDatabase(con.SQLs)
+                Try
+                    con.SQLs = "Insert into PayLatter values(" & i & ",'" & ordernumber + "Latter" & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & "," & con.reader.Item(4) & ",'" & con.reader.Item(5) & "')"
+                    con.UseDatabase(con.SQLs)
+                Catch ex As Exception
+                    con.SQLs = "Update PayLatter set Quantity=" & con.reader.Item(3) & " , GrandTotal=" & con.reader.Item(5) & " where DrinkName='" & con.reader.Item(2) & "' and Table=" & con.reader.Item(6) & ""
+                    con.UseDatabase(con.SQLs)
+                End Try
             End While
             UpdateTableToBusy(table)
         Catch ex As Exception
@@ -412,5 +427,4 @@
         End Try
         Return grandtotal
     End Function
-
 End Class
