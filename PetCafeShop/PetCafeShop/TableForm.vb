@@ -8,6 +8,8 @@ Public Class TableForm
         flpnTable.Controls.Clear() '
         flpnTable.Controls.Add(tbpcc.ShowTableButton())
         Me.Refresh()
+        txtID.ReadOnly = True
+        txtID.Text = tbpcc.AutoGenerateTableID()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click

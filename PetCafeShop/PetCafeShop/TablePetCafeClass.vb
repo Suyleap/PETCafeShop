@@ -150,4 +150,25 @@
         odf.txtInvoice.Text = AutoIDInvoice()
         odf.Refresh()
     End Sub
+    Public Function AutoGenerateTableID() As String
+        Try
+            Dim StringID As String
+            Dim intID As Integer
+            con.SQLs = "SELECT Last(TableID) FROM TablePetCafe"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read()
+                If con.reader.Item(0).ToString() = "" Then
+                    TableID = "TB1"
+                Else
+                    StringID = con.reader.Item(0).ToString()
+                    intID = Convert.ToInt16(StringID.Substring(2))
+                    intID += 1
+                    TableID = String.Concat("TB", intID)
+                End If
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return TableID
+    End Function
 End Class
