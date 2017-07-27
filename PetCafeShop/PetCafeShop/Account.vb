@@ -104,6 +104,20 @@
         End Try
         Return Me.st.st_ID
     End Function
+    Public Sub Login(ByVal username As String, ByVal password As String)
+        Try
+            con.SQLs = "SELECT * From Login_Acc Where UserName='" & username & "' And PassWord='" & password & "'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                Me.acc_ID = con.reader.Item(0)
+                Me.st.st_ID = con.reader.Item(1)
+                Me.acc_UserName = con.reader.Item(2)
+                Me.acc_Password = con.reader.Item(3)
+            End While
+        Catch ex As Exception
+            MsgBox("Login Fail Please make sure you had enter correct both fields")
+        End Try
+    End Sub
 
     Public Function AutoGenerateAccID() As String
         Try
@@ -113,12 +127,12 @@
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
                 If con.reader.Item(0).ToString() = "" Then
-                    Me.acc_ID = "Acc1"
+                    Me.acc_ID = "ACC1"
                 Else
                     StringID = con.reader.Item(0).ToString()
-                    intID = Convert.ToInt16(StringID.Substring(2))
+                    intID = Convert.ToInt16(StringID.Substring(3))
                     intID += 1
-                    Me.acc_ID = String.Concat("Acc", intID)
+                    Me.acc_ID = String.Concat("ACC", intID)
                 End If
             End While
         Catch ex As Exception

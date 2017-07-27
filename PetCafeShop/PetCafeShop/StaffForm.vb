@@ -2,6 +2,7 @@
 
     Dim st As New StaffClass
     Dim acc As New Account
+    Dim ri As New RightClass
 
     Private Sub StaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvStaff.DataSource = st.Show()
@@ -20,14 +21,15 @@
         btnUpdateAcc.Enabled = False
         btnSearch.Enabled = True
         btnNew.Visible = True
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         btnNew.Enabled = True
     End Sub
 
     Private Sub EmptyInput()
         Try
             If txtName.Text.Trim = "" Then
-                MsgBox("Please fill Name")
-                txtName.Focus()
+                    MsgBox("Please fill Name")
+                    txtName.Focus()
             ElseIf txtAddress.Text.Trim = "" Then
                 MsgBox("Please fill Address")
                 txtAddress.Focus()
@@ -73,6 +75,19 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Try
+            If acc.CheckingAcc(txtID.Text) = st.st_ID Then
+                btnUpdateAcc.Enabled = True
+                btnUpdateAcc.Visible = True
+                btnNew.Visible = False
+            Else
+                btnNew.Enabled = True
+                btnNew.Visible = True
+                btnUpdateAcc.Visible = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub Clear()
@@ -94,16 +109,17 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+
         Try
-            EmptyInput()
             st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
             AddHandler MouseLeave, AddressOf moove
             txtID.Text = st.autoGenerateStaffID()
             Me.StaffForm_Load(Me, e)
+
         Catch ex As Exception
-            MsgBox(ex.Message)
+            EmptyInput()
         End Try
-        
+            
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
@@ -128,9 +144,7 @@
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-
         Try
-            EmptyInput()
             st.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
             AddHandler MouseLeave, AddressOf moove
             txtID.Text = st.autoGenerateStaffID()
@@ -145,9 +159,9 @@
 
             Me.StaffForm_Load(Me, e)
         Catch ex As Exception
-            MsgBox(ex.Message)
+            EmptyInput()
         End Try
-       
+
     End Sub
 
     Private Sub DisableInput()
@@ -231,6 +245,10 @@
                 btnUpdateAcc.Enabled = True
                 btnUpdateAcc.Visible = True
                 btnNew.Visible = False
+            Else
+                btnNew.Enabled = True
+                btnNew.Visible = True
+                btnUpdateAcc.Visible = False
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -241,13 +259,14 @@
         Dim objFormAcc As New CreateAcc
         objFormAcc.getID = acc.AutoGenerateAccID()
         objFormAcc.getStaffID = txtID.Text
+        objFormAcc.getRightID = ri.autoGenerateRightID()
         objFormAcc.Show()
     End Sub
 
     Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
         Dim udpAcc As New Update_Account
         udpAcc.getStaffID = txtID.Text
-        ' udpAcc.getID = acc.acc_ID
+        udpAcc.getRightID = ri.right_ID
         udpAcc.Show()
     End Sub
 

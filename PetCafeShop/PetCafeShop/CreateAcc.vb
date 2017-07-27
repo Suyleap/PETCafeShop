@@ -2,8 +2,10 @@
 
     Dim acc As New Account()
     Dim stf As New StaffForm()
+    Dim ri As New RightClass()
     Property getID As String
     Property getStaffID As String
+    Property getRightID As String
 
     Private Sub CreateAcc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Clear()
@@ -32,6 +34,7 @@
         If (txtConfirm.Text = txtPassword.Text) Then
             txtConfirm.Text = txtPassword.Text
             acc.InsertAcc(getID, getStaffID, txtUserName.Text, txtConfirm.Text)
+            ri.InsertRight(getRightID, getID, txtUserName.Text, False, False, False)
             Me.Close()
         Else
             MsgBox("Please Fill both Password")

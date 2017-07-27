@@ -32,3 +32,7 @@ E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Updat
 E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Update_Account.resources
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
+E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources

@@ -1,7 +1,8 @@
 ﻿Public Class Update_Account
 
     Dim acc As New Account
-    'Property getID As String
+    Dim ri As New RightClass
+    Property getRightID As String
     Property getStaffID As String
 
     Private Sub CreateAcc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,6 +34,7 @@
         If (txtConfirm.Text = txtPassword.Text) Then
             txtConfirm.Text = txtPassword.Text
             acc.UpdateAcc(acc.AccID, getStaffID, txtUserName.Text, txtConfirm.Text)
+            ri.UpdateRight(getRightID, False, False, False)
             Me.Close()
         Else
             MsgBox("Please Fill both Password")
