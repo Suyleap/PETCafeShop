@@ -358,16 +358,39 @@
                     con.SQLs = "Insert into Orders values(" & i & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & ",'" & discount & "'," & False & ")"
                     con.UseDatabase(con.SQLs)
                 Catch ex As Exception
-                    con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
-                    con.UseDatabasetoread(con.SQLs)
-                    While con.reader.Read.ToString
-                        If Drinkname = con.reader.Item(4) Then
-                            con.SQLs = "Update Orders Set Quantity=" & Quantity & ",GrandTotal=" & Price * Quantity & " Where DrinkName='" & Drinkname & "' and Table=" & table & ""
-                            con.UseDatabase(con.SQLs)
-                        End If
-                    End While
+                    MsgBox(ex.Message)
                 End Try
             End While
+            UpdateTableToBusy(table)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub UpdatePayLatter(ByVal ordernumber As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dn(20) As String
+        Dim qtt(20), i As Integer
+        Dim p(20) As Double
+        i = 0
+        Try
+            con.SQLs = "Select * from PreOrder where Quantity<> 0"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read.ToString
+                dn(i) = con.reader.Item(0)
+                qtt(i) = con.reader.Item(1)
+                p(i) = con.reader.Item(2)
+                i = i + 1
+            End While
+            i = 0
+            con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read.ToString
+                con.SQLs = "Update Orders Set Quantity=" & qtt(i) & ",GrandTotal=" & p(i) * qtt(i) & " Where DrinkName='" & dn(i) & "' and Table=" & table & ""
+                con.UseDatabase(con.SQLs)
+                i = i + 1
+            End While
+            'con.SQLs = "Insert into Orders values(" & i & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & ",'" & discount & "'," & False & ")"
+            'con.UseDatabase(con.SQLs)
             UpdateTableToBusy(table)
         Catch ex As Exception
             MsgBox(ex.Message)

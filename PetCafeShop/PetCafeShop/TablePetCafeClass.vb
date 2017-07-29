@@ -128,6 +128,7 @@
         End Try
         seller = bs.DataSource
         odf.Show()
+        odf.btnPlt.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtInvoice.Text = invoice
         odf.txtSeller.Text = seller
@@ -147,6 +148,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        odf.btnuplt.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtSeller.Text = "hello"
         odf.txtInvoice.Text = AutoIDInvoice()

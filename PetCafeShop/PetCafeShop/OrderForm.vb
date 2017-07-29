@@ -97,4 +97,11 @@
         Application.Restart()
         Me.Refresh()
     End Sub
+
+    Private Sub btnpdplt_Click(sender As Object, e As EventArgs) Handles btnuplt.Click
+        odpc.UpdatePayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        Application.Restart()
+        Me.Refresh()
+    End Sub
 End Class

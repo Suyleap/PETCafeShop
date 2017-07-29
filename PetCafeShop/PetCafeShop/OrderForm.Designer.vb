@@ -66,6 +66,7 @@ Partial Class OrderForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.btnPlt = New System.Windows.Forms.Button()
+        Me.btnuplt = New System.Windows.Forms.Button()
         Me.gb.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gbDiscount.SuspendLayout()
@@ -526,11 +527,21 @@ Partial Class OrderForm
         Me.btnPlt.Text = "Pay-Latter"
         Me.btnPlt.UseVisualStyleBackColor = True
         '
+        'btnuplt
+        '
+        Me.btnuplt.Location = New System.Drawing.Point(626, 625)
+        Me.btnuplt.Name = "btnuplt"
+        Me.btnuplt.Size = New System.Drawing.Size(166, 55)
+        Me.btnuplt.TabIndex = 49
+        Me.btnuplt.Text = "Update-Pay-Latter"
+        Me.btnuplt.UseVisualStyleBackColor = True
+        '
         'OrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.btnuplt)
         Me.Controls.Add(Me.btnPlt)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.gbDiscount)
@@ -616,4 +627,5 @@ Partial Class OrderForm
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents btnPlt As System.Windows.Forms.Button
+    Friend WithEvents btnuplt As System.Windows.Forms.Button
 End Class
