@@ -104,4 +104,11 @@
         Application.Restart()
         Me.Refresh()
     End Sub
+
+    Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
+        odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        Application.Restart()
+        Me.Refresh()
+    End Sub
 End Class

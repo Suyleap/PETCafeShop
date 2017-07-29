@@ -88,7 +88,7 @@
     End Function
 
     Private Function AutoIDInvoice() As String
-        Dim id As Long
+        Dim id As Long = 0
         Try
             con.SQLs = "Select * from Orders"
             con.UseDatabasetoread(con.SQLs)
@@ -129,6 +129,7 @@
         seller = bs.DataSource
         odf.Show()
         odf.btnPlt.Visible = False
+        odf.btnPn.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtInvoice.Text = invoice
         odf.txtSeller.Text = seller
@@ -149,6 +150,7 @@
             MsgBox(ex.Message)
         End Try
         odf.btnuplt.Visible = False
+        odf.btnupn.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtSeller.Text = "hello"
         odf.txtInvoice.Text = AutoIDInvoice()
