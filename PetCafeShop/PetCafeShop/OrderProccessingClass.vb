@@ -60,7 +60,7 @@
         flpn.Controls.Clear()
         flpn.Name = "flpnHotDrink"
         flpn.AutoScroll = True
-        flpn.Location = New Point(423, 153)
+        flpn.Location = New Point(16, 78)
         flpn.Size = New Size(579, 213)
         Try
             con.SQLs = "Select * from HotDrink"
@@ -90,7 +90,7 @@
         flpn.Controls.Clear()
         flpn.Name = "flpnIceDrink"
         flpn.AutoScroll = True
-        flpn.Location = New Point(423, 153)
+        flpn.Location = New Point(16, 78)
         flpn.Size = New Size(579, 213)
         Try
             con.SQLs = "Select * from IceDrink"
@@ -119,7 +119,7 @@
         flpn.Controls.Clear()
         flpn.Name = "flpnFrabDrink"
         flpn.AutoScroll = True
-        flpn.Location = New Point(423, 153)
+        flpn.Location = New Point(16, 78)
         flpn.Size = New Size(579, 213)
         Try
             con.SQLs = "Select * from FrabDrink"
@@ -147,7 +147,7 @@
         Dim flpn As New Windows.Forms.FlowLayoutPanel
         flpn.Controls.Clear()
         flpn.AutoScroll = True
-        flpn.Location = New Point(422, 405)
+        flpn.Location = New Point(15, 353)
         flpn.Size = New Size(579, 213)
         flpn.Name = "flpnFoods"
         Try
@@ -266,7 +266,7 @@
         Dim dtgOrder As New Windows.Forms.DataGridView
         dtgOrder.Name = "dtgOrder"
         dtgOrder.Size = New Size(362, 567)
-        dtgOrder.Location = New Point(47, 112)
+        dtgOrder.Location = New Point(21, 131)
         dtgOrder.ReadOnly = True
         Dim odpc As OrderProccessingClass
         Dim odpcs As New List(Of OrderProccessingClass)
@@ -311,23 +311,13 @@
     End Function
 
     Public Sub PayNow(ByVal ordernumber As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
-        Dim i As Integer
-        Try
-            con.SQLs = "Select MAX([Item]) from Orders"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read.ToString
-                i = con.reader.Item(0)
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Dim i As Integer = SelectMakItem_Orders()
         Try
             con.SQLs = "Select * from PreOrder where Quantity<> 0"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read.ToString
                 i = i + 1
-                con.SQLs = "Insert into Orders values(" & i & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & ",'" & discount & "'," & True & ")"
-                con.UseDatabase(con.SQLs)
+                InsertInto_Orders(i, ordernumber, sellname, table, con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), discount, True)
             End While
             UpdateTableToFree(table)
         Catch ex As Exception
@@ -336,30 +326,13 @@
     End Sub
 
     Public Sub PayLatter(ByVal ordernumber As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
-        Dim i As Integer
-        Try
-            con.SQLs = "Select MAX([Item]) from Orders"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read.ToString
-                i = con.reader.Item(0)
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Dim i As Integer = SelectMakItem_Orders()
         Try
             con.SQLs = "Select * from PreOrder where Quantity<> 0"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read.ToString
                 i = i + 1
-                Drinkname = con.reader.Item(0)
-                Quantity = con.reader.Item(1)
-                Price = con.reader.Item(2)
-                Try
-                    con.SQLs = "Insert into Orders values(" & i & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & con.reader.Item(0) & "'," & con.reader.Item(1) & "," & con.reader.Item(2) & "," & con.reader.Item(3) & ",'" & discount & "'," & False & ")"
-                    con.UseDatabase(con.SQLs)
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+                InsertInto_Orders(i, ordernumber, sellname, table, con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), discount, False)
             End While
             UpdateTableToBusy(table)
         Catch ex As Exception
@@ -372,17 +345,7 @@
         Dim qtt(20), i As Integer
         Dim p(20) As Double
         i = 0
-        Dim j As Integer
-        Try
-            con.SQLs = "Select MAX([Item]) from Orders "
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                j = con.reader.Item(0)
-            End While
-            j = j + 1
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Dim j As Integer = SelectMakItem_Orders()
         Try
             con.SQLs = "Select * from PreOrder where Quantity<> 0"
             con.UseDatabasetoread(con.SQLs)
@@ -390,30 +353,60 @@
                 dn(i) = con.reader.Item(0)
                 qtt(i) = con.reader.Item(1)
                 p(i) = con.reader.Item(2)
-                i = i + 1
-            End While
-            i = 0
-            con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read.ToString
-                con.SQLs = "Delete * from Orders Where DrinkName ='" & dn(i) & "' and Quantity<=" & qtt(i) & " and Table=" & table & " and OrderNumber='" & ordernumber & "' "
-                con.UseDatabase(con.SQLs)
-                con.SQLs = "Insert into Orders values(" & j & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & dn(i) & "'," & qtt(i) & "," & p(i) & "," & qtt(i) * p(i) & ",'" & discount & "'," & False & ")"
-                con.UseDatabase(con.SQLs)
-                i = i + 1
+                DeleteOrders_ByDrinkName_Quantity_Table_OrderNumber(dn(i), qtt(i), table, ordernumber)
+                InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, False)
                 j = j + 1
+                i = i + 1
             End While
-            UpdateTableToBusy(table)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        UpdateTableToBusy(table)
     End Sub
 
     Public Sub UpdatePayNow(ByVal ordernumber As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
         Dim dn(20) As String
         Dim qtt(20), i As Integer
         Dim p(20) As Double
+        Dim j As Integer = SelectMakItem_Orders()
         i = 0
+        Try
+            con.SQLs = "Select * from PreOrder where Quantity<> 0"
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read.ToString
+                dn(i) = con.reader.Item(0)
+                qtt(i) = con.reader.Item(1)
+                p(i) = con.reader.Item(2)
+                DeleteOrders_ByDrinkName_Quantity_Table_OrderNumber(dn(i), qtt(i), table, ordernumber)
+                InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, True)
+                i = i + 1
+                j = j + 1
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        UpdateTableToFree(table)
+    End Sub
+
+    Public Sub DeleteOrders_ByDrinkName_Quantity_Table_OrderNumber(ByVal drinkname As String, ByVal quantity As Integer, ByVal table As Integer, ByVal ordernumber As String)
+        Try
+            con.SQLs = "Delete * from Orders Where DrinkName ='" & drinkname & "' and Quantity<=" & quantity & " and Table=" & table & " and OrderNumber='" & ordernumber & "' "
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub InsertInto_Orders(ByVal item As Integer, ByVal ordernumber As String, ByVal seller As String, ByVal table As Integer, ByVal drinkname As String, ByVal quantity As Integer, ByVal price As Double, ByVal discount As String, ByVal pay As Boolean)
+        Try
+            con.SQLs = "Insert into Orders values(" & item & ",'" & ordernumber & "','" & seller & "','" & table & "','" & drinkname & "'," & quantity & "," & price & "," & quantity * price & ",'" & discount & "'," & pay & ")"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Function SelectMakItem_Orders() As Integer
         Dim j As Integer
         Try
             con.SQLs = "Select MAX([Item]) from Orders "
@@ -425,31 +418,8 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Try
-            con.SQLs = "Select * from PreOrder where Quantity<> 0"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read.ToString
-                dn(i) = con.reader.Item(0)
-                qtt(i) = con.reader.Item(1)
-                p(i) = con.reader.Item(2)
-                i = i + 1
-            End While
-            i = 0
-            con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read.ToString
-                con.SQLs = "Delete * from Orders Where DrinkName ='" & dn(i) & "' and Quantity<=" & qtt(i) & " and Table=" & table & " and OrderNumber='" & ordernumber & "' "
-                con.UseDatabase(con.SQLs)
-                con.SQLs = "Insert into Orders values(" & j & ",'" & ordernumber & "','" & sellname & "','" & table & "','" & dn(i) & "'," & qtt(i) & "," & p(i) & "," & qtt(i) * p(i) & ",'" & discount & "'," & True & ")"
-                con.UseDatabase(con.SQLs)
-                i = i + 1
-                j = j + 1
-            End While
-            UpdateTableToFree(table)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+        Return j
+    End Function
 
     Public Sub UpdateTableToFree(ByVal table As Integer)
         Try
@@ -465,6 +435,66 @@
         Try
             Dim frees As Boolean = True
             con.SQLs = "Update TablePetCafe Set Frees=" & frees & " Where NumberTable=" & table & ""
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub PrintPayNow(ByVal ordernumber As String, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts As String
+        Dim i As Integer = 0
+        con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
+        con.UseDatabasetoread(con.SQLs)
+        While con.reader.Read.ToString
+            dcts = con.reader.Item(4) + " " + con.reader.Item(5).ToString + " " + con.reader.Item(6).ToString + " " + con.reader.Item(7).ToString + " " + vbNewLine
+            dct = dct + dcts
+        End While
+        InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
+        DeleteOrders_ByTable_Ordernumber(table, ordernumber)
+    End Sub
+
+    Public Sub PrintPayLatter(ByVal ordernumber As String, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts As String
+        Dim i As Integer = 0
+        con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
+        con.UseDatabasetoread(con.SQLs)
+        While con.reader.Read.ToString
+            dcts = con.reader.Item(4) + " " + con.reader.Item(5).ToString + " " + con.reader.Item(6).ToString + " " + con.reader.Item(7).ToString + " " + vbNewLine
+            dct = dct + dcts
+        End While
+        InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
+    End Sub
+
+    Public Function SelectMaxItem_PrintIvoice() As Integer
+        Dim j As Integer
+        Try
+            con.SQLs = "Select MAX([Item]) from PrintInvoice "
+            con.UseDatabasetoread(con.SQLs)
+            While con.reader.Read
+                j = con.reader.Item(0)
+            End While
+            j = j + 1
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return j
+    End Function
+
+    Public Sub InsertIntoPrintInvoice(ByVal j As Integer, ByVal ordernumber As String, ByVal Description As String, ByVal gttdl As Double, ByVal gttr As Double, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Try
+            con.SQLs = "Insert into PrintInvoice values(" & j & ",'" & ordernumber & "','" & Description & "'," & gttdl & "," & gttr & "," & table & ",'" & sellname & "'," & discount & ")"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub DeleteOrders_ByTable_Ordernumber(ByVal table As Integer, ByVal ordernumber As String)
+        Try
+            con.SQLs = "Delete * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -510,4 +540,5 @@
         End Try
         Return grandtotal
     End Function
+
 End Class

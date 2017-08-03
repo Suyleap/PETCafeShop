@@ -8,6 +8,7 @@ Public Class TableForm
         flpnTable.Controls.Clear() '
         flpnTable.Controls.Add(tbpcc.ShowTableButton())
         Me.Refresh()
+        gbtable.Enabled = False
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -24,5 +25,9 @@ Public Class TableForm
         tbpcc.DeleteTABLE((txtName.Text))
         Me.Refresh()
         Application.Restart()
+    End Sub
+
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        gbtable.Enabled = True
     End Sub
 End Class

@@ -111,8 +111,9 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
-        con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
-        con.UseDatabase(con.SQLs)
+        '   con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
+        '   con.UseDatabase(con.SQLs)
+        Insert_into_Preorder(tablenumber.Name)
         Try
             con.SQLs = "Select * from Orders where Table=" & Convert.ToInt16(tablenumber.Name) & " and Pay=" & False & ""
             con.UseDatabasetoread(con.SQLs)
@@ -142,13 +143,15 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
-        Try
-            con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
-            con.UseDatabase(con.SQLs)
-            odf.Show()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        '   Try
+        ' con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
+        ' con.UseDatabase(con.SQLs)
+        ' odf.Show()
+        ' Catch ex As Exception
+        ' MsgBox(ex.Message)
+        ' End Try
+        Insert_into_Preorder(tablenumber.Name)
+        odf.Show()
         odf.btnuplt.Visible = False
         odf.btnupn.Visible = False
         odf.txtTable.Text = tablenumber.Name
@@ -156,4 +159,14 @@
         odf.txtInvoice.Text = AutoIDInvoice()
         odf.Refresh()
     End Sub
+
+    Public Sub Insert_into_Preorder(ByVal drinkname As String)
+        Try
+            con.SQLs = "Insert into PreOrder values('" & drinkname & "','" & 0 & "'," & 0 & "," & 0 & "," & drinkname & ",'" & "hello" & "')"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 End Class

@@ -33,6 +33,7 @@ Partial Class TableForm
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.gbtable = New System.Windows.Forms.GroupBox()
         Me.gbTablelable = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
         Me.gbtable.SuspendLayout()
         Me.gbTablelable.SuspendLayout()
         Me.SuspendLayout()
@@ -104,9 +105,9 @@ Partial Class TableForm
         '
         'btnClose
         '
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Font = New System.Drawing.Font("Mistral", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(1054, 396)
+        Me.btnClose.Location = New System.Drawing.Point(1044, 413)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(170, 63)
         Me.btnClose.TabIndex = 22
@@ -124,6 +125,7 @@ Partial Class TableForm
         '
         'gbtable
         '
+        Me.gbtable.BackColor = System.Drawing.SystemColors.ControlDark
         Me.gbtable.Controls.Add(Me.txtID)
         Me.gbtable.Controls.Add(Me.btnAdd)
         Me.gbtable.Controls.Add(Me.btnDelete)
@@ -150,12 +152,25 @@ Partial Class TableForm
         Me.gbTablelable.TabStop = False
         Me.gbTablelable.Text = "Table"
         '
+        'btnNew
+        '
+        Me.btnNew.Font = New System.Drawing.Font("Mistral", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.ForeColor = System.Drawing.Color.Green
+        Me.btnNew.Location = New System.Drawing.Point(1044, 344)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(170, 63)
+        Me.btnNew.TabIndex = 25
+        Me.btnNew.Text = "NEW"
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.gbTablelable)
         Me.Controls.Add(Me.gbtable)
         Me.Controls.Add(Me.btnClose)
@@ -180,5 +195,6 @@ Partial Class TableForm
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents gbtable As System.Windows.Forms.GroupBox
     Friend WithEvents gbTablelable As System.Windows.Forms.GroupBox
+    Friend WithEvents btnNew As System.Windows.Forms.Button
 
 End Class

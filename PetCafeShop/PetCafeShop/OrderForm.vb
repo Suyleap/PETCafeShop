@@ -87,6 +87,7 @@
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
         odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
+        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Application.Restart()
         Me.Refresh()
     End Sub
@@ -108,7 +109,13 @@
     Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
         odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
+        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Application.Restart()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnpplt_Click(sender As Object, e As EventArgs) Handles btnpplt.Click
+        odpc.PrintPayLatter(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Me.Refresh()
     End Sub
 End Class
