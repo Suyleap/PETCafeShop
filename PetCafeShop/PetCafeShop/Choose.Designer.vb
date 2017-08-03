@@ -45,7 +45,7 @@ Partial Class Choose
         Me.btnRight.Location = New System.Drawing.Point(515, 128)
         Me.btnRight.Name = "btnRight"
         Me.btnRight.Size = New System.Drawing.Size(207, 85)
-        Me.btnRight.TabIndex = 1
+        Me.btnRight.TabIndex = 2
         Me.btnRight.Text = "Right Management"
         Me.btnRight.UseVisualStyleBackColor = True
         '
@@ -65,7 +65,7 @@ Partial Class Choose
         Me.btnSell.Location = New System.Drawing.Point(268, 128)
         Me.btnSell.Name = "btnSell"
         Me.btnSell.Size = New System.Drawing.Size(207, 85)
-        Me.btnSell.TabIndex = 3
+        Me.btnSell.TabIndex = 1
         Me.btnSell.Text = "Sell Form"
         Me.btnSell.UseVisualStyleBackColor = True
         '
@@ -76,7 +76,7 @@ Partial Class Choose
         Me.Button1.Location = New System.Drawing.Point(268, 271)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(207, 85)
-        Me.Button1.TabIndex = 4
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "CLOSE"
         Me.Button1.UseVisualStyleBackColor = True
         '

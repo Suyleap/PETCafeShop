@@ -10,6 +10,8 @@ Public Class TableForm
         Me.Refresh()
         txtID.ReadOnly = True
         txtID.Text = tbpcc.AutoGenerateTableID()
+        Me.StartPosition = FormStartPosition.CenterScreen
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click

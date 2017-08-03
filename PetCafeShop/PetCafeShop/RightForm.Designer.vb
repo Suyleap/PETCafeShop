@@ -22,6 +22,8 @@ Partial Class RightForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvRight = New System.Windows.Forms.DataGridView()
         Me.btnADD = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -41,11 +43,27 @@ Partial Class RightForm
         '
         'dgvRight
         '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRight.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvRight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvRight.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvRight.Location = New System.Drawing.Point(12, 120)
         Me.dgvRight.Name = "dgvRight"
         Me.dgvRight.Size = New System.Drawing.Size(343, 329)
-        Me.dgvRight.TabIndex = 0
+        Me.dgvRight.TabIndex = 10
         '
         'btnADD
         '
@@ -70,11 +88,11 @@ Partial Class RightForm
         '
         Me.cboStaffForm.AutoSize = True
         Me.cboStaffForm.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboStaffForm.Location = New System.Drawing.Point(420, 204)
+        Me.cboStaffForm.Location = New System.Drawing.Point(421, 204)
         Me.cboStaffForm.Margin = New System.Windows.Forms.Padding(9)
         Me.cboStaffForm.Name = "cboStaffForm"
         Me.cboStaffForm.Size = New System.Drawing.Size(121, 29)
-        Me.cboStaffForm.TabIndex = 3
+        Me.cboStaffForm.TabIndex = 1
         Me.cboStaffForm.Text = "Staff Form"
         Me.cboStaffForm.UseVisualStyleBackColor = True
         '
@@ -85,7 +103,7 @@ Partial Class RightForm
         Me.txtUser.Name = "txtUser"
         Me.txtUser.ReadOnly = True
         Me.txtUser.Size = New System.Drawing.Size(238, 30)
-        Me.txtUser.TabIndex = 4
+        Me.txtUser.TabIndex = 11
         '
         'txtSearch
         '
@@ -110,7 +128,7 @@ Partial Class RightForm
         Me.btnSearch.Location = New System.Drawing.Point(292, 70)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(85, 39)
-        Me.btnSearch.TabIndex = 7
+        Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
@@ -131,7 +149,7 @@ Partial Class RightForm
         Me.cboRight.Location = New System.Drawing.Point(478, 256)
         Me.cboRight.Name = "cboRight"
         Me.cboRight.Size = New System.Drawing.Size(195, 29)
-        Me.cboRight.TabIndex = 9
+        Me.cboRight.TabIndex = 3
         Me.cboRight.Text = "Right Management"
         Me.cboRight.UseVisualStyleBackColor = True
         '
@@ -142,7 +160,7 @@ Partial Class RightForm
         Me.cboSellForm.Location = New System.Drawing.Point(616, 204)
         Me.cboSellForm.Name = "cboSellForm"
         Me.cboSellForm.Size = New System.Drawing.Size(114, 29)
-        Me.cboSellForm.TabIndex = 10
+        Me.cboSellForm.TabIndex = 2
         Me.cboSellForm.Text = "Sell Form"
         Me.cboSellForm.UseVisualStyleBackColor = True
         '
@@ -151,7 +169,7 @@ Partial Class RightForm
         Me.btnClose.Location = New System.Drawing.Point(616, 337)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(122, 65)
-        Me.btnClose.TabIndex = 11
+        Me.btnClose.TabIndex = 8
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -160,7 +178,7 @@ Partial Class RightForm
         Me.btnUpdate.Location = New System.Drawing.Point(420, 337)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(122, 65)
-        Me.btnUpdate.TabIndex = 12
+        Me.btnUpdate.TabIndex = 4
         Me.btnUpdate.Text = "UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
@@ -169,7 +187,7 @@ Partial Class RightForm
         Me.btnStop.Location = New System.Drawing.Point(292, 70)
         Me.btnStop.Name = "btnStop"
         Me.btnStop.Size = New System.Drawing.Size(85, 39)
-        Me.btnStop.TabIndex = 13
+        Me.btnStop.TabIndex = 7
         Me.btnStop.Text = "Stop"
         Me.btnStop.UseVisualStyleBackColor = True
         '
