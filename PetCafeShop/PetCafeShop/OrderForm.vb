@@ -3,6 +3,7 @@
     Private odpc As New OrderProccessingClass
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TableForm.Hide()
         rdoHot.Checked = True
         rdoFood.Checked = True
         Me.Refresh()
@@ -84,16 +85,37 @@
     End Sub
 
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
-        odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtDiscount.Text)
+        odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
+        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Application.Restart()
         Me.Refresh()
     End Sub
 
     Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
-        odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtDiscount.Text)
+        odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
         Application.Restart()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnpdplt_Click(sender As Object, e As EventArgs) Handles btnuplt.Click
+        odpc.UpdatePayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        Application.Restart()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
+        odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        odpc.CancelPreOrder()
+        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
+        Application.Restart()
+        Me.Refresh()
+    End Sub
+
+    Private Sub btnpplt_Click(sender As Object, e As EventArgs) Handles btnpplt.Click
+        odpc.PrintPayLatter(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Me.Refresh()
     End Sub
 End Class

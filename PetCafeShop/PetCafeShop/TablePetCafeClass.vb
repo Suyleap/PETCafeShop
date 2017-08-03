@@ -88,12 +88,12 @@
     End Function
 
     Private Function AutoIDInvoice() As String
-        Dim id As Long
+        Dim id As Long = 0
         Try
             con.SQLs = "Select * from Orders"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                id = con.reader.Item(0)
+                id = con.reader.Item(1)
                 id = id + 1
             End While
         Catch ex As Exception
@@ -111,14 +111,17 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
+        '   con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
+        '   con.UseDatabase(con.SQLs)
+        Insert_into_Preorder(tablenumber.Name)
         Try
-            con.SQLs = "Select * from PayLatter where Table=" & Convert.ToInt16(tablenumber.Name) & ""
+            con.SQLs = "Select * from Orders where Table=" & Convert.ToInt16(tablenumber.Name) & " and Pay=" & False & ""
             con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                seller = con.reader.Item(7)
+            While con.reader.Read.ToString
+                seller = con.reader.Item(2)
                 invoice = con.reader.Item(1)
                 bs.DataSource = seller
-                con.SQLs = "Insert into PreOrder values('" & con.reader.Item(2) & "'," & Convert.ToInt16(con.reader.Item(3)) & "," & Convert.ToDouble(con.reader.Item(4)) & "," & Convert.ToDouble(con.reader.Item(5)) & "," & tablenumber.Name & ",'" & con.reader.Item(7) & "')"
+                con.SQLs = "Insert into PreOrder values('" & con.reader.Item(4) & "'," & Convert.ToInt16(con.reader.Item(5)) & "," & Convert.ToDouble(con.reader.Item(6)) & "," & Convert.ToDouble(con.reader.Item(7)) & "," & tablenumber.Name & ",'" & con.reader.Item(2) & "')"
                 con.UseDatabase(con.SQLs)
             End While
         Catch ex As Exception
@@ -126,6 +129,8 @@
         End Try
         seller = bs.DataSource
         odf.Show()
+        odf.btnPlt.Visible = False
+        odf.btnPn.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtInvoice.Text = invoice
         odf.txtSeller.Text = seller
@@ -138,18 +143,32 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
-        Try
-            con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
-            con.UseDatabase(con.SQLs)
-            odf.Show()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        '   Try
+        ' con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
+        ' con.UseDatabase(con.SQLs)
+        ' odf.Show()
+        ' Catch ex As Exception
+        ' MsgBox(ex.Message)
+        ' End Try
+        Insert_into_Preorder(tablenumber.Name)
+        odf.Show()
+        odf.btnuplt.Visible = False
+        odf.btnupn.Visible = False
         odf.txtTable.Text = tablenumber.Name
         odf.txtSeller.Text = "hello"
         odf.txtInvoice.Text = AutoIDInvoice()
         odf.Refresh()
     End Sub
+
+    Public Sub Insert_into_Preorder(ByVal drinkname As String)
+        Try
+            con.SQLs = "Insert into PreOrder values('" & drinkname & "','" & 0 & "'," & 0 & "," & 0 & "," & drinkname & ",'" & "hello" & "')"
+            con.UseDatabase(con.SQLs)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+<<<<<<< HEAD
     Public Function AutoGenerateTableID() As String
         Try
             Dim StringID As String
@@ -171,4 +190,7 @@
         End Try
         Return TableID
     End Function
+=======
+
+>>>>>>> 92f3d9898cb31d232fd43547f05ac1c6c0f671cf
 End Class

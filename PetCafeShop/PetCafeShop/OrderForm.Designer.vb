@@ -23,7 +23,6 @@ Partial Class OrderForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.rdoHot = New System.Windows.Forms.RadioButton()
         Me.rdoIce = New System.Windows.Forms.RadioButton()
@@ -66,9 +65,18 @@ Partial Class OrderForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.btnPlt = New System.Windows.Forms.Button()
+        Me.btnuplt = New System.Windows.Forms.Button()
+        Me.btnupn = New System.Windows.Forms.Button()
+        Me.gbOrders = New System.Windows.Forms.GroupBox()
+        Me.gbItem = New System.Windows.Forms.GroupBox()
+        Me.gbPrint = New System.Windows.Forms.GroupBox()
+        Me.btnpplt = New System.Windows.Forms.Button()
         Me.gb.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gbDiscount.SuspendLayout()
+        Me.gbOrders.SuspendLayout()
+        Me.gbItem.SuspendLayout()
+        Me.gbPrint.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -81,21 +89,11 @@ Partial Class OrderForm
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Pet Cafe Shop"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(41, 61)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 38)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Order"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(415, 112)
+        Me.Label3.Location = New System.Drawing.Point(18, 39)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 38)
         Me.Label3.TabIndex = 4
@@ -104,10 +102,10 @@ Partial Class OrderForm
         'rdoHot
         '
         Me.rdoHot.AutoSize = True
-        Me.rdoHot.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoHot.Location = New System.Drawing.Point(606, 119)
+        Me.rdoHot.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoHot.Location = New System.Drawing.Point(199, 44)
         Me.rdoHot.Name = "rdoHot"
-        Me.rdoHot.Size = New System.Drawing.Size(53, 26)
+        Me.rdoHot.Size = New System.Drawing.Size(60, 33)
         Me.rdoHot.TabIndex = 8
         Me.rdoHot.TabStop = True
         Me.rdoHot.Text = "Hot"
@@ -116,10 +114,10 @@ Partial Class OrderForm
         'rdoIce
         '
         Me.rdoIce.AutoSize = True
-        Me.rdoIce.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoIce.Location = New System.Drawing.Point(702, 119)
+        Me.rdoIce.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoIce.Location = New System.Drawing.Point(295, 44)
         Me.rdoIce.Name = "rdoIce"
-        Me.rdoIce.Size = New System.Drawing.Size(47, 26)
+        Me.rdoIce.Size = New System.Drawing.Size(53, 33)
         Me.rdoIce.TabIndex = 9
         Me.rdoIce.TabStop = True
         Me.rdoIce.Text = "Ice"
@@ -128,10 +126,10 @@ Partial Class OrderForm
         'rdoFrab
         '
         Me.rdoFrab.AutoSize = True
-        Me.rdoFrab.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoFrab.Location = New System.Drawing.Point(798, 119)
+        Me.rdoFrab.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoFrab.Location = New System.Drawing.Point(391, 44)
         Me.rdoFrab.Name = "rdoFrab"
-        Me.rdoFrab.Size = New System.Drawing.Size(72, 26)
+        Me.rdoFrab.Size = New System.Drawing.Size(86, 33)
         Me.rdoFrab.TabIndex = 10
         Me.rdoFrab.TabStop = True
         Me.rdoFrab.Text = "Frappe"
@@ -139,7 +137,8 @@ Partial Class OrderForm
         '
         'btnPn
         '
-        Me.btnPn.Location = New System.Drawing.Point(454, 623)
+        Me.btnPn.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPn.Location = New System.Drawing.Point(447, 664)
         Me.btnPn.Name = "btnPn"
         Me.btnPn.Size = New System.Drawing.Size(166, 55)
         Me.btnPn.TabIndex = 0
@@ -148,7 +147,9 @@ Partial Class OrderForm
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(798, 623)
+        Me.btnCancel.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Red
+        Me.btnCancel.Location = New System.Drawing.Point(791, 664)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(167, 55)
         Me.btnCancel.TabIndex = 11
@@ -158,10 +159,10 @@ Partial Class OrderForm
         'rdoFood
         '
         Me.rdoFood.AutoSize = True
-        Me.rdoFood.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoFood.Location = New System.Drawing.Point(606, 371)
+        Me.rdoFood.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoFood.Location = New System.Drawing.Point(199, 319)
         Me.rdoFood.Name = "rdoFood"
-        Me.rdoFood.Size = New System.Drawing.Size(62, 26)
+        Me.rdoFood.Size = New System.Drawing.Size(71, 33)
         Me.rdoFood.TabIndex = 18
         Me.rdoFood.TabStop = True
         Me.rdoFood.Text = "Food"
@@ -171,7 +172,7 @@ Partial Class OrderForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(416, 369)
+        Me.Label4.Location = New System.Drawing.Point(18, 314)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(69, 38)
         Me.Label4.TabIndex = 19
@@ -180,7 +181,10 @@ Partial Class OrderForm
         'flpnDrink
         '
         Me.flpnDrink.AutoScroll = True
-        Me.flpnDrink.Location = New System.Drawing.Point(423, 153)
+        Me.flpnDrink.BackColor = System.Drawing.SystemColors.Control
+        Me.flpnDrink.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.flpnDrink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.flpnDrink.Location = New System.Drawing.Point(16, 78)
         Me.flpnDrink.Name = "flpnDrink"
         Me.flpnDrink.Size = New System.Drawing.Size(579, 213)
         Me.flpnDrink.TabIndex = 20
@@ -188,7 +192,10 @@ Partial Class OrderForm
         'flpnbuttonFood
         '
         Me.flpnbuttonFood.AutoScroll = True
-        Me.flpnbuttonFood.Location = New System.Drawing.Point(422, 405)
+        Me.flpnbuttonFood.BackColor = System.Drawing.SystemColors.Control
+        Me.flpnbuttonFood.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.flpnbuttonFood.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.flpnbuttonFood.Location = New System.Drawing.Point(15, 353)
         Me.flpnbuttonFood.Name = "flpnbuttonFood"
         Me.flpnbuttonFood.Size = New System.Drawing.Size(580, 213)
         Me.flpnbuttonFood.TabIndex = 21
@@ -196,7 +203,9 @@ Partial Class OrderForm
         'flpnOrders
         '
         Me.flpnOrders.AutoScroll = True
-        Me.flpnOrders.Location = New System.Drawing.Point(55, 213)
+        Me.flpnOrders.BackColor = System.Drawing.SystemColors.Control
+        Me.flpnOrders.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.flpnOrders.Location = New System.Drawing.Point(21, 131)
         Me.flpnOrders.Name = "flpnOrders"
         Me.flpnOrders.Size = New System.Drawing.Size(362, 395)
         Me.flpnOrders.TabIndex = 22
@@ -205,7 +214,7 @@ Partial Class OrderForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(97, 171)
+        Me.Label5.Location = New System.Drawing.Point(63, 89)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 33)
         Me.Label5.TabIndex = 23
@@ -213,21 +222,21 @@ Partial Class OrderForm
         '
         'txtTable
         '
-        Me.txtTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTable.Location = New System.Drawing.Point(186, 176)
+        Me.txtTable.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTable.Location = New System.Drawing.Point(152, 94)
         Me.txtTable.Name = "txtTable"
         Me.txtTable.ReadOnly = True
-        Me.txtTable.Size = New System.Drawing.Size(185, 26)
+        Me.txtTable.Size = New System.Drawing.Size(185, 25)
         Me.txtTable.TabIndex = 24
         Me.txtTable.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtInvoice
         '
-        Me.txtInvoice.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInvoice.Location = New System.Drawing.Point(186, 143)
+        Me.txtInvoice.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtInvoice.Location = New System.Drawing.Point(152, 61)
         Me.txtInvoice.Name = "txtInvoice"
         Me.txtInvoice.ReadOnly = True
-        Me.txtInvoice.Size = New System.Drawing.Size(185, 26)
+        Me.txtInvoice.Size = New System.Drawing.Size(185, 25)
         Me.txtInvoice.TabIndex = 26
         Me.txtInvoice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -235,7 +244,7 @@ Partial Class OrderForm
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(97, 138)
+        Me.Label6.Location = New System.Drawing.Point(63, 56)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(83, 33)
         Me.Label6.TabIndex = 25
@@ -243,11 +252,11 @@ Partial Class OrderForm
         '
         'txtSeller
         '
-        Me.txtSeller.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSeller.Location = New System.Drawing.Point(186, 110)
+        Me.txtSeller.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSeller.Location = New System.Drawing.Point(152, 28)
         Me.txtSeller.Name = "txtSeller"
         Me.txtSeller.ReadOnly = True
-        Me.txtSeller.Size = New System.Drawing.Size(185, 26)
+        Me.txtSeller.Size = New System.Drawing.Size(185, 25)
         Me.txtSeller.TabIndex = 28
         Me.txtSeller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -255,7 +264,7 @@ Partial Class OrderForm
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(97, 105)
+        Me.Label7.Location = New System.Drawing.Point(63, 23)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 33)
         Me.Label7.TabIndex = 27
@@ -263,11 +272,11 @@ Partial Class OrderForm
         '
         'txtTotalDollar
         '
-        Me.txtTotalDollar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalDollar.Location = New System.Drawing.Point(205, 616)
+        Me.txtTotalDollar.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalDollar.Location = New System.Drawing.Point(180, 560)
         Me.txtTotalDollar.Name = "txtTotalDollar"
         Me.txtTotalDollar.ReadOnly = True
-        Me.txtTotalDollar.Size = New System.Drawing.Size(185, 26)
+        Me.txtTotalDollar.Size = New System.Drawing.Size(185, 25)
         Me.txtTotalDollar.TabIndex = 34
         Me.txtTotalDollar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -275,7 +284,7 @@ Partial Class OrderForm
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(57, 611)
+        Me.Label8.Location = New System.Drawing.Point(32, 555)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(142, 33)
         Me.Label8.TabIndex = 33
@@ -283,11 +292,11 @@ Partial Class OrderForm
         '
         'txtTotalRiel
         '
-        Me.txtTotalRiel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalRiel.Location = New System.Drawing.Point(205, 652)
+        Me.txtTotalRiel.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalRiel.Location = New System.Drawing.Point(180, 596)
         Me.txtTotalRiel.Name = "txtTotalRiel"
         Me.txtTotalRiel.ReadOnly = True
-        Me.txtTotalRiel.Size = New System.Drawing.Size(185, 26)
+        Me.txtTotalRiel.Size = New System.Drawing.Size(185, 25)
         Me.txtTotalRiel.TabIndex = 32
         Me.txtTotalRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -295,7 +304,7 @@ Partial Class OrderForm
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(57, 647)
+        Me.Label9.Location = New System.Drawing.Point(32, 591)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(144, 33)
         Me.Label9.TabIndex = 31
@@ -311,9 +320,9 @@ Partial Class OrderForm
         Me.gb.Controls.Add(Me.Label11)
         Me.gb.Controls.Add(Me.Label10)
         Me.gb.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gb.Location = New System.Drawing.Point(1029, 330)
+        Me.gb.Location = New System.Drawing.Point(1049, 203)
         Me.gb.Name = "gb"
-        Me.gb.Size = New System.Drawing.Size(293, 120)
+        Me.gb.Size = New System.Drawing.Size(293, 142)
         Me.gb.TabIndex = 35
         Me.gb.TabStop = False
         Me.gb.Text = "Receive-Money"
@@ -330,10 +339,10 @@ Partial Class OrderForm
         '
         'txtRmr
         '
-        Me.txtRmr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRmr.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRmr.Location = New System.Drawing.Point(112, 78)
         Me.txtRmr.Name = "txtRmr"
-        Me.txtRmr.Size = New System.Drawing.Size(175, 26)
+        Me.txtRmr.Size = New System.Drawing.Size(175, 25)
         Me.txtRmr.TabIndex = 7
         Me.txtRmr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -349,10 +358,10 @@ Partial Class OrderForm
         '
         'txtRmd
         '
-        Me.txtRmd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRmd.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRmd.Location = New System.Drawing.Point(112, 41)
         Me.txtRmd.Name = "txtRmd"
-        Me.txtRmd.Size = New System.Drawing.Size(175, 26)
+        Me.txtRmd.Size = New System.Drawing.Size(175, 25)
         Me.txtRmd.TabIndex = 7
         Me.txtRmd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -386,9 +395,9 @@ Partial Class OrderForm
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(1029, 464)
+        Me.GroupBox1.Location = New System.Drawing.Point(1049, 353)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(293, 120)
+        Me.GroupBox1.Size = New System.Drawing.Size(293, 142)
         Me.GroupBox1.TabIndex = 36
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Change-Money"
@@ -405,11 +414,11 @@ Partial Class OrderForm
         '
         'txtCmr
         '
-        Me.txtCmr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCmr.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCmr.Location = New System.Drawing.Point(112, 78)
         Me.txtCmr.Name = "txtCmr"
         Me.txtCmr.ReadOnly = True
-        Me.txtCmr.Size = New System.Drawing.Size(175, 26)
+        Me.txtCmr.Size = New System.Drawing.Size(175, 25)
         Me.txtCmr.TabIndex = 7
         Me.txtCmr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -425,11 +434,11 @@ Partial Class OrderForm
         '
         'txtCmd
         '
-        Me.txtCmd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCmd.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCmd.Location = New System.Drawing.Point(112, 41)
         Me.txtCmd.Name = "txtCmd"
         Me.txtCmd.ReadOnly = True
-        Me.txtCmd.Size = New System.Drawing.Size(175, 26)
+        Me.txtCmd.Size = New System.Drawing.Size(175, 25)
         Me.txtCmd.TabIndex = 7
         Me.txtCmd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -460,9 +469,9 @@ Partial Class OrderForm
         Me.gbDiscount.Controls.Add(Me.txtDiscount)
         Me.gbDiscount.Controls.Add(Me.Label15)
         Me.gbDiscount.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbDiscount.Location = New System.Drawing.Point(1029, 236)
+        Me.gbDiscount.Location = New System.Drawing.Point(1049, 86)
         Me.gbDiscount.Name = "gbDiscount"
-        Me.gbDiscount.Size = New System.Drawing.Size(293, 89)
+        Me.gbDiscount.Size = New System.Drawing.Size(293, 111)
         Me.gbDiscount.TabIndex = 37
         Me.gbDiscount.TabStop = False
         Me.gbDiscount.Text = "Discount"
@@ -479,10 +488,10 @@ Partial Class OrderForm
         '
         'txtDiscount
         '
-        Me.txtDiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscount.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDiscount.Location = New System.Drawing.Point(112, 41)
         Me.txtDiscount.Name = "txtDiscount"
-        Me.txtDiscount.Size = New System.Drawing.Size(175, 26)
+        Me.txtDiscount.Size = New System.Drawing.Size(175, 25)
         Me.txtDiscount.TabIndex = 7
         Me.txtDiscount.Text = "0"
         Me.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -501,7 +510,7 @@ Partial Class OrderForm
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(365, 649)
+        Me.Label19.Location = New System.Drawing.Point(340, 593)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(25, 29)
         Me.Label19.TabIndex = 47
@@ -511,7 +520,7 @@ Partial Class OrderForm
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Mistral", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(367, 615)
+        Me.Label20.Location = New System.Drawing.Point(342, 559)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(23, 29)
         Me.Label20.TabIndex = 46
@@ -519,46 +528,116 @@ Partial Class OrderForm
         '
         'btnPlt
         '
-        Me.btnPlt.Location = New System.Drawing.Point(626, 623)
+        Me.btnPlt.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPlt.Location = New System.Drawing.Point(619, 664)
         Me.btnPlt.Name = "btnPlt"
         Me.btnPlt.Size = New System.Drawing.Size(166, 55)
         Me.btnPlt.TabIndex = 48
         Me.btnPlt.Text = "Pay-Latter"
         Me.btnPlt.UseVisualStyleBackColor = True
         '
+        'btnuplt
+        '
+        Me.btnuplt.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnuplt.Location = New System.Drawing.Point(619, 664)
+        Me.btnuplt.Name = "btnuplt"
+        Me.btnuplt.Size = New System.Drawing.Size(166, 55)
+        Me.btnuplt.TabIndex = 49
+        Me.btnuplt.Text = "Update-Pay-Latter"
+        Me.btnuplt.UseVisualStyleBackColor = True
+        '
+        'btnupn
+        '
+        Me.btnupn.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnupn.Location = New System.Drawing.Point(447, 664)
+        Me.btnupn.Name = "btnupn"
+        Me.btnupn.Size = New System.Drawing.Size(166, 55)
+        Me.btnupn.TabIndex = 50
+        Me.btnupn.Text = "Update-Pay-Now"
+        Me.btnupn.UseVisualStyleBackColor = True
+        '
+        'gbOrders
+        '
+        Me.gbOrders.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbOrders.Controls.Add(Me.flpnOrders)
+        Me.gbOrders.Controls.Add(Me.Label5)
+        Me.gbOrders.Controls.Add(Me.txtTable)
+        Me.gbOrders.Controls.Add(Me.Label6)
+        Me.gbOrders.Controls.Add(Me.Label19)
+        Me.gbOrders.Controls.Add(Me.txtInvoice)
+        Me.gbOrders.Controls.Add(Me.Label7)
+        Me.gbOrders.Controls.Add(Me.Label20)
+        Me.gbOrders.Controls.Add(Me.txtSeller)
+        Me.gbOrders.Controls.Add(Me.txtTotalDollar)
+        Me.gbOrders.Controls.Add(Me.Label9)
+        Me.gbOrders.Controls.Add(Me.txtTotalRiel)
+        Me.gbOrders.Controls.Add(Me.Label8)
+        Me.gbOrders.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbOrders.Location = New System.Drawing.Point(7, 58)
+        Me.gbOrders.Name = "gbOrders"
+        Me.gbOrders.Size = New System.Drawing.Size(409, 663)
+        Me.gbOrders.TabIndex = 51
+        Me.gbOrders.TabStop = False
+        Me.gbOrders.Text = "Orders"
+        '
+        'gbItem
+        '
+        Me.gbItem.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbItem.Controls.Add(Me.flpnDrink)
+        Me.gbItem.Controls.Add(Me.Label3)
+        Me.gbItem.Controls.Add(Me.rdoHot)
+        Me.gbItem.Controls.Add(Me.rdoIce)
+        Me.gbItem.Controls.Add(Me.rdoFrab)
+        Me.gbItem.Controls.Add(Me.rdoFood)
+        Me.gbItem.Controls.Add(Me.Label4)
+        Me.gbItem.Controls.Add(Me.flpnbuttonFood)
+        Me.gbItem.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbItem.Location = New System.Drawing.Point(422, 78)
+        Me.gbItem.Name = "gbItem"
+        Me.gbItem.Size = New System.Drawing.Size(601, 582)
+        Me.gbItem.TabIndex = 52
+        Me.gbItem.TabStop = False
+        Me.gbItem.Text = "Item"
+        '
+        'gbPrint
+        '
+        Me.gbPrint.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.gbPrint.Controls.Add(Me.btnpplt)
+        Me.gbPrint.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbPrint.Location = New System.Drawing.Point(1049, 501)
+        Me.gbPrint.Name = "gbPrint"
+        Me.gbPrint.Size = New System.Drawing.Size(293, 103)
+        Me.gbPrint.TabIndex = 53
+        Me.gbPrint.TabStop = False
+        Me.gbPrint.Text = "Print-Invoice"
+        '
+        'btnpplt
+        '
+        Me.btnpplt.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpplt.Location = New System.Drawing.Point(66, 39)
+        Me.btnpplt.Name = "btnpplt"
+        Me.btnpplt.Size = New System.Drawing.Size(166, 55)
+        Me.btnpplt.TabIndex = 52
+        Me.btnpplt.Text = "Print-Pay-Latter"
+        Me.btnpplt.UseVisualStyleBackColor = True
+        '
         'OrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.Controls.Add(Me.gbPrint)
+        Me.Controls.Add(Me.gbItem)
+        Me.Controls.Add(Me.gbOrders)
+        Me.Controls.Add(Me.btnupn)
+        Me.Controls.Add(Me.btnuplt)
         Me.Controls.Add(Me.btnPlt)
-        Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.gbDiscount)
-        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gb)
-        Me.Controls.Add(Me.txtTotalDollar)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txtTotalRiel)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtSeller)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtInvoice)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtTable)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.flpnOrders)
-        Me.Controls.Add(Me.flpnbuttonFood)
-        Me.Controls.Add(Me.flpnDrink)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.rdoFood)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnPn)
-        Me.Controls.Add(Me.rdoFrab)
-        Me.Controls.Add(Me.rdoIce)
-        Me.Controls.Add(Me.rdoHot)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "OrderForm"
         Me.Text = "OrderForm"
@@ -568,12 +647,16 @@ Partial Class OrderForm
         Me.GroupBox1.PerformLayout()
         Me.gbDiscount.ResumeLayout(False)
         Me.gbDiscount.PerformLayout()
+        Me.gbOrders.ResumeLayout(False)
+        Me.gbOrders.PerformLayout()
+        Me.gbItem.ResumeLayout(False)
+        Me.gbItem.PerformLayout()
+        Me.gbPrint.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents rdoHot As System.Windows.Forms.RadioButton
     Friend WithEvents rdoIce As System.Windows.Forms.RadioButton
@@ -616,4 +699,10 @@ Partial Class OrderForm
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents btnPlt As System.Windows.Forms.Button
+    Friend WithEvents btnuplt As System.Windows.Forms.Button
+    Friend WithEvents btnupn As System.Windows.Forms.Button
+    Friend WithEvents gbOrders As System.Windows.Forms.GroupBox
+    Friend WithEvents gbItem As System.Windows.Forms.GroupBox
+    Friend WithEvents gbPrint As System.Windows.Forms.GroupBox
+    Friend WithEvents btnpplt As System.Windows.Forms.Button
 End Class
