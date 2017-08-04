@@ -16,6 +16,7 @@
     End Sub
 
     Private Sub Choose_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoginForm.Close()
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
     End Sub
 

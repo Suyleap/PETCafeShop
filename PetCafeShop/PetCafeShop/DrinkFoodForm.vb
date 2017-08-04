@@ -3,7 +3,8 @@
     Private DFC As New DrinkFoodClass
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        OrderForm.Show()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
         Me.Hide()
     End Sub
@@ -99,6 +100,7 @@
     End Sub
 
     Private Sub DrinkFoodForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TableForm.Close()
         rdoHot.Checked = True
         Me.Refresh()
         Me.ShowInsert()

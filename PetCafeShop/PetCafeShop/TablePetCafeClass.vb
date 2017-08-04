@@ -111,8 +111,6 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
-        '   con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
-        '   con.UseDatabase(con.SQLs)
         Insert_into_Preorder(tablenumber.Name)
         Try
             con.SQLs = "Select * from Orders where Table=" & Convert.ToInt16(tablenumber.Name) & " and Pay=" & False & ""
@@ -168,7 +166,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-<<<<<<< HEAD
+
     Public Function AutoGenerateTableID() As String
         Try
             Dim StringID As String
@@ -190,7 +188,5 @@
         End Try
         Return TableID
     End Function
-=======
 
->>>>>>> 92f3d9898cb31d232fd43547f05ac1c6c0f671cf
 End Class

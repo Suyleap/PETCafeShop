@@ -40,26 +40,32 @@ Partial Class DrinkFoodForm
         Me.dtg = New System.Windows.Forms.DataGridView()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.rdoFood = New System.Windows.Forms.RadioButton()
+        Me.gbItem = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbDrinkFood = New System.Windows.Forms.GroupBox()
         CType(Me.dtg, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbItem.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbDrinkFood.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Mistral", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(560, 9)
+        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(565, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 57)
+        Me.Label1.Size = New System.Drawing.Size(305, 50)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Pet Cafe Shop"
         '
         'rdoFrab
         '
         Me.rdoFrab.AutoSize = True
-        Me.rdoFrab.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoFrab.Location = New System.Drawing.Point(536, 158)
+        Me.rdoFrab.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoFrab.Location = New System.Drawing.Point(308, 55)
         Me.rdoFrab.Name = "rdoFrab"
-        Me.rdoFrab.Size = New System.Drawing.Size(95, 28)
+        Me.rdoFrab.Size = New System.Drawing.Size(88, 25)
         Me.rdoFrab.TabIndex = 3
         Me.rdoFrab.TabStop = True
         Me.rdoFrab.Text = "Frappe"
@@ -68,10 +74,10 @@ Partial Class DrinkFoodForm
         'rdoIce
         '
         Me.rdoIce.AutoSize = True
-        Me.rdoIce.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoIce.Location = New System.Drawing.Point(464, 158)
+        Me.rdoIce.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoIce.Location = New System.Drawing.Point(236, 55)
         Me.rdoIce.Name = "rdoIce"
-        Me.rdoIce.Size = New System.Drawing.Size(56, 28)
+        Me.rdoIce.Size = New System.Drawing.Size(55, 25)
         Me.rdoIce.TabIndex = 2
         Me.rdoIce.TabStop = True
         Me.rdoIce.Text = "Ice"
@@ -80,10 +86,10 @@ Partial Class DrinkFoodForm
         'rdoHot
         '
         Me.rdoHot.AutoSize = True
-        Me.rdoHot.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoHot.Location = New System.Drawing.Point(373, 158)
+        Me.rdoHot.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoHot.Location = New System.Drawing.Point(145, 55)
         Me.rdoHot.Name = "rdoHot"
-        Me.rdoHot.Size = New System.Drawing.Size(60, 28)
+        Me.rdoHot.Size = New System.Drawing.Size(61, 25)
         Me.rdoHot.TabIndex = 1
         Me.rdoHot.TabStop = True
         Me.rdoHot.Text = "Hot"
@@ -92,67 +98,70 @@ Partial Class DrinkFoodForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(260, 151)
+        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(32, 48)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 38)
+        Me.Label3.Size = New System.Drawing.Size(100, 34)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Drink"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(260, 209)
+        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(32, 106)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(42, 38)
+        Me.Label2.Size = New System.Drawing.Size(53, 34)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "ID"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(260, 267)
+        Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(32, 164)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 38)
+        Me.Label4.Size = New System.Drawing.Size(93, 34)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Name"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Mistral", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(260, 326)
+        Me.Label5.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(32, 223)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(73, 38)
+        Me.Label5.Size = New System.Drawing.Size(90, 34)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Price"
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(411, 223)
+        Me.txtID.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtID.Location = New System.Drawing.Point(177, 115)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(303, 20)
+        Me.txtID.Size = New System.Drawing.Size(303, 25)
         Me.txtID.TabIndex = 5
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(411, 281)
+        Me.txtName.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.Location = New System.Drawing.Point(177, 173)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(303, 20)
+        Me.txtName.Size = New System.Drawing.Size(303, 25)
         Me.txtName.TabIndex = 6
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(411, 340)
+        Me.txtPrice.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrice.Location = New System.Drawing.Point(177, 232)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(303, 20)
+        Me.txtPrice.Size = New System.Drawing.Size(303, 25)
         Me.txtPrice.TabIndex = 7
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(352, 446)
+        Me.btnAdd.Location = New System.Drawing.Point(52, 58)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(121, 54)
         Me.btnAdd.TabIndex = 8
@@ -161,7 +170,7 @@ Partial Class DrinkFoodForm
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(606, 446)
+        Me.btnClear.Location = New System.Drawing.Point(306, 58)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(121, 54)
         Me.btnClear.TabIndex = 10
@@ -170,7 +179,7 @@ Partial Class DrinkFoodForm
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(733, 446)
+        Me.btnDelete.Location = New System.Drawing.Point(433, 58)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(121, 54)
         Me.btnDelete.TabIndex = 11
@@ -179,24 +188,25 @@ Partial Class DrinkFoodForm
         '
         'btnBack
         '
-        Me.btnBack.Location = New System.Drawing.Point(860, 446)
+        Me.btnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnBack.Location = New System.Drawing.Point(560, 58)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(121, 54)
         Me.btnBack.TabIndex = 12
-        Me.btnBack.Text = "Back"
+        Me.btnBack.Text = "Close"
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'dtg
         '
         Me.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtg.Location = New System.Drawing.Point(734, 158)
+        Me.dtg.Location = New System.Drawing.Point(558, 55)
         Me.dtg.Name = "dtg"
-        Me.dtg.Size = New System.Drawing.Size(478, 244)
+        Me.dtg.Size = New System.Drawing.Size(493, 281)
         Me.dtg.TabIndex = 26
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(479, 446)
+        Me.btnUpdate.Location = New System.Drawing.Point(179, 58)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(121, 54)
         Me.btnUpdate.TabIndex = 9
@@ -206,41 +216,82 @@ Partial Class DrinkFoodForm
         'rdoFood
         '
         Me.rdoFood.AutoSize = True
-        Me.rdoFood.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdoFood.Location = New System.Drawing.Point(637, 158)
+        Me.rdoFood.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoFood.Location = New System.Drawing.Point(409, 55)
         Me.rdoFood.Name = "rdoFood"
-        Me.rdoFood.Size = New System.Drawing.Size(77, 28)
+        Me.rdoFood.Size = New System.Drawing.Size(71, 25)
         Me.rdoFood.TabIndex = 4
         Me.rdoFood.TabStop = True
         Me.rdoFood.Text = "Food"
         Me.rdoFood.UseVisualStyleBackColor = True
         '
+        'gbItem
+        '
+        Me.gbItem.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbItem.Controls.Add(Me.txtName)
+        Me.gbItem.Controls.Add(Me.rdoFood)
+        Me.gbItem.Controls.Add(Me.Label3)
+        Me.gbItem.Controls.Add(Me.rdoHot)
+        Me.gbItem.Controls.Add(Me.rdoIce)
+        Me.gbItem.Controls.Add(Me.rdoFrab)
+        Me.gbItem.Controls.Add(Me.Label2)
+        Me.gbItem.Controls.Add(Me.Label4)
+        Me.gbItem.Controls.Add(Me.Label5)
+        Me.gbItem.Controls.Add(Me.txtPrice)
+        Me.gbItem.Controls.Add(Me.txtID)
+        Me.gbItem.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbItem.Location = New System.Drawing.Point(41, 55)
+        Me.gbItem.Name = "gbItem"
+        Me.gbItem.Size = New System.Drawing.Size(511, 281)
+        Me.gbItem.TabIndex = 1
+        Me.gbItem.TabStop = False
+        Me.gbItem.Text = "Item"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.GroupBox1.Controls.Add(Me.btnBack)
+        Me.GroupBox1.Controls.Add(Me.btnAdd)
+        Me.GroupBox1.Controls.Add(Me.btnUpdate)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
+        Me.GroupBox1.Controls.Add(Me.btnDelete)
+        Me.GroupBox1.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(167, 356)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(731, 136)
+        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Activity"
+        '
+        'gbDrinkFood
+        '
+        Me.gbDrinkFood.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.gbDrinkFood.Controls.Add(Me.gbItem)
+        Me.gbDrinkFood.Controls.Add(Me.GroupBox1)
+        Me.gbDrinkFood.Controls.Add(Me.dtg)
+        Me.gbDrinkFood.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDrinkFood.Location = New System.Drawing.Point(149, 99)
+        Me.gbDrinkFood.Name = "gbDrinkFood"
+        Me.gbDrinkFood.Size = New System.Drawing.Size(1082, 514)
+        Me.gbDrinkFood.TabIndex = 29
+        Me.gbDrinkFood.TabStop = False
+        Me.gbDrinkFood.Text = "Drink-Food-Form"
+        '
         'DrinkFoodForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
-        Me.Controls.Add(Me.rdoFood)
-        Me.Controls.Add(Me.btnUpdate)
-        Me.Controls.Add(Me.dtg)
-        Me.Controls.Add(Me.btnBack)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.txtPrice)
-        Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.txtID)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.rdoFrab)
-        Me.Controls.Add(Me.rdoIce)
-        Me.Controls.Add(Me.rdoHot)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.gbDrinkFood)
         Me.Controls.Add(Me.Label1)
         Me.Name = "DrinkFoodForm"
         Me.Text = "DrinkForm"
         CType(Me.dtg, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbItem.ResumeLayout(False)
+        Me.gbItem.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.gbDrinkFood.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -263,4 +314,7 @@ Partial Class DrinkFoodForm
     Friend WithEvents dtg As System.Windows.Forms.DataGridView
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents rdoFood As System.Windows.Forms.RadioButton
+    Friend WithEvents gbItem As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents gbDrinkFood As System.Windows.Forms.GroupBox
 End Class

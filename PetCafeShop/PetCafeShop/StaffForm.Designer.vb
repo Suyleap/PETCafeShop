@@ -46,7 +46,6 @@ Partial Class StaffForm
         Me.txtSalary = New System.Windows.Forms.TextBox()
         Me.txtPosition = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -57,25 +56,32 @@ Partial Class StaffForm
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnUpdateAcc = New System.Windows.Forms.Button()
+        Me.gbStaffItem = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.gbButton = New System.Windows.Forms.GroupBox()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbStaffItem.SuspendLayout()
+        Me.gbButton.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvStaff
         '
         Me.dgvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvStaff.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvStaff.BackgroundColor = System.Drawing.SystemColors.ControlLight
         Me.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvStaff.Location = New System.Drawing.Point(12, 448)
+        Me.dgvStaff.Location = New System.Drawing.Point(12, 488)
         Me.dgvStaff.Name = "dgvStaff"
-        Me.dgvStaff.Size = New System.Drawing.Size(1338, 293)
+        Me.dgvStaff.Size = New System.Drawing.Size(1338, 241)
         Me.dgvStaff.TabIndex = 14
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(1164, 106)
+        Me.btnEdit.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.Location = New System.Drawing.Point(313, 45)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(176, 72)
-        Me.btnEdit.TabIndex = 16
+        Me.btnEdit.TabIndex = 13
         Me.btnEdit.Text = "EDIT"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -85,127 +91,127 @@ Partial Class StaffForm
         Me.cboGender.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGender.FormattingEnabled = True
         Me.cboGender.Items.AddRange(New Object() {"Female", "Male"})
-        Me.cboGender.Location = New System.Drawing.Point(136, 231)
+        Me.cboGender.Location = New System.Drawing.Point(140, 162)
         Me.cboGender.Name = "cboGender"
         Me.cboGender.Size = New System.Drawing.Size(235, 33)
-        Me.cboGender.TabIndex = 2
+        Me.cboGender.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(19, 104)
+        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 41)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(27, 22)
+        Me.Label1.Size = New System.Drawing.Size(36, 24)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "ID"
         '
         'txtID
         '
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID.Location = New System.Drawing.Point(136, 106)
+        Me.txtID.Location = New System.Drawing.Point(140, 37)
         Me.txtID.Name = "txtID"
         Me.txtID.ReadOnly = True
         Me.txtID.Size = New System.Drawing.Size(235, 30)
-        Me.txtID.TabIndex = 17
+        Me.txtID.TabIndex = 1
         '
         'dtpDOB
         '
         Me.dtpDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDOB.Location = New System.Drawing.Point(136, 288)
+        Me.dtpDOB.Location = New System.Drawing.Point(140, 220)
         Me.dtpDOB.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpDOB.Name = "dtpDOB"
         Me.dtpDOB.Size = New System.Drawing.Size(235, 30)
-        Me.dtpDOB.TabIndex = 3
+        Me.dtpDOB.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(409, 348)
+        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(413, 285)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(129, 22)
+        Me.Label2.Size = New System.Drawing.Size(154, 24)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Start Work day"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(409, 286)
+        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(413, 223)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 22)
+        Me.Label3.Size = New System.Drawing.Size(71, 24)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Salary"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(409, 164)
+        Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(413, 101)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 22)
+        Me.Label4.Size = New System.Drawing.Size(70, 24)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Email"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(409, 104)
+        Me.Label5.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(413, 41)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 22)
+        Me.Label5.Size = New System.Drawing.Size(69, 24)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Phone"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(19, 413)
+        Me.Label6.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(23, 350)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(76, 22)
+        Me.Label6.Size = New System.Drawing.Size(81, 24)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Address"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(19, 348)
+        Me.Label7.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(23, 285)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 22)
+        Me.Label7.Size = New System.Drawing.Size(44, 24)
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "Age"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(19, 289)
+        Me.Label8.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(23, 226)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 22)
+        Me.Label8.Size = New System.Drawing.Size(56, 24)
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "DOB"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(19, 229)
+        Me.Label9.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(23, 166)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(70, 22)
+        Me.Label9.Size = New System.Drawing.Size(75, 24)
         Me.Label9.TabIndex = 13
         Me.Label9.Text = "Gender"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(19, 164)
+        Me.Label10.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(23, 101)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(57, 22)
+        Me.Label10.Size = New System.Drawing.Size(63, 24)
         Me.Label10.TabIndex = 14
         Me.Label10.Text = "Name"
         '
@@ -213,137 +219,131 @@ Partial Class StaffForm
         '
         Me.dtpSWD.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpSWD.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpSWD.Location = New System.Drawing.Point(567, 350)
+        Me.dtpSWD.Location = New System.Drawing.Point(570, 279)
         Me.dtpSWD.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
         Me.dtpSWD.Name = "dtpSWD"
         Me.dtpSWD.Size = New System.Drawing.Size(200, 30)
-        Me.dtpSWD.TabIndex = 9
+        Me.dtpSWD.TabIndex = 11
         '
         'txtName
         '
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(136, 166)
+        Me.txtName.Location = New System.Drawing.Point(140, 97)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(235, 30)
-        Me.txtName.TabIndex = 1
+        Me.txtName.TabIndex = 2
         '
         'txtAge
         '
         Me.txtAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAge.Location = New System.Drawing.Point(136, 350)
+        Me.txtAge.Location = New System.Drawing.Point(140, 281)
         Me.txtAge.Name = "txtAge"
         Me.txtAge.ReadOnly = True
         Me.txtAge.Size = New System.Drawing.Size(235, 30)
-        Me.txtAge.TabIndex = 17
+        Me.txtAge.TabIndex = 5
         '
         'txtAddress
         '
         Me.txtAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(136, 415)
+        Me.txtAddress.Location = New System.Drawing.Point(140, 346)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(235, 30)
-        Me.txtAddress.TabIndex = 4
+        Me.txtAddress.TabIndex = 6
         '
         'txtPhone
         '
         Me.txtPhone.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPhone.Location = New System.Drawing.Point(567, 104)
+        Me.txtPhone.Location = New System.Drawing.Point(570, 37)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(200, 30)
-        Me.txtPhone.TabIndex = 5
+        Me.txtPhone.TabIndex = 7
         '
         'txtEmail
         '
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.Location = New System.Drawing.Point(567, 166)
+        Me.txtEmail.Location = New System.Drawing.Point(570, 97)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(200, 30)
-        Me.txtEmail.TabIndex = 6
+        Me.txtEmail.TabIndex = 8
         '
         'txtSalary
         '
         Me.txtSalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSalary.Location = New System.Drawing.Point(567, 286)
+        Me.txtSalary.Location = New System.Drawing.Point(570, 222)
         Me.txtSalary.Name = "txtSalary"
         Me.txtSalary.Size = New System.Drawing.Size(200, 30)
-        Me.txtSalary.TabIndex = 8
+        Me.txtSalary.TabIndex = 10
         '
         'txtPosition
         '
         Me.txtPosition.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPosition.Location = New System.Drawing.Point(567, 229)
+        Me.txtPosition.Location = New System.Drawing.Point(570, 162)
         Me.txtPosition.Name = "txtPosition"
         Me.txtPosition.Size = New System.Drawing.Size(200, 30)
-        Me.txtPosition.TabIndex = 7
+        Me.txtPosition.TabIndex = 9
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(409, 229)
+        Me.Label11.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(413, 166)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(74, 22)
+        Me.Label11.Size = New System.Drawing.Size(88, 24)
         Me.Label11.TabIndex = 22
         Me.Label11.Text = "Position"
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(596, 35)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(329, 46)
-        Me.Label12.TabIndex = 24
-        Me.Label12.Text = "Staff Information"
-        '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(875, 104)
+        Me.btnAdd.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(24, 43)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(175, 70)
-        Me.btnAdd.TabIndex = 10
+        Me.btnAdd.TabIndex = 12
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(875, 212)
+        Me.btnDelete.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(24, 151)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(175, 68)
-        Me.btnDelete.TabIndex = 12
+        Me.btnDelete.TabIndex = 14
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(1164, 212)
+        Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClose.Location = New System.Drawing.Point(313, 151)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(176, 68)
-        Me.btnClose.TabIndex = 26
+        Me.btnClose.TabIndex = 15
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(1000, 388)
+        Me.txtSearch.Location = New System.Drawing.Point(149, 327)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(200, 30)
-        Me.txtSearch.TabIndex = 15
+        Me.txtSearch.TabIndex = 17
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(901, 395)
+        Me.Label13.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(50, 334)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(67, 22)
+        Me.Label13.Size = New System.Drawing.Size(73, 24)
         Me.Label13.TabIndex = 29
         Me.Label13.Text = "Search"
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(1206, 378)
+        Me.btnSearch.Location = New System.Drawing.Point(355, 317)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(144, 56)
         Me.btnSearch.TabIndex = 31
@@ -352,16 +352,18 @@ Partial Class StaffForm
         '
         'btnDS
         '
-        Me.btnDS.Location = New System.Drawing.Point(1206, 378)
+        Me.btnDS.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDS.Location = New System.Drawing.Point(355, 317)
         Me.btnDS.Name = "btnDS"
         Me.btnDS.Size = New System.Drawing.Size(144, 56)
-        Me.btnDS.TabIndex = 15
+        Me.btnDS.TabIndex = 18
         Me.btnDS.Text = "Disable Search"
         Me.btnDS.UseVisualStyleBackColor = True
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(1164, 107)
+        Me.btnUpdate.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Location = New System.Drawing.Point(313, 46)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(176, 70)
         Me.btnUpdate.TabIndex = 11
@@ -370,7 +372,8 @@ Partial Class StaffForm
         '
         'btnNew
         '
-        Me.btnNew.Location = New System.Drawing.Point(1024, 300)
+        Me.btnNew.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Location = New System.Drawing.Point(173, 239)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(176, 70)
         Me.btnNew.TabIndex = 32
@@ -379,58 +382,98 @@ Partial Class StaffForm
         '
         'btnUpdateAcc
         '
-        Me.btnUpdateAcc.Location = New System.Drawing.Point(1024, 300)
+        Me.btnUpdateAcc.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdateAcc.Location = New System.Drawing.Point(173, 239)
         Me.btnUpdateAcc.Name = "btnUpdateAcc"
         Me.btnUpdateAcc.Size = New System.Drawing.Size(176, 70)
-        Me.btnUpdateAcc.TabIndex = 33
+        Me.btnUpdateAcc.TabIndex = 16
         Me.btnUpdateAcc.Text = "UPDATE ACCOUNT"
         Me.btnUpdateAcc.UseVisualStyleBackColor = True
+        '
+        'gbStaffItem
+        '
+        Me.gbStaffItem.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbStaffItem.Controls.Add(Me.txtID)
+        Me.gbStaffItem.Controls.Add(Me.cboGender)
+        Me.gbStaffItem.Controls.Add(Me.Label1)
+        Me.gbStaffItem.Controls.Add(Me.dtpDOB)
+        Me.gbStaffItem.Controls.Add(Me.Label2)
+        Me.gbStaffItem.Controls.Add(Me.Label3)
+        Me.gbStaffItem.Controls.Add(Me.Label4)
+        Me.gbStaffItem.Controls.Add(Me.Label5)
+        Me.gbStaffItem.Controls.Add(Me.Label6)
+        Me.gbStaffItem.Controls.Add(Me.Label7)
+        Me.gbStaffItem.Controls.Add(Me.Label8)
+        Me.gbStaffItem.Controls.Add(Me.txtPosition)
+        Me.gbStaffItem.Controls.Add(Me.Label9)
+        Me.gbStaffItem.Controls.Add(Me.Label11)
+        Me.gbStaffItem.Controls.Add(Me.Label10)
+        Me.gbStaffItem.Controls.Add(Me.txtSalary)
+        Me.gbStaffItem.Controls.Add(Me.dtpSWD)
+        Me.gbStaffItem.Controls.Add(Me.txtEmail)
+        Me.gbStaffItem.Controls.Add(Me.txtName)
+        Me.gbStaffItem.Controls.Add(Me.txtPhone)
+        Me.gbStaffItem.Controls.Add(Me.txtAge)
+        Me.gbStaffItem.Controls.Add(Me.txtAddress)
+        Me.gbStaffItem.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbStaffItem.Location = New System.Drawing.Point(12, 101)
+        Me.gbStaffItem.Name = "gbStaffItem"
+        Me.gbStaffItem.Size = New System.Drawing.Size(791, 381)
+        Me.gbStaffItem.TabIndex = 34
+        Me.gbStaffItem.TabStop = False
+        Me.gbStaffItem.Text = "Staff Register"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Modern No. 20", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(538, 9)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(305, 50)
+        Me.Label12.TabIndex = 35
+        Me.Label12.Text = "Pet Cafe Shop"
+        '
+        'gbButton
+        '
+        Me.gbButton.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.gbButton.Controls.Add(Me.btnAdd)
+        Me.gbButton.Controls.Add(Me.btnEdit)
+        Me.gbButton.Controls.Add(Me.btnClose)
+        Me.gbButton.Controls.Add(Me.btnUpdateAcc)
+        Me.gbButton.Controls.Add(Me.btnDelete)
+        Me.gbButton.Controls.Add(Me.btnNew)
+        Me.gbButton.Controls.Add(Me.Label13)
+        Me.gbButton.Controls.Add(Me.btnUpdate)
+        Me.gbButton.Controls.Add(Me.txtSearch)
+        Me.gbButton.Controls.Add(Me.btnDS)
+        Me.gbButton.Controls.Add(Me.btnSearch)
+        Me.gbButton.Font = New System.Drawing.Font("Modern No. 20", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbButton.Location = New System.Drawing.Point(837, 94)
+        Me.gbButton.Name = "gbButton"
+        Me.gbButton.Size = New System.Drawing.Size(513, 388)
+        Me.gbButton.TabIndex = 12
+        Me.gbButton.TabStop = False
+        Me.gbButton.Text = "Activity"
         '
         'StaffForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1362, 741)
         Me.ControlBox = False
-        Me.Controls.Add(Me.btnUpdateAcc)
-        Me.Controls.Add(Me.btnNew)
-        Me.Controls.Add(Me.btnUpdate)
-        Me.Controls.Add(Me.btnDS)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.btnAdd)
+        Me.Controls.Add(Me.gbButton)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.txtPosition)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txtSalary)
-        Me.Controls.Add(Me.txtEmail)
-        Me.Controls.Add(Me.txtPhone)
-        Me.Controls.Add(Me.txtAddress)
-        Me.Controls.Add(Me.txtAge)
-        Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.dtpSWD)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.dtpDOB)
-        Me.Controls.Add(Me.txtID)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cboGender)
-        Me.Controls.Add(Me.btnEdit)
+        Me.Controls.Add(Me.gbStaffItem)
         Me.Controls.Add(Me.dgvStaff)
         Me.Name = "StaffForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StaffForm"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbStaffItem.ResumeLayout(False)
+        Me.gbStaffItem.PerformLayout()
+        Me.gbButton.ResumeLayout(False)
+        Me.gbButton.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -461,7 +504,6 @@ Partial Class StaffForm
     Friend WithEvents txtSalary As System.Windows.Forms.TextBox
     Friend WithEvents txtPosition As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnClose As System.Windows.Forms.Button
@@ -472,4 +514,7 @@ Partial Class StaffForm
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnNew As System.Windows.Forms.Button
     Friend WithEvents btnUpdateAcc As System.Windows.Forms.Button
+    Friend WithEvents gbStaffItem As System.Windows.Forms.GroupBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents gbButton As System.Windows.Forms.GroupBox
 End Class

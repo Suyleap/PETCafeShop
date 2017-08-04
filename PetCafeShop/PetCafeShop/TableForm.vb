@@ -5,17 +5,16 @@ Public Class TableForm
     Private con As New ConnectionDBPetCafe
 
     Private Sub TableForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Choose.Close()
         flpnTable.Controls.Clear() '
         flpnTable.Controls.Add(tbpcc.ShowTableButton())
         Me.Refresh()
-<<<<<<< HEAD
         txtID.ReadOnly = True
         txtID.Text = tbpcc.AutoGenerateTableID()
-        Me.StartPosition = FormStartPosition.CenterScreen
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
-=======
+        Me.Location = New Point(0, 0)
+        Me.Size = SystemInformation.PrimaryMonitorSize
         gbtable.Enabled = False
->>>>>>> 92f3d9898cb31d232fd43547f05ac1c6c0f671cf
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -36,5 +35,10 @@ Public Class TableForm
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         gbtable.Enabled = True
+    End Sub
+
+    Private Sub btnDrinkFood_Click(sender As Object, e As EventArgs) Handles btnDrinkFood.Click
+        Me.Close()
+        DrinkFoodForm.Show()
     End Sub
 End Class
