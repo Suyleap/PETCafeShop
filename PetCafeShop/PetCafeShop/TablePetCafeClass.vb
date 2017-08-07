@@ -168,7 +168,6 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-<<<<<<< HEAD
     Public Function AutoGenerateTableID() As String
         Try
             Dim StringID As String
@@ -190,7 +189,5 @@
         End Try
         Return TableID
     End Function
-=======
 
->>>>>>> 92f3d9898cb31d232fd43547f05ac1c6c0f671cf
 End Class
