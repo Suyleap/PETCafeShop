@@ -39,7 +39,7 @@ Partial Class Update_Account
         Me.btnClose.Location = New System.Drawing.Point(292, 281)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(147, 56)
-        Me.btnClose.TabIndex = 17
+        Me.btnClose.TabIndex = 5
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -49,7 +49,7 @@ Partial Class Update_Account
         Me.txtConfirm.Location = New System.Drawing.Point(198, 214)
         Me.txtConfirm.Name = "txtConfirm"
         Me.txtConfirm.Size = New System.Drawing.Size(241, 30)
-        Me.txtConfirm.TabIndex = 16
+        Me.txtConfirm.TabIndex = 3
         '
         'txtPassword
         '
@@ -57,7 +57,7 @@ Partial Class Update_Account
         Me.txtPassword.Location = New System.Drawing.Point(198, 148)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(241, 30)
-        Me.txtPassword.TabIndex = 15
+        Me.txtPassword.TabIndex = 2
         '
         'Label4
         '
@@ -95,7 +95,7 @@ Partial Class Update_Account
         Me.btnOK.Location = New System.Drawing.Point(40, 281)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(151, 56)
-        Me.btnOK.TabIndex = 11
+        Me.btnOK.TabIndex = 4
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -105,7 +105,7 @@ Partial Class Update_Account
         Me.txtUserName.Location = New System.Drawing.Point(198, 82)
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Size = New System.Drawing.Size(241, 30)
-        Me.txtUserName.TabIndex = 10
+        Me.txtUserName.TabIndex = 1
         '
         'Label1
         '

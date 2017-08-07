@@ -57,7 +57,7 @@ Partial Class CreateAcc
         Me.btnOK.Location = New System.Drawing.Point(41, 281)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(151, 56)
-        Me.btnOK.TabIndex = 2
+        Me.btnOK.TabIndex = 4
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -97,7 +97,7 @@ Partial Class CreateAcc
         Me.txtPassword.Location = New System.Drawing.Point(199, 148)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(241, 30)
-        Me.txtPassword.TabIndex = 6
+        Me.txtPassword.TabIndex = 2
         '
         'txtConfirm
         '
@@ -105,15 +105,16 @@ Partial Class CreateAcc
         Me.txtConfirm.Location = New System.Drawing.Point(199, 214)
         Me.txtConfirm.Name = "txtConfirm"
         Me.txtConfirm.Size = New System.Drawing.Size(241, 30)
-        Me.txtConfirm.TabIndex = 7
+        Me.txtConfirm.TabIndex = 3
         '
         'btnClose
         '
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.Location = New System.Drawing.Point(293, 281)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(147, 56)
-        Me.btnClose.TabIndex = 8
+        Me.btnClose.TabIndex = 5
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '

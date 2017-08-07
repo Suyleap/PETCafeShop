@@ -34,6 +34,7 @@ Partial Class TableForm
         Me.gbtable = New System.Windows.Forms.GroupBox()
         Me.gbTablelable = New System.Windows.Forms.GroupBox()
         Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnDrinkFood = New System.Windows.Forms.Button()
         Me.gbtable.SuspendLayout()
         Me.gbTablelable.SuspendLayout()
         Me.SuspendLayout()
@@ -41,10 +42,10 @@ Partial Class TableForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Mistral", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(537, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 57)
+        Me.Label1.Size = New System.Drawing.Size(305, 50)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Pet Cafe Shop"
         '
@@ -61,7 +62,7 @@ Partial Class TableForm
         Me.btnAdd.Location = New System.Drawing.Point(6, 140)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(170, 61)
-        Me.btnAdd.TabIndex = 15
+        Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
@@ -72,7 +73,7 @@ Partial Class TableForm
         Me.txtID.Multiline = True
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(182, 29)
-        Me.txtID.TabIndex = 16
+        Me.txtID.TabIndex = 5
         '
         'Label3
         '
@@ -101,16 +102,16 @@ Partial Class TableForm
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(182, 29)
-        Me.txtName.TabIndex = 18
+        Me.txtName.TabIndex = 6
         '
         'btnClose
         '
-        Me.btnClose.Font = New System.Drawing.Font("Mistral", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(1044, 413)
+        Me.btnClose.Location = New System.Drawing.Point(1042, 413)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(170, 63)
-        Me.btnClose.TabIndex = 22
+        Me.btnClose.TabIndex = 3
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -119,7 +120,7 @@ Partial Class TableForm
         Me.btnDelete.Location = New System.Drawing.Point(259, 140)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(170, 61)
-        Me.btnDelete.TabIndex = 21
+        Me.btnDelete.TabIndex = 8
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
@@ -132,11 +133,11 @@ Partial Class TableForm
         Me.gbtable.Controls.Add(Me.Label3)
         Me.gbtable.Controls.Add(Me.Label4)
         Me.gbtable.Controls.Add(Me.txtName)
-        Me.gbtable.Font = New System.Drawing.Font("Mistral", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbtable.Font = New System.Drawing.Font("Modern No. 20", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbtable.Location = New System.Drawing.Point(907, 112)
         Me.gbtable.Name = "gbtable"
         Me.gbtable.Size = New System.Drawing.Size(435, 226)
-        Me.gbtable.TabIndex = 23
+        Me.gbtable.TabIndex = 4
         Me.gbtable.TabStop = False
         Me.gbtable.Text = "Add-Table"
         '
@@ -154,24 +155,40 @@ Partial Class TableForm
         '
         'btnNew
         '
-        Me.btnNew.Font = New System.Drawing.Font("Mistral", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNew.ForeColor = System.Drawing.Color.Green
-        Me.btnNew.Location = New System.Drawing.Point(1044, 344)
+        Me.btnNew.Location = New System.Drawing.Point(913, 344)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(170, 63)
-        Me.btnNew.TabIndex = 25
+        Me.btnNew.TabIndex = 1
         Me.btnNew.Text = "NEW"
         Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnDrinkFood
+        '
+        Me.btnDrinkFood.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDrinkFood.ForeColor = System.Drawing.Color.Green
+        Me.btnDrinkFood.Location = New System.Drawing.Point(1134, 344)
+        Me.btnDrinkFood.Name = "btnDrinkFood"
+        Me.btnDrinkFood.Size = New System.Drawing.Size(208, 63)
+        Me.btnDrinkFood.TabIndex = 2
+        Me.btnDrinkFood.Text = "Add-Drink-Food"
+        Me.btnDrinkFood.UseVisualStyleBackColor = True
         '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1354, 665)
         Me.ControlBox = False
+=======
+>>>>>>> 371641e664f719a7428b002ed2e81b2915e7a777
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.btnDrinkFood)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.gbTablelable)
         Me.Controls.Add(Me.gbtable)
@@ -199,5 +216,6 @@ Partial Class TableForm
     Friend WithEvents gbtable As System.Windows.Forms.GroupBox
     Friend WithEvents gbTablelable As System.Windows.Forms.GroupBox
     Friend WithEvents btnNew As System.Windows.Forms.Button
+    Friend WithEvents btnDrinkFood As System.Windows.Forms.Button
 
 End Class

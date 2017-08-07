@@ -3,6 +3,10 @@
     Private odpc As New OrderProccessingClass
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TableForm.Close()
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        Me.Location = New Point(0, 0)
+        Me.Size = SystemInformation.PrimaryMonitorSize
         TableForm.Hide()
         rdoHot.Checked = True
         rdoFood.Checked = True
@@ -35,8 +39,9 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.odpc.CancelPreOrder()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
-        Application.Restart()
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
@@ -86,31 +91,35 @@
 
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
         odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.CancelPreOrder()
         odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
-        Application.Restart()
+        odpc.CancelPreOrder()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
     End Sub
 
     Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
         odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
-        Application.Restart()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
     End Sub
 
     Private Sub btnpdplt_Click(sender As Object, e As EventArgs) Handles btnuplt.Click
         odpc.UpdatePayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
-        Application.Restart()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
     End Sub
 
     Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
         odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.CancelPreOrder()
         odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
-        Application.Restart()
+        odpc.CancelPreOrder()
+        Me.Close()
+        TableForm.Show()
         Me.Refresh()
     End Sub
 

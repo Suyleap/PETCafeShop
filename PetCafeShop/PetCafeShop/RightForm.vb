@@ -6,6 +6,7 @@
     Dim rig As Boolean
 
     Private Sub RightForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Choose.Close()
         dgvRight.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'dgvRight.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         dgvRight.ReadOnly = True

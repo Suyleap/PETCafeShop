@@ -5,6 +5,7 @@
     Dim ri As New RightClass
 
     Private Sub StaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Choose.Close()
         dgvStaff.DataSource = st.Show()
         dgvStaff.ReadOnly = True
         Clear()
@@ -22,6 +23,8 @@
         btnSearch.Enabled = True
         btnNew.Visible = True
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        Me.Location = New Point(0, 0)
+        Me.Size = SystemInformation.PrimaryMonitorSize
         btnNew.Enabled = True
     End Sub
 
