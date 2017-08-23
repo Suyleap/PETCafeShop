@@ -68,10 +68,10 @@
         End Try
     End Sub
 
-    Public Sub DeleteAcc(ByVal id As String, ByVal stid As String)
+    Public Sub DeleteAcc(ByVal stid As String)
         Try
-            con.SQLs = "DELETE * From Login_Acc where Acc_ID='" & id & "' AND StaffID='" & stid & "'"
-            con.UseDatabase(con.SQLs)
+            Con.SQLs = "DELETE * From Login_Acc where StaffID='" & stid & "'"
+            Con.UseDatabase(Con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

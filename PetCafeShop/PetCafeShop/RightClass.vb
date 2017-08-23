@@ -73,7 +73,7 @@
 
     Public Sub DeleteRight(ByVal id As String)
         Try
-            con.SQLs = "DELETE * From Rightss where Right_ID='" & id & "'"
+            Con.SQLs = "DELETE * From Rightss where Acc_ID='" & id & "'"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)

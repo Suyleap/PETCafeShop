@@ -7,6 +7,7 @@
 
     Private Sub RightForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Choose.Close()
+        txtSearch.Text = ""
         dgvRight.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'dgvRight.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         dgvRight.ReadOnly = True
@@ -97,7 +98,7 @@
         Try
             GetValue()
             ri.UpdateRight(dgvRight.CurrentRow.Cells(0).Value.ToString(), stfrom, sellform, rig)
-            AddHandler MouseLeave, AddressOf RM
+            AddHandler MouseLeave, AddressOf Rm
             RightForm_Load(Me, e)
         Catch ex As Exception
             MsgBox(ex.Message)

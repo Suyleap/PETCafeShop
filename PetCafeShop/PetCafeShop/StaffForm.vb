@@ -129,7 +129,9 @@
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        st.DeleteStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString())
+        St.DeleteStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString())
+        Acc.DeleteAcc(dgvStaff.CurrentRow.Cells(0).Value.ToString())
+        Ri.DeleteRight(dgvStaff.CurrentRow.Cells(0).Value.ToString())
         AddHandler MouseLeave, AddressOf moove
         txtID.Text = st.autoGenerateStaffID()
         Refresh()
