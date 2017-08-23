@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 
-Public Class ConnectionDBPetCafe
+Public Class ConnectionDbPetCafe
 
     Public cnn As OleDbConnection
     Public cmd As OleDbCommand
@@ -10,10 +10,10 @@ Public Class ConnectionDBPetCafe
 
     Public Property SQLs As String
         Get
-            Return Me.SQL
+            Return SQL
         End Get
         Set(value As String)
-            Me.SQL = value
+            SQL = value
         End Set
     End Property
 
@@ -37,8 +37,8 @@ Public Class ConnectionDBPetCafe
     Public Function UseDatabase(ByRef sql As String) As Object
         Try
             ConnectDatabase()
-            Me.SQLs = sql
-            cmd = New OleDbCommand(Me.SQLs, cnn)
+            SQLs = sql
+            cmd = New OleDbCommand(SQLs, cnn)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -49,8 +49,8 @@ Public Class ConnectionDBPetCafe
     Public Function UseDatabasetoread(ByRef sql As String) As Object
         Try
             ConnectDatabase()
-            Me.SQLs = sql
-            cmd = New OleDbCommand(Me.SQLs, cnn)
+            SQLs = sql
+            cmd = New OleDbCommand(SQLs, cnn)
             reader = cmd.ExecuteReader()
         Catch ex As Exception
             MsgBox(ex.Message)

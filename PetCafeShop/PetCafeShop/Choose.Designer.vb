@@ -25,7 +25,7 @@ Partial Class Choose
         Me.btnStaff = New System.Windows.Forms.Button()
         Me.btnRight = New System.Windows.Forms.Button()
         Me.btnSell = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -61,22 +61,22 @@ Partial Class Choose
         Me.btnSell.Text = "Sell Form"
         Me.btnSell.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnClose
         '
-        Me.Button1.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(316, 119)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(250, 54)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "CLOSE"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClose.Location = New System.Drawing.Point(316, 119)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(250, 54)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "CLOSE"
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLight
         Me.GroupBox1.Controls.Add(Me.btnStaff)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Controls.Add(Me.btnRight)
         Me.GroupBox1.Controls.Add(Me.btnSell)
         Me.GroupBox1.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -118,7 +118,7 @@ Partial Class Choose
     Friend WithEvents btnStaff As System.Windows.Forms.Button
     Friend WithEvents btnRight As System.Windows.Forms.Button
     Friend WithEvents btnSell As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

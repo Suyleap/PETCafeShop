@@ -1,8 +1,8 @@
 ﻿Public Class TablePetCafeClass
 
-    Public TableID As String
+    Public TableId As String
     Public TableNumber As Integer
-    Private con As New ConnectionDBPetCafe
+    Public Con As New ConnectionDbPetCafe
 
     Public Sub New()
 
@@ -15,19 +15,19 @@
 
     Public Property TableIDs As String
         Get
-            Return Me.TableID
+            Return TableID
         End Get
         Set(value As String)
-            Me.TableID = value
+            TableID = value
         End Set
     End Property
 
     Public Property TableNumbers As Integer
         Get
-            Return Me.TableNumber
+            Return TableNumber
         End Get
         Set(value As Integer)
-            Me.TableNumber = value
+            TableNumber = value
         End Set
     End Property
 
@@ -40,10 +40,10 @@
         End Try
     End Sub
 
-    Public Sub DeleteTABLE(ByVal tablenumber As String)
+    Public Sub Deletetable(ByVal tablenumber As String)
         Try
-            con.SQLs = "Delete * from TablePetCafe Where NumberTable=" & Convert.ToInt16(tablenumber)
-            con.UseDatabase(con.SQLs)
+            Con.SQLs = "Delete * from TablePetCafe Where NumberTable=" & Convert.ToInt16(tablenumber)
+            Con.UseDatabase(Con.SQLs)
         Catch ex As Exception
             MsgBox("Sorry we can't")
         End Try
@@ -87,13 +87,13 @@
         Return flpn
     End Function
 
-    Private Function AutoIDInvoice() As String
-        Dim id As Long = 0
+    Private Function AutoIdInvoice() As String
+        Dim id As String
         Try
-            con.SQLs = "Select * from Orders"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                id = con.reader.Item(1)
+            Con.SQLs = "SELECT * FROM Orders"
+            Con.UseDatabasetoread(Con.SQLs)
+            While Con.reader.Read
+                id = Con.reader.Item(1).ToString
                 id = id + 1
             End While
         Catch ex As Exception
@@ -141,13 +141,6 @@
         tablenumber = sender
         tablenumber.Name = sender.ToString.Remove(0, 35)
         tablenumber.Refresh()
-        '   Try
-        ' con.SQLs = "Insert into PreOrder values('" & tablenumber.Name & "','" & 0 & "'," & 0 & "," & 0 & "," & tablenumber.Name & ",'" & "hello" & "')"
-        ' con.UseDatabase(con.SQLs)
-        ' odf.Show()
-        ' Catch ex As Exception
-        ' MsgBox(ex.Message)
-        ' End Try
         Insert_into_Preorder(tablenumber.Name)
         odf.Show()
         odf.btnuplt.Visible = False
@@ -166,21 +159,17 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-<<<<<<< HEAD
-=======
-
->>>>>>> 371641e664f719a7428b002ed2e81b2915e7a777
-    Public Function AutoGenerateTableID() As String
+    Public Function AutoGenerateTableId() As String
         Try
-            Dim StringID As String
-            Dim intID As Integer
-            con.SQLs = "SELECT Last(TableID) FROM TablePetCafe"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                If con.reader.Item(0).ToString() = "" Then
+            Dim stringId As String
+            Dim intId As Integer
+            Con.SQLs = "SELECT Last(TableID) FROM TablePetCafe"
+            Con.UseDatabasetoread(Con.SQLs)
+            While Con.reader.Read()
+                If Con.reader.Item(0).ToString() = "" Then
                     TableID = "TB1"
                 Else
-                    StringID = con.reader.Item(0).ToString()
+                    StringID = Con.reader.Item(0).ToString()
                     intID = Convert.ToInt16(StringID.Substring(2))
                     intID += 1
                     TableID = String.Concat("TB", intID)

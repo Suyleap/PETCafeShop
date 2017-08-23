@@ -180,11 +180,8 @@ Partial Class TableForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1354, 665)
         Me.ControlBox = False
-=======
->>>>>>> 371641e664f719a7428b002ed2e81b2915e7a777
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.ControlBox = False

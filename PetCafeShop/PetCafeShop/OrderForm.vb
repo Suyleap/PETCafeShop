@@ -1,47 +1,45 @@
 ﻿Public Class OrderForm
 
-    Private odpc As New OrderProccessingClass
+    Public Odpc As New OrderProccessingClass
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TableForm.Close()
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
-        Me.Location = New Point(0, 0)
-        Me.Size = SystemInformation.PrimaryMonitorSize
-        TableForm.Hide()
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        Location = New Point(0, 0)
+        Size = SystemInformation.PrimaryMonitorSize
         rdoHot.Checked = True
         rdoFood.Checked = True
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub rdoHot_CheckedChanged(sender As Object, e As EventArgs) Handles rdoHot.CheckedChanged
         flpnDrink.Controls.Clear()
         flpnDrink.Controls.Add(odpc.ShowHotButton)
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub rdoIce_CheckedChanged(sender As Object, e As EventArgs) Handles rdoIce.CheckedChanged
         flpnDrink.Controls.Clear()
         flpnDrink.Controls.Add(odpc.ShowIceButton)
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub rdoFrab_CheckedChanged(sender As Object, e As EventArgs) Handles rdoFrab.CheckedChanged
         flpnDrink.Controls.Clear()
         flpnDrink.Controls.Add(odpc.ShowFrabButton)
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub rdoFood_CheckedChanged(sender As Object, e As EventArgs) Handles rdoFood.CheckedChanged
         flpnbuttonFood.Controls.Clear()
         flpnbuttonFood.Controls.Add(odpc.ShowFoodButton)
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.odpc.CancelPreOrder()
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
+        Odpc.CancelPreOrder()
+        Refresh()
+        Close()
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
@@ -56,6 +54,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
 
     Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
@@ -70,12 +69,13 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
 
     Private Sub Mouse_Enter(sender As Object, e As EventArgs) Handles MyBase.MouseEnter
         Try
             flpnOrders.Controls.Clear()
-            flpnOrders.Controls.Add(Me.odpc.ShowPreOrder())
+            flpnOrders.Controls.Add(Odpc.ShowPreOrder())
             If txtDiscount.Text = Nothing Then
                 txtTotalDollar.Text = odpc.CalculateGrandTotal().ToString
                 txtTotalRiel.Text = Convert.ToDouble(odpc.CalculateGrandTotal() * 4100).ToString
@@ -86,45 +86,45 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
         odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         odpc.CancelPreOrder()
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
+        TableForm.Close()
+        Refresh()
+        Close()
     End Sub
 
     Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
         odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
+        TableForm.Close()
+        Refresh()
+        Close()
     End Sub
 
     Private Sub btnpdplt_Click(sender As Object, e As EventArgs) Handles btnuplt.Click
         odpc.UpdatePayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
+        TableForm.Close()
+        Refresh()
+        Close()
     End Sub
 
     Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
         odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         odpc.CancelPreOrder()
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
+        TableForm.Close()
+        Refresh()
+        Close()
     End Sub
 
     Private Sub btnpplt_Click(sender As Object, e As EventArgs) Handles btnpplt.Click
         odpc.PrintPayLatter(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
-        Me.Refresh()
+        Refresh()
     End Sub
 End Class

@@ -1,18 +1,17 @@
 ﻿Public Class DrinkFoodForm
 
-    Private DFC As New DrinkFoodClass
+    Public Dfc As New DrinkFoodClass
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Close()
-        TableForm.Show()
-        Me.Refresh()
-        Me.Hide()
+        Close()
+        Refresh()
+        Hide()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Me.Insert()
-        Me.Refresh()
-        Me.Clear()
+        Insert()
+        Refresh()
+        Clear()
     End Sub
 
     Public Sub Insert()
@@ -26,7 +25,7 @@
         ElseIf rdoFood.Checked Then
             DFC.InsertFood(txtID.Text, txtName.Text, txtPrice.Text)
         End If
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Public Sub Deletes()
@@ -40,7 +39,7 @@
         ElseIf rdoFood.Checked Then
             DFC.DeleteFood(txtID.Text)
         End If
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Public Sub Updates()
@@ -54,11 +53,10 @@
         ElseIf rdoFood.Checked Then
             DFC.UpdateFood(txtID.Text, txtName.Text, txtPrice.Text)
         End If
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Public Sub ShowInsert()
-        Dim bs As New BindingSource
         Dim sh As New List(Of DrinkFoodClass)
         If rdoHot.Checked Then
             dtg.DataSource = DFC.ShowHotDrink(sh)
@@ -69,61 +67,55 @@
         ElseIf rdoFood.Checked Then
             dtg.DataSource = DFC.ShowFood(sh)
         End If
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Public Sub Clear()
         txtID.Text = ""
         txtName.Text = ""
         txtPrice.Text = ""
-        Me.Refresh()
+        Refresh()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        Me.Clear()
-        Me.Refresh()
+        Clear()
+        Refresh()
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Me.Deletes()
-        Me.Refresh()
+        Deletes()
+        Refresh()
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        Me.Updates()
-        Me.Refresh()
-    End Sub
-
-    Private Sub btnShow_Click(sender As Object, e As EventArgs)
-        Me.ShowInsert()
-        Me.Refresh()
+        Updates()
+        Refresh()
     End Sub
 
     Private Sub DrinkFoodForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TableForm.Close()
         rdoHot.Checked = True
-        Me.Refresh()
-        Me.ShowInsert()
-        Me.Refresh()
+        Refresh()
+        ShowInsert()
     End Sub
 
     Private Sub rdoHot_CheckedChanged(sender As Object, e As EventArgs) Handles rdoHot.CheckedChanged
-        Me.ShowInsert()
-        Me.Refresh()
+        ShowInsert()
+        Refresh()
     End Sub
 
     Private Sub rdoIce_CheckedChanged(sender As Object, e As EventArgs) Handles rdoIce.CheckedChanged
-        Me.ShowInsert()
-        Me.Refresh()
+        ShowInsert()
+        Refresh()
     End Sub
 
     Private Sub rdoFrab_CheckedChanged(sender As Object, e As EventArgs) Handles rdoFrab.CheckedChanged
-        Me.ShowInsert()
-        Me.Refresh()
+        ShowInsert()
+        Refresh()
     End Sub
 
     Private Sub rdoFood_CheckedChanged(sender As Object, e As EventArgs) Handles rdoFood.CheckedChanged
-        Me.ShowInsert()
-        Me.Refresh()
+        ShowInsert()
+        Refresh()
     End Sub
 End Class

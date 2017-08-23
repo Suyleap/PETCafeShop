@@ -3,50 +3,50 @@
     Public acc_ID As String
     Public acc_UserName As String
     Public acc_Password As String
-    Dim st As New StaffClass
-    Dim con As New ConnectionDBPetCafe
+    Public St As New StaffClass
+    Public Con As New ConnectionDBPetCafe
 
     Public Sub New()
 
     End Sub
 
     Public Sub New(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
-        Me.acc_ID = id
-        Me.st.st_ID = stid
-        Me.acc_UserName = username
-        Me.acc_Password = pw
+        acc_ID = id
+        St.st_ID = stid
+        acc_UserName = username
+        acc_Password = pw
     End Sub
 
-    Public Property AccID() As String
+    Public Property AccId() As String
         Get
-            Return Me.acc_ID
+            Return acc_ID
         End Get
         Set(value As String)
-            Me.acc_ID = value
+            acc_ID = value
         End Set
     End Property
 
-    Public WriteOnly Property AccStaffID() As String
+    Public WriteOnly Property AccStaffId() As String
         Set(value As String)
-            Me.st.st_ID = value
+            St.st_ID = value
         End Set
     End Property
 
     Public Property AccUserName() As String
         Get
-            Return Me.acc_UserName
+            Return acc_UserName
         End Get
         Set(value As String)
-            Me.acc_UserName = value
+            acc_UserName = value
         End Set
     End Property
 
     Public Property AccPassword() As String
         Get
-            Return Me.acc_Password
+            Return acc_Password
         End Get
         Set(value As String)
-            Me.acc_Password = value
+            acc_Password = value
         End Set
     End Property
 
@@ -82,10 +82,10 @@
             con.SQLs = "SELECT * From Login_Acc Where StaffID='" & stid & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.acc_ID = con.reader.Item(0)
-                Me.st.st_ID = con.reader.Item(1)
-                Me.acc_UserName = con.reader.Item(2)
-                Me.acc_Password = con.reader.Item(3)
+                acc_ID = Con.reader.Item(0)
+                St.st_ID = Con.reader.Item(1)
+                acc_UserName = Con.reader.Item(2)
+                acc_Password = Con.reader.Item(3)
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -97,42 +97,42 @@
             con.SQLs = "SELECT * From Login_Acc WHERE StaffID='" & stid & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
-                Me.st.st_ID = con.reader.Item(1)
+                St.st_ID = Con.reader.Item(1)
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Return Me.st.st_ID
+        Return St.st_ID
     End Function
     Public Sub Login(ByVal username As String, ByVal password As String)
         Try
             con.SQLs = "SELECT * From Login_Acc Where UserName='" & username & "' And PassWord='" & password & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.acc_ID = con.reader.Item(0)
-                Me.st.st_ID = con.reader.Item(1)
-                Me.acc_UserName = con.reader.Item(2)
-                Me.acc_Password = con.reader.Item(3)
+                acc_ID = Con.reader.Item(0)
+                St.st_ID = Con.reader.Item(1)
+                acc_UserName = Con.reader.Item(2)
+                acc_Password = Con.reader.Item(3)
             End While
         Catch ex As Exception
             MsgBox("Login Fail Please make sure you had enter correct both fields")
         End Try
     End Sub
 
-    Public Function AutoGenerateAccID() As String
+    Public Function AutoGenerateAccId() As String
         Try
-            Dim StringID As String
-            Dim intID As Integer
-            con.SQLs = "Select Last(Acc_ID) from Login_Acc"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                If con.reader.Item(0).ToString() = "" Then
-                    Me.acc_ID = "ACC1"
+            Dim stringId As String
+            Dim intId As Integer
+            Con.SQLs = "Select Last(Acc_ID) from Login_Acc"
+            Con.UseDatabasetoread(Con.SQLs)
+            While Con.reader.Read()
+                If Con.reader.Item(0).ToString() = "" Then
+                    acc_ID = "ACC1"
                 Else
-                    StringID = con.reader.Item(0).ToString()
+                    StringID = Con.reader.Item(0).ToString()
                     intID = Convert.ToInt16(StringID.Substring(3))
                     intID += 1
-                    Me.acc_ID = String.Concat("ACC", intID)
+                    acc_ID = String.Concat("ACC", intId)
                 End If
             End While
         Catch ex As Exception

@@ -1,7 +1,7 @@
 ﻿Public Class DrinkFoodClass
 
-    Private con As New ConnectionDBPetCafe
-    Public ID, Name As String
+    Public Con As New ConnectionDbPetCafe
+    Public Id, Name As String
     Public Price As Double
 
     Public Sub New()
@@ -9,9 +9,9 @@
     End Sub
 
     Public Sub New(ByVal id As String, ByVal name As String, ByVal price As Double)
-        Me.ID = id
-        Me.Name = name
-        Me.Price = price
+        IDs = id
+        Names = name
+        Prices = price
     End Sub
 
     Public Property IDs As String
@@ -19,25 +19,25 @@
             Return Me.ID
         End Get
         Set(value As String)
-            Me.ID = value
+            Id = value
         End Set
     End Property
 
     Public Property Names As String
         Get
-            Return Me.Name
+            Return Name
         End Get
         Set(value As String)
-            Me.Name = value
+            Name = value
         End Set
     End Property
 
     Public Property Prices As Double
         Get
-            Return Me.Price
+            Return Price
         End Get
         Set(value As Double)
-            Me.Price = value
+            Price = value
         End Set
     End Property
 

@@ -1,7 +1,7 @@
 ﻿Public Class OrderProccessingClass
 
-    Private con As New ConnectionDBPetCafe
-    Private dfc As New DrinkFoodClass
+    Public Con As New ConnectionDBPetCafe
+    Public Dfc As New DrinkFoodClass
     Private Total As Double
     Private Quantity As Integer
     Private Drinkname As String = "Nothing"
@@ -30,10 +30,10 @@
 
     Public Property Quantitys As Integer
         Get
-            Return Me.Quantity
+            Return Quantity
         End Get
         Set(value As Integer)
-            Me.Quantity = value
+            Quantity = value
         End Set
     End Property
 
@@ -47,13 +47,6 @@
     End Property
 
     Public Property Totals As Double
-        Get
-            Return Me.Total
-        End Get
-        Set(value As Double)
-            Me.Total = value
-        End Set
-    End Property
 
     Public Function ShowHotButton() As Windows.Forms.FlowLayoutPanel
         Dim flpn As New Windows.Forms.FlowLayoutPanel
@@ -179,10 +172,10 @@
             con.SQLs = "Select * from HotDrink Where Name='" & bt.Name & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.Name = con.reader.Item(1)
-                Me.Price = con.reader.Item(2)
+                Name = con.reader.Item(1)
+                Price = con.reader.Item(2)
             End While
-            Me.InsertPreOrder()
+            InsertPreOrder()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -195,10 +188,10 @@
             con.SQLs = "Select * from IceDrink Where Name='" & bt.Name & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.Name = con.reader.Item(1)
-                Me.Price = con.reader.Item(2)
+                Name = con.reader.Item(1)
+                Price = con.reader.Item(2)
             End While
-            Me.InsertPreOrder()
+            InsertPreOrder()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -211,10 +204,10 @@
             con.SQLs = "Select * from FrabDrink Where Name='" & bt.Name & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.Name = con.reader.Item(1)
-                Me.Price = con.reader.Item(2)
+                Name = con.reader.Item(1)
+                Price = con.reader.Item(2)
             End While
-            Me.InsertPreOrder()
+            InsertPreOrder()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -227,10 +220,10 @@
             con.SQLs = "Select * from Food Where Name='" & bt.Name & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
-                Me.Name = con.reader.Item(1)
-                Me.Price = con.reader.Item(2)
+                Name = con.reader.Item(1)
+                Price = con.reader.Item(2)
             End While
-            Me.InsertPreOrder()
+            InsertPreOrder()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -444,7 +437,7 @@
     Public Sub PrintPayNow(ByVal ordernumber As String, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
         Dim dct As String = ""
         Dim dcts As String
-        Dim i As Integer = 0
+        'Dim i As Integer = 0
         con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
         con.UseDatabasetoread(con.SQLs)
         While con.reader.Read.ToString
@@ -458,7 +451,7 @@
     Public Sub PrintPayLatter(ByVal ordernumber As String, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
         Dim dct As String = ""
         Dim dcts As String
-        Dim i As Integer = 0
+        ' Dim i As Integer = 0
         con.SQLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
         con.UseDatabasetoread(con.SQLs)
         While con.reader.Read.ToString
@@ -483,9 +476,9 @@
         Return j
     End Function
 
-    Public Sub InsertIntoPrintInvoice(ByVal j As Integer, ByVal ordernumber As String, ByVal Description As String, ByVal gttdl As Double, ByVal gttr As Double, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+    Public Sub InsertIntoPrintInvoice(ByVal j As Integer, ByVal ordernumber As String, ByVal description As String, ByVal gttdl As Double, ByVal gttr As Double, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
         Try
-            con.SQLs = "Insert into PrintInvoice values(" & j & ",'" & ordernumber & "','" & Description & "'," & gttdl & "," & gttr & "," & table & ",'" & sellname & "'," & discount & ")"
+            con.SQLs = "Insert into PrintInvoice values(" & j & ",'" & ordernumber & "','" & description & "'," & gttdl & "," & gttr & "," & table & ",'" & sellname & "'," & discount & ")"
             con.UseDatabase(con.SQLs)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -517,7 +510,7 @@
     Public Function CalculateGrandTotalWithDiscount(ByVal discount As Double) As String
         Dim dc, dcs As Double
         dcs = discount
-        If dcs = Nothing Then
+        If (dcs = Nothing) Then
             Return Nothing
         ElseIf dcs < 0 Then
             Return Nothing

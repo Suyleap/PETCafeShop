@@ -4,62 +4,61 @@
     Public right_StaffFrom As Boolean
     Public right_SellForm As Boolean
     Public right_RightForm As Boolean
-    Public acc As New Account
-    '    Public st As New StaffClass
-    Public con As New ConnectionDBPetCafe
+    Public Acc As New Account
+    Public Con As New ConnectionDbPetCafe
 
     Public Sub New()
 
     End Sub
 
     Public Sub New(ByVal id As String, ByVal accid As String, ByVal username As String, ByVal stform As Boolean, ByVal sellform As Boolean, ByVal right As Boolean)
-        Me.right_ID = id
-        Me.acc.acc_ID = accid
-        Me.acc.acc_UserName = username
-        Me.right_StaffFrom = stform
-        Me.right_SellForm = sellform
-        Me.right_RightForm = right
+        right_ID = id
+        Acc.acc_ID = accid
+        Acc.acc_UserName = username
+        right_StaffFrom = stform
+        right_SellForm = sellform
+        right_RightForm = right
     End Sub
 
     Public Property ID() As String
         Get
-            Return Me.right_ID
+            Return right_ID
         End Get
         Set(value As String)
-            Me.right_ID = value
+            right_ID = value
         End Set
     End Property
 
     Public ReadOnly Property Name() As String
         Get
-            Return Me.acc.acc_UserName
+            Return Acc.acc_UserName
         End Get
     End Property
 
     Public Property StaffForm() As Boolean
         Get
-            Return Me.right_StaffFrom
+            Return right_StaffFrom
         End Get
         Set(value As Boolean)
-            Me.right_StaffFrom = value
+            right_StaffFrom = value
         End Set
     End Property
 
     Public Property SellForm() As Boolean
         Get
-            Return Me.right_SellForm
+            Return right_SellForm
         End Get
         Set(value As Boolean)
-            Me.right_SellForm = value
+            right_SellForm = value
         End Set
     End Property
 
     Public Property RightForm() As Boolean
         Get
-            Return Me.right_RightForm
+            Return right_RightForm
         End Get
         Set(value As Boolean)
-            Me.right_RightForm = value
+            right_RightForm = value
         End Set
     End Property
 
@@ -99,7 +98,6 @@
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 right = New RightClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4), con.reader.Item(5))
-
                 rights.Add(right)
                 bs.DataSource = right
             End While
@@ -107,7 +105,6 @@
             MsgBox(ex.Message)
         End Try
         Return bs
-        con.CloseConnection()
     End Function
 
     Public Sub selectedRightChange(ByVal sender As Object)
@@ -115,12 +112,12 @@
             con.SQLs = "Select * from Rightss Where Right_ID='" & sender & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
-                Me.right_ID = con.reader.Item(0)
-                Me.acc.acc_ID = con.reader.Item(1)
-                Me.acc.acc_UserName = con.reader.Item(2)
-                Me.right_StaffFrom = con.reader.Item(3)
-                Me.right_SellForm = con.reader.Item(4)
-                Me.right_RightForm = con.reader.Item(5)
+                right_ID = Con.reader.Item(0)
+                Acc.acc_ID = Con.reader.Item(1)
+                Acc.acc_UserName = Con.reader.Item(2)
+                right_StaffFrom = Con.reader.Item(3)
+                right_SellForm = Con.reader.Item(4)
+                right_RightForm = Con.reader.Item(5)
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -131,12 +128,12 @@
             con.SQLs = "Select * from Rightss Where Acc_ID='" & accid & "'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
-                Me.right_ID = con.reader.Item(0)
-                Me.acc.acc_ID = con.reader.Item(1)
-                Me.acc.acc_UserName = con.reader.Item(2)
-                Me.right_StaffFrom = con.reader.Item(3)
-                Me.right_SellForm = con.reader.Item(4)
-                Me.right_RightForm = con.reader.Item(5)
+                right_ID = Con.reader.Item(0)
+                Acc.acc_ID = Con.reader.Item(1)
+                Acc.acc_UserName = Con.reader.Item(2)
+                right_StaffFrom = Con.reader.Item(3)
+                right_SellForm = Con.reader.Item(4)
+                right_RightForm = Con.reader.Item(5)
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -167,8 +164,8 @@
 
     Public Function autoGenerateRightID() As String
         Try
-            Dim StringID As String
-            Dim intID As Integer
+            Dim stringId As String
+            Dim intId As Integer
             con.SQLs = "SELECT Last(Right_ID) FROM Rightss"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read()
@@ -190,13 +187,12 @@
     Public Function SearchAll(ByVal sender As Object)
         Dim bs As New BindingSource
         Try
-            Dim ri As New RightClass
+            Dim ri As RightClass
             Dim lri As New List(Of RightClass)
             con.SQLs = "Select * from Rightss where Right_ID like '%" & sender & "%' OR Acc_ID like '%" & sender & "%' OR Acc_UserName like'%" & sender & "%'"
             con.UseDatabasetoread(con.SQLs)
             While con.reader.Read
                 ri = New RightClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4), con.reader.Item(5))
-
                 lri.Add(ri)
                 bs.DataSource = lri
             End While

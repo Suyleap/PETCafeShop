@@ -1,6 +1,6 @@
 ﻿Public Class RightForm
 
-    Dim ri As New RightClass
+    Public Ri As New RightClass
     Dim stfrom As Boolean
     Dim sellform As Boolean
     Dim rig As Boolean
@@ -11,23 +11,25 @@
         'dgvRight.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         dgvRight.ReadOnly = True
         dgvRight.DataSource = ri.Show()
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
         btnSearch.Enabled = True
         btnSearch.Visible = True
         btnStop.Visible = False
         txtSearch.Enabled = False
+        Refresh()
     End Sub
 
     Private Sub dgvRight_SelectionChanged(sender As Object, e As EventArgs) Handles dgvRight.SelectionChanged
         Try
             ri.selectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
-
             txtUser.Text = ri.acc.acc_UserName
             CheckBox()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
+
     Private Sub CheckBox()
         Try
             If ri.right_StaffFrom = True Then
@@ -54,11 +56,14 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Close()
+        Refresh()
     End Sub
+
     Private Sub GetValue()
         Try
             If cboStaffForm.Checked = True Then
@@ -79,10 +84,13 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
-    Private Sub RM(sender As Object, e As EventArgs)
-        dgvRight.DataSource = ri.Show()
-        RemoveHandler MouseLeave, AddressOf RM
+
+    Private Sub Rm(sender As Object, e As EventArgs)
+        dgvRight.DataSource = Ri.Show()
+        RemoveHandler MouseLeave, AddressOf Rm
+        Refresh()
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
@@ -90,19 +98,21 @@
             GetValue()
             ri.UpdateRight(dgvRight.CurrentRow.Cells(0).Value.ToString(), stfrom, sellform, rig)
             AddHandler MouseLeave, AddressOf RM
-            Me.RightForm_Load(Me, e)
+            RightForm_Load(Me, e)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Refresh()
     End Sub
-
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         dgvRight.DataSource = ri.SearchAll(txtSearch.Text)
+        Refresh()
     End Sub
 
     Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
-        Me.RightForm_Load(Me, e)
+        RightForm_Load(Me, e)
+        Refresh()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -111,5 +121,7 @@
         btnSearch.Visible = False
         btnStop.Enabled = True
         btnStop.Visible = True
+        Refresh()
     End Sub
+
 End Class

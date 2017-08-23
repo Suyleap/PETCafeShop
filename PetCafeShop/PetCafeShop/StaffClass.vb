@@ -1,6 +1,6 @@
 ﻿Public Class StaffClass
 
-    Public st_ID As String
+    Public st_id As String
     Public st_Name As String
     Public st_Gender As String
     Public st_DOB As Date
@@ -11,122 +11,122 @@
     Public st_Position As String
     Public st_Salary As Double
     Public st_StartDateWork As Date
-    Private con As New ConnectionDBPetCafe
+    Public Con As New ConnectionDbPetCafe
 
     Public Sub New()
 
     End Sub
 
     Public Sub New(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Integer, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
-        Me.st_ID = id
-        Me.st_Name = name
-        Me.st_Gender = gender
-        Me.st_DOB = dob
-        Me.st_Age = age
-        Me.st_Address = address
-        Me.st_Phone = phone
-        Me.st_Email = email
-        Me.st_Position = position
-        Me.st_Salary = salary
-        Me.st_StartDateWork = sdw
+        st_ID = id
+        st_Name = name
+        st_Gender = gender
+        st_DOB = dob
+        st_Age = age
+        st_Address = address
+        st_Phone = phone
+        st_Email = email
+        st_Position = position
+        st_Salary = salary
+        st_StartDateWork = sdw
     End Sub
 
-    Public Property StaffID As String
+    Public Property StaffId As String
         Get
-            Return Me.st_ID
+            Return st_ID
         End Get
         Set(value As String)
-            Me.st_ID = value
+            st_ID = value
         End Set
     End Property
 
     Public Property StaffName As String
         Get
-            Return Me.st_Name
+            Return st_Name
         End Get
         Set(value As String)
-            Me.st_Name = value
+            st_Name = value
         End Set
     End Property
 
     Public Property StaffGender As String
         Get
-            Return Me.st_Gender
+            Return st_Gender
         End Get
         Set(value As String)
-            Me.st_Gender = value
+            st_Gender = value
         End Set
     End Property
 
     Public Property StaffDateOfBirth As Date
         Get
-            Return Me.st_DOB
+            Return st_DOB
         End Get
         Set(value As Date)
-            Me.st_DOB = value
+            st_DOB = value
         End Set
     End Property
 
     Public Property StaffAge As Byte
         Get
-            Return Me.st_Age
+            Return st_Age
         End Get
         Set(value As Byte)
-            Me.st_Age = value
+            st_Age = value
         End Set
     End Property
 
     Public Property StaffAddress As String
         Get
-            Return Me.st_Address
+            Return st_Address
         End Get
         Set(value As String)
-            Me.st_Address = value
+            st_Address = value
         End Set
     End Property
 
     Public Property StaffPhone As String
         Get
-            Return Me.st_Phone
+            Return st_Phone
         End Get
         Set(value As String)
-            Me.st_Phone = value
+            st_Phone = value
         End Set
     End Property
 
     Public Property StaffEmail As String
         Get
-            Return Me.st_Email
+            Return st_Email
         End Get
         Set(value As String)
-            Me.st_Email = value
+            st_Email = value
         End Set
     End Property
 
     Public Property StaffPosition As String
         Get
-            Return Me.st_Position
+            Return st_Position
         End Get
         Set(value As String)
-            Me.st_Position = value
+            st_Position = value
         End Set
     End Property
 
     Public Property StaffSalary As Double
         Get
-            Return Me.st_Salary
+            Return st_Salary
         End Get
         Set(value As Double)
-            Me.st_Salary = value
+            st_Salary = value
         End Set
     End Property
 
     Public Property StaffStartDateWork As Date
         Get
-            Return Me.st_StartDateWork
+            Return st_StartDateWork
         End Get
         Set(value As Date)
-            Me.st_StartDateWork = value
+            st_StartDateWork = value
         End Set
     End Property
 
@@ -174,42 +174,41 @@
             MsgBox(ex.Message)
         End Try
         Return bs
-        con.CloseConnection()
     End Function
 
-    Public Sub selectedStaffChange(ByVal sender As Object)
+    Public Sub SelectedStaffChange(ByVal sender As Object)
         Try
-            con.SQLs = "Select * from Staff Where StaffID='" & sender.ToString() & "'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                Me.st_ID = con.reader.Item(0)
-                Me.st_Name = con.reader.Item(1)
-                Me.st_Gender = con.reader.Item(2)
-                Me.st_DOB = con.reader.Item(3)
-                Me.st_Age = con.reader.Item(4)
-                Me.st_Address = con.reader.Item(5)
-                Me.st_Phone = con.reader.Item(6)
-                Me.st_Email = con.reader.Item(7)
-                Me.st_Position = con.reader.Item(8)
-                Me.st_Salary = con.reader.Item(9)
-                Me.st_StartDateWork = con.reader.Item(10)
+            Con.SQLs = "Select * from Staff Where StaffID='" & sender.ToString() & "'"
+            Con.UseDatabasetoread(Con.SQLs)
+            While Con.reader.Read()
+                st_ID = Con.reader.Item(0)
+                st_Name = Con.reader.Item(1)
+                st_Gender = Con.reader.Item(2)
+                st_DOB = Con.reader.Item(3)
+                st_Age = Con.reader.Item(4)
+                st_Address = Con.reader.Item(5)
+                st_Phone = Con.reader.Item(6)
+                st_Email = Con.reader.Item(7)
+                st_Position = Con.reader.Item(8)
+                st_Salary = Con.reader.Item(9)
+                st_StartDateWork = Con.reader.Item(10)
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
-    Public Function autoGenerateStaffID() As String
+    Public Function AutoGenerateStaffId() As String
         Try
-            Dim StringID As String
-            Dim intID As Integer
-            con.SQLs = "Select Last(StaffID) from Staff"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                If con.reader.Item(0).ToString() = "" Then
+            Dim stringId As String
+            Dim intId As Integer
+            Con.SQLs = "Select Last(StaffID) from Staff"
+            Con.UseDatabasetoread(Con.SQLs)
+            While Con.reader.Read()
+                If Con.reader.Item(0).ToString() = "" Then
                     st_ID = "St1"
                 Else
-                    StringID = con.reader.Item(0).ToString()
+                    StringID = Con.reader.Item(0).ToString()
                     intID = Convert.ToInt16(StringID.Substring(2))
                     intID += 1
                     st_ID = String.Concat("St", intID)
@@ -224,7 +223,7 @@
     Public Function SearchAll(ByVal sender As Object) As Object
         Dim bs As New BindingSource
         Try
-            Dim stcl As New StaffClass
+            Dim stcl As StaffClass
             Dim stcls As New List(Of StaffClass)
             con.SQLs = "Select * From Staff where StaffID like'%" & sender.ToString() & "%' OR Name like '%" & sender.ToString() & "%' OR Gender like '%" &
                         sender.ToString() & "%' OR Age like '%" & sender.ToString() & "%' OR Address like '%" & sender.ToString() & "%' OR Phone like '%" &

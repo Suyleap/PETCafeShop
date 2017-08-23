@@ -17,10 +17,10 @@
 
     Private Sub Choose_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoginForm.Close()
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Close()
     End Sub
 End Class

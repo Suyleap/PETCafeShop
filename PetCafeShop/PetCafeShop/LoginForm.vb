@@ -1,10 +1,11 @@
 ﻿Public Class LoginForm
 
-    Dim acc As New Account
-    Dim rights As New RightClass
+    Public Acc As New Account
+    Public Rights As New RightClass
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Close()
+        Background.Close()
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
@@ -23,13 +24,16 @@
         Catch ex As Exception
             MsgBox("Please correct your login")
         End Try
+        Refresh()
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUserName.Text = ""
         txtPassword.Text = ""
-        txtPassword.PasswordChar = "*"
+        txtPassword.PasswordChar = "."
         txtUserName.Focus()
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        Refresh()
     End Sub
+
 End Class
