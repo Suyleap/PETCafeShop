@@ -11,7 +11,7 @@
         dgvRight.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'dgvRight.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         dgvRight.ReadOnly = True
-        dgvRight.DataSource = ri.Show()
+        dgvRight.DataSource = Ri.Show()
         FormBorderStyle = Windows.Forms.FormBorderStyle.None
         btnSearch.Enabled = True
         btnSearch.Visible = True
@@ -22,8 +22,8 @@
 
     Private Sub dgvRight_SelectionChanged(sender As Object, e As EventArgs) Handles dgvRight.SelectionChanged
         Try
-            ri.selectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
-            txtUser.Text = ri.acc.acc_UserName
+            Ri.selectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
+            txtUser.Text = Ri.Acc.acc_UserName
             CheckBox()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -33,7 +33,7 @@
 
     Private Sub CheckBox()
         Try
-            If ri.right_StaffFrom = True Then
+            If Ri.right_StaffFrom = True Then
                 cboStaffForm.Checked = True
                 stfrom = True
             Else

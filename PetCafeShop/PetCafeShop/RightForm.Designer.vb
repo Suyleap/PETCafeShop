@@ -23,7 +23,6 @@ Partial Class RightForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgvRight = New System.Windows.Forms.DataGridView()
-        Me.btnADD = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboStaffForm = New System.Windows.Forms.CheckBox()
         Me.txtUser = New System.Windows.Forms.TextBox()
@@ -50,15 +49,6 @@ Partial Class RightForm
         Me.dgvRight.Name = "dgvRight"
         Me.dgvRight.Size = New System.Drawing.Size(371, 331)
         Me.dgvRight.TabIndex = 10
-        '
-        'btnADD
-        '
-        Me.btnADD.Location = New System.Drawing.Point(15, 284)
-        Me.btnADD.Name = "btnADD"
-        Me.btnADD.Size = New System.Drawing.Size(122, 43)
-        Me.btnADD.TabIndex = 1
-        Me.btnADD.Text = "ADD"
-        Me.btnADD.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -162,7 +152,7 @@ Partial Class RightForm
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(14, 284)
+        Me.btnUpdate.Location = New System.Drawing.Point(15, 284)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(122, 43)
         Me.btnUpdate.TabIndex = 4
@@ -196,7 +186,6 @@ Partial Class RightForm
         Me.GroupBox2.Controls.Add(Me.txtSearch)
         Me.GroupBox2.Controls.Add(Me.txtUser)
         Me.GroupBox2.Controls.Add(Me.btnStop)
-        Me.GroupBox2.Controls.Add(Me.btnADD)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.btnUpdate)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
@@ -235,7 +224,6 @@ Partial Class RightForm
 
     End Sub
     Friend WithEvents dgvRight As System.Windows.Forms.DataGridView
-    Friend WithEvents btnADD As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cboStaffForm As System.Windows.Forms.CheckBox
     Friend WithEvents txtUser As System.Windows.Forms.TextBox
