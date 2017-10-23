@@ -12,6 +12,7 @@
 
     Private Sub btnSell_Click(sender As Object, e As EventArgs) Handles btnSell.Click
         Dim sell As New TableForm
+        sell.txtStaffId.Text = "admin"
         sell.Show()
     End Sub
 

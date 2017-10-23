@@ -21,8 +21,6 @@ D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.reso
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
 D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb

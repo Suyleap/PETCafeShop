@@ -176,7 +176,6 @@
     <EmbeddedResource Include="RightForm.resx">
       <DependentUpon>RightForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SellReport.rdlc" />
     <EmbeddedResource Include="StaffForm.resx">
       <DependentUpon>StaffForm.vb</DependentUpon>
     </EmbeddedResource>

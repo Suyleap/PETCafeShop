@@ -1,9 +1,9 @@
 ﻿Public Class RightForm
 
     Public Ri As New RightClass
-    Dim stfrom As Boolean
-    Dim sellform As Boolean
-    Dim rig As Boolean
+    Public Stfrom As Boolean
+    Public Sellform As Boolean
+    Public Rig As Boolean
 
     Private Sub RightForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Choose.Close()
@@ -21,42 +21,34 @@
     End Sub
 
     Private Sub dgvRight_SelectionChanged(sender As Object, e As EventArgs) Handles dgvRight.SelectionChanged
-        Try
-            Ri.selectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
-            txtUser.Text = Ri.Acc.acc_UserName
-            CheckBox()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Ri.SelectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
+        txtUser.Text = Ri.Acc.acc_UserName
+        CheckBox()
         Refresh()
     End Sub
 
     Private Sub CheckBox()
-        Try
-            If Ri.right_StaffFrom = True Then
+            If Ri.RightStaffFrom = True Then
                 cboStaffForm.Checked = True
                 stfrom = True
             Else
                 cboStaffForm.Checked = False
                 stfrom = False
             End If
-            If ri.right_SellForm = True Then
+            If Ri.RightSellForm = True Then
                 cboSellForm.Checked = True
                 sellform = True
             Else
                 cboSellForm.Checked = False
                 sellform = False
             End If
-            If ri.right_RightForm = True Then
+            If Ri.RightRightForm = True Then
                 cboRight.Checked = True
                 rig = True
             Else
                 cboRight.Checked = False
                 rig = False
             End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
         Refresh()
     End Sub
 
@@ -66,7 +58,6 @@
     End Sub
 
     Private Sub GetValue()
-        Try
             If cboStaffForm.Checked = True Then
                 stfrom = True
             Else
@@ -82,9 +73,6 @@
             Else
                 rig = False
             End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
         Refresh()
     End Sub
 
@@ -95,14 +83,10 @@
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        Try
             GetValue()
             ri.UpdateRight(dgvRight.CurrentRow.Cells(0).Value.ToString(), stfrom, sellform, rig)
             AddHandler MouseLeave, AddressOf Rm
             RightForm_Load(Me, e)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
         Refresh()
     End Sub
 
@@ -124,5 +108,4 @@
         btnStop.Visible = True
         Refresh()
     End Sub
-
 End Class

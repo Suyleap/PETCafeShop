@@ -2,18 +2,18 @@
 
 Public Class ConnectionDbPetCafe
 
-    Public cnn As OleDbConnection
-    Public cmd As OleDbCommand
-    Public reader As OleDbDataReader
-    Public adp As OleDbDataAdapter
-    Public SQL As String
+    Public Cnn As OleDbConnection
+    Public Cmd As OleDbCommand
+    Public Reader As OleDbDataReader
+    Public Adp As OleDbDataAdapter
+    Public Sql As String
 
-    Public Property SQLs As String
+    Public Property SqLs As String
         Get
-            Return SQL
+            Return Sql
         End Get
         Set(value As String)
-            SQL = value
+            Sql = value
         End Set
     End Property
 
@@ -35,27 +35,22 @@ Public Class ConnectionDbPetCafe
     End Function
 
     Public Function UseDatabase(ByRef sql As String) As Object
-        Try
-            ConnectDatabase()
-            SQLs = sql
-            cmd = New OleDbCommand(SQLs, cnn)
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        Return cmd
+
+        ConnectDatabase()
+        SqLs = sql
+        Cmd = New OleDbCommand(SqLs, Cnn)
+        Cmd.ExecuteNonQuery() 
+        Return Cmd
     End Function
 
     Public Function UseDatabasetoread(ByRef sql As String) As Object
-        Try
-            ConnectDatabase()
-            SQLs = sql
-            cmd = New OleDbCommand(SQLs, cnn)
-            reader = cmd.ExecuteReader()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        Return cmd
+
+        ConnectDatabase()
+        SqLs = sql
+        Cmd = New OleDbCommand(SqLs, Cnn)
+        Reader = Cmd.ExecuteReader()
+        
+        Return Cmd
     End Function
 
     Public Function CloseConnection()

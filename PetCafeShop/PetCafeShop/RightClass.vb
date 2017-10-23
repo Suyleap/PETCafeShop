@@ -1,9 +1,9 @@
 ﻿Public Class RightClass
 
-    Public right_ID As String
-    Public right_StaffFrom As Boolean
-    Public right_SellForm As Boolean
-    Public right_RightForm As Boolean
+    Public RightId As String
+    Public RightStaffFrom As Boolean
+    Public RightSellForm As Boolean
+    Public RightRightForm As Boolean
     Public Acc As New Account
     Public Con As New ConnectionDbPetCafe
 
@@ -12,20 +12,20 @@
     End Sub
 
     Public Sub New(ByVal id As String, ByVal accid As String, ByVal username As String, ByVal stform As Boolean, ByVal sellform As Boolean, ByVal right As Boolean)
-        right_ID = id
+        RightId = id
         Acc.acc_ID = accid
         Acc.acc_UserName = username
-        right_StaffFrom = stform
-        right_SellForm = sellform
-        right_RightForm = right
+        RightStaffFrom = stform
+        RightSellForm = sellform
+        RightRightForm = right
     End Sub
 
-    Public Property ID() As String
+    Public Property Id() As String
         Get
-            Return right_ID
+            Return RightId
         End Get
         Set(value As String)
-            right_ID = value
+            RightId = value
         End Set
     End Property
 
@@ -37,168 +37,153 @@
 
     Public Property StaffForm() As Boolean
         Get
-            Return right_StaffFrom
+            Return RightStaffFrom
         End Get
         Set(value As Boolean)
-            right_StaffFrom = value
+            RightStaffFrom = value
         End Set
     End Property
 
     Public Property SellForm() As Boolean
         Get
-            Return right_SellForm
+            Return RightSellForm
         End Get
         Set(value As Boolean)
-            right_SellForm = value
+            RightSellForm = value
         End Set
     End Property
 
     Public Property RightForm() As Boolean
         Get
-            Return right_RightForm
+            Return RightRightForm
         End Get
         Set(value As Boolean)
-            right_RightForm = value
+            RightRightForm = value
         End Set
     End Property
 
-    Public Sub InsertRight(ByVal id As String, ByVal accid As String, ByVal username As String, ByVal stform As Boolean, ByVal sellform As Boolean, ByVal right As Boolean)
-        Try
-            con.SQLs = "INSERT INTO Rightss values('" & id & "','" & accid & "','" & username & "'," & stform & "," & sellform & "," & right & ")"
-            con.UseDatabase(con.SQLs)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Public Sub InsertRight(ByVal text As String, ByVal accid As String, ByVal username As String, ByVal stform As Boolean, ByVal sellforms As Boolean, ByVal right As Boolean)
+
+        Con.SqLs = "INSERT INTO Rightss values('" & text & "','" & accid & "','" & username & "'," & stform & "," & sellforms & "," & right & ")"
+        Con.UseDatabase(Con.SqLs)
+        
     End Sub
 
-    Public Sub DeleteRight(ByVal id As String)
-        Try
-            Con.SQLs = "DELETE * From Rightss where Acc_ID='" & id & "'"
-            con.UseDatabase(con.SQLs)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Public Sub DeleteRight(ByVal text As String)
+
+        Con.SqLs = "DELETE * From Rightss where Acc_ID='" & text & "'"
+        Con.UseDatabase(Con.SqLs)
+        
     End Sub
 
-    Public Sub UpdateRight(ByVal id As String, ByVal stform As Boolean, ByVal sellform As Boolean, ByVal right As Boolean)
-        Try
-            con.SQLs = "UPDATE Rightss Set [StaffForm]=" & stform & ", [SellForm]= " & sellform & ", [RightForm] = " & right & " where Right_ID='" & id & "'"
-            con.UseDatabase(con.SQLs)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Public Sub UpdateRight(ByVal text As String, ByVal stform As Boolean, ByVal sellforms As Boolean, ByVal right As Boolean)
+
+        Con.SqLs = "UPDATE Rightss Set [StaffForm]=" & stform & ", [SellForm]= " & sellforms & ", [RightForm] = " & right & " where Right_ID='" & text & "'"
+        Con.UseDatabase(Con.SqLs)
+        
     End Sub
 
     Public Function Show() As Object
         Dim bs As New BindingSource
         Dim right As RightClass
         Dim rights As New List(Of RightClass)
-        Try
-            con.SQLs = "Select * from Rightss"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                right = New RightClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4), con.reader.Item(5))
-                rights.Add(right)
-                bs.DataSource = right
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        Con.SqLs = "Select * from Rightss"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read
+            right = New RightClass(Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), Con.Reader.Item(3), Con.Reader.Item(4), Con.Reader.Item(5))
+            rights.Add(right)
+            bs.DataSource = right
+        End While
+        
         Return bs
     End Function
 
-    Public Sub selectedRightChange(ByVal sender As Object)
-        Try
-            con.SQLs = "Select * from Rightss Where Right_ID='" & sender & "'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                right_ID = Con.reader.Item(0)
-                Acc.acc_ID = Con.reader.Item(1)
-                Acc.acc_UserName = Con.reader.Item(2)
-                right_StaffFrom = Con.reader.Item(3)
-                right_SellForm = Con.reader.Item(4)
-                right_RightForm = Con.reader.Item(5)
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Public Sub SelectedRightChange(ByVal sender As Object)
+
+        Con.SqLs = "Select * from Rightss Where Right_ID='" & sender & "'"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read()
+            RightId = Con.Reader.Item(0)
+            Acc.acc_ID = Con.Reader.Item(1)
+            Acc.acc_UserName = Con.Reader.Item(2)
+            RightStaffFrom = Con.Reader.Item(3)
+            RightSellForm = Con.Reader.Item(4)
+            RightRightForm = Con.Reader.Item(5)
+        End While
+        
     End Sub
     Public Sub CheckRight(ByVal accid As String)
-        Try
-            con.SQLs = "Select * from Rightss Where Acc_ID='" & accid & "'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                right_ID = Con.reader.Item(0)
-                Acc.acc_ID = Con.reader.Item(1)
-                Acc.acc_UserName = Con.reader.Item(2)
-                right_StaffFrom = Con.reader.Item(3)
-                right_SellForm = Con.reader.Item(4)
-                right_RightForm = Con.reader.Item(5)
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        Con.SqLs = "Select * from Rightss Where Acc_ID='" & accid & "'"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read()
+            RightId = Con.Reader.Item(0)
+            Acc.acc_ID = Con.Reader.Item(1)
+            Acc.acc_UserName = Con.Reader.Item(2)
+            RightStaffFrom = Con.Reader.Item(3)
+            RightSellForm = Con.Reader.Item(4)
+            RightRightForm = Con.Reader.Item(5)
+        End While
+        
     End Sub
 
     Public Sub GotoForm()
         Dim ch As New Choose
-        If right_RightForm = True And right_SellForm = True And right_StaffFrom = True Then
+        If RightRightForm = True And RightSellForm = True And RightStaffFrom = True Then
             ch.Show()
-        ElseIf right_RightForm = False And right_StaffFrom = True And right_SellForm = True Then
+        ElseIf RightRightForm = False And RightStaffFrom = True And RightSellForm = True Then
             ch.btnRight.Enabled = False
             ch.Show()
-        ElseIf right_RightForm = False And right_StaffFrom = True And right_SellForm = False Then
+        ElseIf RightRightForm = False And RightStaffFrom = True And RightSellForm = False Then
             ch.btnRight.Enabled = False
             ch.btnSell.Enabled = False
             ch.Show()
-        ElseIf right_RightForm = True And right_StaffFrom = True And right_SellForm = False Then
+        ElseIf RightRightForm = True And RightStaffFrom = True And RightSellForm = False Then
             ch.btnSell.Enabled = False
             ch.Show()
-        ElseIf right_RightForm = False And right_StaffFrom = False And right_SellForm = True Then
+        ElseIf RightRightForm = False And RightStaffFrom = False And RightSellForm = True Then
             Dim tb As New TableForm
+            tb.txtStaffId.Text = Acc.AccUserName
             tb.Show()
         Else
             MsgBox("Please Input correct login")
         End If
     End Sub
 
-    Public Function autoGenerateRightID() As String
-        Try
-            Dim stringId As String
-            Dim intId As Integer
-            con.SQLs = "SELECT Last(Right_ID) FROM Rightss"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read()
-                If con.reader.Item(0).ToString() = "" Then
-                    right_ID = "RIGHT1"
-                Else
-                    StringID = con.reader.Item(0).ToString()
-                    intID = Convert.ToInt16(StringID.Substring(5))
-                    intID += 1
-                    right_ID = String.Concat("RIGHT", intID)
-                End If
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        Return right_ID
+    Public Function AutoGenerateRightId() As String
+
+        Dim stringId As String
+        Dim intId As Integer
+        Con.SqLs = "SELECT Last(Right_ID) FROM Rightss"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read()
+            If Con.Reader.Item(0).ToString() = "" Then
+                RightId = "RIGHT1"
+            Else
+                stringId = Con.Reader.Item(0).ToString()
+                intId = Convert.ToInt16(stringId.Substring(5))
+                intId += 1
+                RightId = String.Concat("RIGHT", intId)
+            End If
+        End While
+        
+        Return RightId
     End Function
 
     Public Function SearchAll(ByVal sender As Object)
         Dim bs As New BindingSource
-        Try
-            Dim ri As RightClass
-            Dim lri As New List(Of RightClass)
-            con.SQLs = "Select * from Rightss where Right_ID like '%" & sender & "%' OR Acc_ID like '%" & sender & "%' OR Acc_UserName like'%" & sender & "%'"
-            con.UseDatabasetoread(con.SQLs)
-            While con.reader.Read
-                ri = New RightClass(con.reader.Item(0), con.reader.Item(1), con.reader.Item(2), con.reader.Item(3), con.reader.Item(4), con.reader.Item(5))
-                lri.Add(ri)
-                bs.DataSource = lri
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        Dim ri As RightClass
+        Dim lri As New List(Of RightClass)
+        Con.SqLs = "Select * from Rightss where Right_ID like '%" & sender & "%' OR Acc_ID like '%" & sender & "%' OR Acc_UserName like'%" & sender & "%'"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read
+            ri = New RightClass(Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), Con.Reader.Item(3), Con.Reader.Item(4), Con.Reader.Item(5))
+            lri.Add(ri)
+            bs.DataSource = lri
+        End While
+        
         Return bs
     End Function
 

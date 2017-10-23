@@ -3,12 +3,13 @@
     Public Odpc As New OrderProccessingClass
 
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TableForm.Close()
+
         FormBorderStyle = Windows.Forms.FormBorderStyle.None
         Location = New Point(0, 0)
         Size = SystemInformation.PrimaryMonitorSize
         rdoHot.Checked = True
         rdoFood.Checked = True
+        TableForm.Close()
         Refresh()
     End Sub
 
@@ -40,66 +41,61 @@
         Odpc.CancelPreOrder()
         Refresh()
         Close()
+        TableForm.Close()
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
-        Try
-            If txtRmd.Text = "" Then
-                txtCmd.Text = 0
-            ElseIf Convert.ToDouble(txtRmd.Text < txtTotalDollar.Text) Then
-                txtCmd.Text = 0
-            ElseIf Convert.ToDouble(txtRmd.Text >= txtTotalDollar.Text) Then
-                txtCmd.Text = Convert.ToDouble(txtRmd.Text - txtTotalDollar.Text).ToString
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        If txtRmd.Text = "" Then
+            txtCmd.Text = 0
+        ElseIf Convert.ToDouble(txtRmd.Text <= txtTotalDollar.Text) Then
+            txtCmd.Text = 0
+        ElseIf Convert.ToDouble(txtRmd.Text >= txtTotalDollar.Text) Then
+            txtCmd.Text = Convert.ToDouble(txtRmd.Text - txtTotalDollar.Text).ToString
+        End If
         Refresh()
     End Sub
 
     Private Sub txtRmr_TextChanged(sender As Object, e As EventArgs) Handles txtRmr.TextChanged
-        Try
-            If txtRmr.Text = Nothing Then
-                txtCmr.Text = 0
-            ElseIf Convert.ToDouble(txtRmr.Text < txtTotalRiel.Text) Then
-                txtCmr.Text = 0
-            ElseIf Convert.ToDouble(txtRmr.Text >= txtTotalRiel.Text) Then
-                txtCmr.Text = Convert.ToDouble(txtRmr.Text - txtTotalRiel.Text).ToString
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        If txtRmr.Text = Nothing Then
+            txtCmr.Text = 0
+        ElseIf Convert.ToDouble(txtRmr.Text <= txtTotalRiel.Text) Then
+            txtCmr.Text = 0
+        ElseIf Convert.ToDouble(txtRmr.Text >= txtTotalRiel.Text) Then
+            txtCmr.Text = Convert.ToDouble(txtRmr.Text - txtTotalRiel.Text).ToString
+        End If
+        
         Refresh()
     End Sub
 
     Private Sub Mouse_Enter(sender As Object, e As EventArgs) Handles MyBase.MouseEnter
-        Try
-            flpnOrders.Controls.Clear()
-            flpnOrders.Controls.Add(Odpc.ShowPreOrder())
-            If txtDiscount.Text = Nothing Then
-                txtTotalDollar.Text = odpc.CalculateGrandTotal().ToString
-                txtTotalRiel.Text = Convert.ToDouble(odpc.CalculateGrandTotal() * 4100).ToString
-            Else
-                txtTotalDollar.Text = Convert.ToDouble(odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString
-                txtTotalRiel.Text = Convert.ToDouble((odpc.CalculateGrandTotal - odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+        flpnOrders.Controls.Clear()
+        flpnOrders.Controls.Add(Odpc.ShowPreOrder())
+        If txtDiscount.Text = Nothing Then
+            txtTotalDollar.Text = Odpc.CalculateGrandTotal().ToString
+            txtTotalRiel.Text = Convert.ToDouble(Odpc.CalculateGrandTotal() * 4100).ToString
+        Else
+            txtTotalDollar.Text = Convert.ToDouble(Odpc.CalculateGrandTotal - Odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)).ToString
+            txtTotalRiel.Text = Convert.ToDouble((Odpc.CalculateGrandTotal - Odpc.CalculateGrandTotalWithDiscount(txtDiscount.Text)) * 4100).ToString
+        End If
+        
         Refresh()
     End Sub
 
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
-        odpc.PayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
+        Odpc.PayNow(txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        'odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         odpc.CancelPreOrder()
         TableForm.Close()
         Refresh()
         Close()
+
     End Sub
 
     Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
-        odpc.PayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
+        Odpc.PayLatter(txtSeller.Text, txtTable.Text, txtDiscount.Text)
         odpc.CancelPreOrder()
         TableForm.Close()
         Refresh()
@@ -116,7 +112,7 @@
 
     Private Sub btnupn_Click(sender As Object, e As EventArgs) Handles btnupn.Click
         odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
+        ' odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         odpc.CancelPreOrder()
         TableForm.Close()
         Refresh()
@@ -124,7 +120,8 @@
     End Sub
 
     Private Sub btnpplt_Click(sender As Object, e As EventArgs) Handles btnpplt.Click
-        odpc.PrintPayLatter(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
+        ' odpc.PrintPayLatter(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         Refresh()
     End Sub
+
 End Class

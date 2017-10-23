@@ -44,14 +44,14 @@ Partial Class OrderForm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtTotalRiel = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.gb = New System.Windows.Forms.GroupBox()
+        Me.gbReceive = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtRmr = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtRmd = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbChange = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtCmr = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -71,8 +71,8 @@ Partial Class OrderForm
         Me.gbItem = New System.Windows.Forms.GroupBox()
         Me.gbPrint = New System.Windows.Forms.GroupBox()
         Me.btnpplt = New System.Windows.Forms.Button()
-        Me.gb.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.gbReceive.SuspendLayout()
+        Me.gbChange.SuspendLayout()
         Me.gbDiscount.SuspendLayout()
         Me.gbOrders.SuspendLayout()
         Me.gbItem.SuspendLayout()
@@ -310,22 +310,22 @@ Partial Class OrderForm
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "GrandTotal-R"
         '
-        'gb
+        'gbReceive
         '
-        Me.gb.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.gb.Controls.Add(Me.Label14)
-        Me.gb.Controls.Add(Me.txtRmr)
-        Me.gb.Controls.Add(Me.Label16)
-        Me.gb.Controls.Add(Me.txtRmd)
-        Me.gb.Controls.Add(Me.Label11)
-        Me.gb.Controls.Add(Me.Label10)
-        Me.gb.Font = New System.Drawing.Font("Modern No. 20", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gb.Location = New System.Drawing.Point(1049, 203)
-        Me.gb.Name = "gb"
-        Me.gb.Size = New System.Drawing.Size(293, 142)
-        Me.gb.TabIndex = 35
-        Me.gb.TabStop = False
-        Me.gb.Text = "Receive-Money"
+        Me.gbReceive.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.gbReceive.Controls.Add(Me.Label14)
+        Me.gbReceive.Controls.Add(Me.txtRmr)
+        Me.gbReceive.Controls.Add(Me.Label16)
+        Me.gbReceive.Controls.Add(Me.txtRmd)
+        Me.gbReceive.Controls.Add(Me.Label11)
+        Me.gbReceive.Controls.Add(Me.Label10)
+        Me.gbReceive.Font = New System.Drawing.Font("Modern No. 20", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbReceive.Location = New System.Drawing.Point(1049, 203)
+        Me.gbReceive.Name = "gbReceive"
+        Me.gbReceive.Size = New System.Drawing.Size(293, 142)
+        Me.gbReceive.TabIndex = 35
+        Me.gbReceive.TabStop = False
+        Me.gbReceive.Text = "Receive-Money"
         '
         'Label14
         '
@@ -385,22 +385,22 @@ Partial Class OrderForm
         Me.Label10.TabIndex = 5
         Me.Label10.Text = "Dolar$:"
         '
-        'GroupBox1
+        'gbChange
         '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.GroupBox1.Controls.Add(Me.Label17)
-        Me.GroupBox1.Controls.Add(Me.txtCmr)
-        Me.GroupBox1.Controls.Add(Me.Label18)
-        Me.GroupBox1.Controls.Add(Me.txtCmd)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Font = New System.Drawing.Font("Modern No. 20", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(1049, 353)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(293, 142)
-        Me.GroupBox1.TabIndex = 36
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Change-Money"
+        Me.gbChange.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.gbChange.Controls.Add(Me.Label17)
+        Me.gbChange.Controls.Add(Me.txtCmr)
+        Me.gbChange.Controls.Add(Me.Label18)
+        Me.gbChange.Controls.Add(Me.txtCmd)
+        Me.gbChange.Controls.Add(Me.Label12)
+        Me.gbChange.Controls.Add(Me.Label13)
+        Me.gbChange.Font = New System.Drawing.Font("Modern No. 20", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbChange.Location = New System.Drawing.Point(1049, 353)
+        Me.gbChange.Name = "gbChange"
+        Me.gbChange.Size = New System.Drawing.Size(293, 142)
+        Me.gbChange.TabIndex = 36
+        Me.gbChange.TabStop = False
+        Me.gbChange.Text = "Change-Money"
         '
         'Label17
         '
@@ -634,17 +634,17 @@ Partial Class OrderForm
         Me.Controls.Add(Me.btnuplt)
         Me.Controls.Add(Me.btnPlt)
         Me.Controls.Add(Me.gbDiscount)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.gb)
+        Me.Controls.Add(Me.gbChange)
+        Me.Controls.Add(Me.gbReceive)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnPn)
         Me.Controls.Add(Me.Label1)
         Me.Name = "OrderForm"
         Me.Text = "OrderForm"
-        Me.gb.ResumeLayout(False)
-        Me.gb.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbReceive.ResumeLayout(False)
+        Me.gbReceive.PerformLayout()
+        Me.gbChange.ResumeLayout(False)
+        Me.gbChange.PerformLayout()
         Me.gbDiscount.ResumeLayout(False)
         Me.gbDiscount.PerformLayout()
         Me.gbOrders.ResumeLayout(False)
@@ -678,12 +678,12 @@ Partial Class OrderForm
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtTotalRiel As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents gb As System.Windows.Forms.GroupBox
+    Friend WithEvents gbReceive As System.Windows.Forms.GroupBox
     Friend WithEvents txtRmr As System.Windows.Forms.TextBox
     Friend WithEvents txtRmd As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents gbChange As System.Windows.Forms.GroupBox
     Friend WithEvents txtCmr As System.Windows.Forms.TextBox
     Friend WithEvents txtCmd As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label

@@ -6,7 +6,7 @@
     Private Sub TableForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Choose.Close()
         flpnTable.Controls.Clear() '
-        flpnTable.Controls.Add(tbpcc.ShowTableButton())
+        flpnTable.Controls.Add(Tbpcc.ShowTableButton(txtStaffId.Text))
         Refresh()
         txtID.ReadOnly = True
         txtID.Text = tbpcc.AutoGenerateTableID()

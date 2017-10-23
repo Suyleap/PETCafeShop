@@ -21,6 +21,7 @@
             rights.GotoForm()
             txtUserName.Text = ""
             txtPassword.Text = ""
+
         Catch ex As Exception
             MsgBox("Please correct your login")
         End Try

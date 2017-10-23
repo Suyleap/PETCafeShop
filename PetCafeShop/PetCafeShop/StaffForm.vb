@@ -66,22 +66,22 @@
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
         Try
             st.selectedStaffChange(dgvStaff.CurrentRow.Cells(0).Value.ToString())
-            txtID.Text = st.st_ID
-            txtName.Text = st.st_Name
-            cboGender.Text = st.st_Gender
-            dtpDOB.Text = st.st_DOB
-            txtAge.Text = st.st_Age
-            txtAddress.Text = st.st_Address
-            txtPhone.Text = st.st_Phone
-            txtEmail.Text = st.st_Email
-            txtPosition.Text = st.st_Position
-            txtSalary.Text = st.st_Salary
-            dtpSWD.Text = st.st_StartDateWork
+            txtID.Text = St.Stid
+            txtName.Text = St.StName
+            cboGender.Text = St.StGender
+            dtpDOB.Text = St.StDOb
+            txtAge.Text = St.StAge
+            txtAddress.Text = St.StAddress
+            txtPhone.Text = St.StPhone
+            txtEmail.Text = St.StEmail
+            txtPosition.Text = St.StPosition
+            txtSalary.Text = St.StSalary
+            dtpSWD.Text = St.StStartDateWork
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         Try
-            If acc.CheckingAcc(txtID.Text) = st.st_ID Then
+            If Acc.CheckingAcc(txtID.Text) = St.Stid Then
                 btnUpdateAcc.Enabled = True
                 btnUpdateAcc.Visible = True
                 btnNew.Visible = False
@@ -240,22 +240,22 @@
         btnSearch.Enabled = False
         Try
             st.selectedStaffChange(dgvStaff.CurrentRow.Cells(0).Value.ToString())
-            txtID.Text = st.st_ID
-            txtName.Text = st.st_Name
-            cboGender.Text = st.st_Gender
-            dtpDOB.Text = st.st_DOB
-            txtAge.Text = st.st_Age
-            txtAddress.Text = st.st_Address
-            txtPhone.Text = st.st_Phone
-            txtEmail.Text = st.st_Email
-            txtPosition.Text = st.st_Position
-            txtSalary.Text = st.st_Salary
-            dtpSWD.Text = st.st_StartDateWork
+            txtID.Text = St.Stid
+            txtName.Text = St.StName
+            cboGender.Text = St.StGender
+            dtpDOB.Text = St.StDOb
+            txtAge.Text = St.StAge
+            txtAddress.Text = St.StAddress
+            txtPhone.Text = St.StPhone
+            txtEmail.Text = St.StEmail
+            txtPosition.Text = St.StPosition
+            txtSalary.Text = St.StSalary
+            dtpSWD.Text = St.StStartDateWork
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         Try
-            If acc.CheckingAcc(txtID.Text) = st.st_ID Then
+            If Acc.CheckingAcc(txtID.Text) = St.Stid Then
                 btnUpdateAcc.Enabled = True
                 btnUpdateAcc.Visible = True
                 btnNew.Visible = False
@@ -282,7 +282,7 @@
     Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
         Dim udpAcc As New UpdateAccount
         udpAcc.getStaffID = txtID.Text
-        udpAcc.getRightID = ri.right_ID
+        udpAcc.getRightID = Ri.RightId
         udpAcc.Show()
         Refresh()
     End Sub

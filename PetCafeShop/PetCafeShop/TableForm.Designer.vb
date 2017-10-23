@@ -35,6 +35,8 @@ Partial Class TableForm
         Me.gbTablelable = New System.Windows.Forms.GroupBox()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnDrinkFood = New System.Windows.Forms.Button()
+        Me.txtStaffId = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.gbtable.SuspendLayout()
         Me.gbTablelable.SuspendLayout()
         Me.SuspendLayout()
@@ -175,16 +177,36 @@ Partial Class TableForm
         Me.btnDrinkFood.Text = "Add-Drink-Food"
         Me.btnDrinkFood.UseVisualStyleBackColor = True
         '
+        'txtStaffId
+        '
+        Me.txtStaffId.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStaffId.Location = New System.Drawing.Point(104, 64)
+        Me.txtStaffId.Name = "txtStaffId"
+        Me.txtStaffId.ReadOnly = True
+        Me.txtStaffId.Size = New System.Drawing.Size(188, 25)
+        Me.txtStaffId.TabIndex = 25
+        Me.txtStaffId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(24, 66)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(74, 22)
+        Me.Label2.TabIndex = 26
+        Me.Label2.Text = "Staff-Id :"
+        '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1354, 665)
-        Me.ControlBox = False
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtStaffId)
         Me.Controls.Add(Me.btnDrinkFood)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.gbTablelable)
@@ -214,5 +236,7 @@ Partial Class TableForm
     Friend WithEvents gbTablelable As System.Windows.Forms.GroupBox
     Friend WithEvents btnNew As System.Windows.Forms.Button
     Friend WithEvents btnDrinkFood As System.Windows.Forms.Button
+    Friend WithEvents txtStaffId As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class
