@@ -69,14 +69,14 @@
             txtID.Text = St.Stid
             txtName.Text = St.StName
             cboGender.Text = St.StGender
-            dtpDOB.Text = St.StDOb
+            dtpDOB.Value = St.StDOb
             txtAge.Text = St.StAge
             txtAddress.Text = St.StAddress
             txtPhone.Text = St.StPhone
             txtEmail.Text = St.StEmail
             txtPosition.Text = St.StPosition
             txtSalary.Text = St.StSalary
-            dtpSWD.Text = St.StStartDateWork
+            dtpSWD.Value = St.StStartDateWork
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -118,7 +118,7 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
-            st.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
+            St.InsertStaff(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), dtpSWD.Value)
             AddHandler MouseLeave, AddressOf moove
             txtID.Text = st.autoGenerateStaffID()
             StaffForm_Load(Me, e)
@@ -154,7 +154,7 @@
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Try
-            st.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, Convert.ToDateTime(dtpDOB.Text), Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), Convert.ToDateTime(dtpSWD.Text))
+            St.UpdateStaff(dgvStaff.CurrentRow.Cells(0).Value.ToString(), txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone.Text, txtEmail.Text, txtPosition.Text, Convert.ToDouble(txtSalary.Text), dtpSWD.Value)
             AddHandler MouseLeave, AddressOf moove
             txtID.Text = st.autoGenerateStaffID()
             Refresh()
@@ -243,14 +243,14 @@
             txtID.Text = St.Stid
             txtName.Text = St.StName
             cboGender.Text = St.StGender
-            dtpDOB.Text = St.StDOb
+            dtpDOB.Value = St.StDOb
             txtAge.Text = St.StAge
             txtAddress.Text = St.StAddress
             txtPhone.Text = St.StPhone
             txtEmail.Text = St.StEmail
             txtPosition.Text = St.StPosition
             txtSalary.Text = St.StSalary
-            dtpSWD.Text = St.StStartDateWork
+            dtpSWD.Value = St.StStartDateWork
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

@@ -23,7 +23,7 @@ Public Class ConnectionDbPetCafe
 
     Public Function ConnectDatabase() As Object
         Dim LEAPSQL As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\cafe\PetCafeShop\PetCafeShop\PetCafeShopDatabase.accdb;"
-        Dim DYSQL As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShopDatabase.accdb;"
+        Dim DYSQL As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShopDatabase.accdb;"
         Try
             cnn = New OleDbConnection(LEAPSQL)
             cnn.Open()
