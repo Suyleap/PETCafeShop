@@ -37,6 +37,7 @@ Partial Class TableForm
         Me.btnDrinkFood = New System.Windows.Forms.Button()
         Me.txtStaffId = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnLoadTableForm = New System.Windows.Forms.Button()
         Me.gbtable.SuspendLayout()
         Me.gbTablelable.SuspendLayout()
         Me.SuspendLayout()
@@ -110,9 +111,9 @@ Partial Class TableForm
         '
         Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(1042, 413)
+        Me.btnClose.Location = New System.Drawing.Point(1131, 411)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(170, 63)
+        Me.btnClose.Size = New System.Drawing.Size(179, 63)
         Me.btnClose.TabIndex = 3
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
@@ -159,9 +160,9 @@ Partial Class TableForm
         '
         Me.btnNew.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNew.ForeColor = System.Drawing.Color.Green
-        Me.btnNew.Location = New System.Drawing.Point(913, 344)
+        Me.btnNew.Location = New System.Drawing.Point(937, 344)
         Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(170, 63)
+        Me.btnNew.Size = New System.Drawing.Size(179, 63)
         Me.btnNew.TabIndex = 1
         Me.btnNew.Text = "NEW"
         Me.btnNew.UseVisualStyleBackColor = True
@@ -170,9 +171,9 @@ Partial Class TableForm
         '
         Me.btnDrinkFood.Font = New System.Drawing.Font("Modern No. 20", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDrinkFood.ForeColor = System.Drawing.Color.Green
-        Me.btnDrinkFood.Location = New System.Drawing.Point(1134, 344)
+        Me.btnDrinkFood.Location = New System.Drawing.Point(1131, 344)
         Me.btnDrinkFood.Name = "btnDrinkFood"
-        Me.btnDrinkFood.Size = New System.Drawing.Size(208, 63)
+        Me.btnDrinkFood.Size = New System.Drawing.Size(179, 63)
         Me.btnDrinkFood.TabIndex = 2
         Me.btnDrinkFood.Text = "Add-Drink-Food"
         Me.btnDrinkFood.UseVisualStyleBackColor = True
@@ -197,6 +198,17 @@ Partial Class TableForm
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Staff-Id :"
         '
+        'btnLoadTableForm
+        '
+        Me.btnLoadTableForm.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLoadTableForm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnLoadTableForm.Location = New System.Drawing.Point(937, 411)
+        Me.btnLoadTableForm.Name = "btnLoadTableForm"
+        Me.btnLoadTableForm.Size = New System.Drawing.Size(179, 65)
+        Me.btnLoadTableForm.TabIndex = 27
+        Me.btnLoadTableForm.Text = "&Reload"
+        Me.btnLoadTableForm.UseVisualStyleBackColor = True
+        '
         'TableForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -205,6 +217,7 @@ Partial Class TableForm
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnLoadTableForm)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtStaffId)
         Me.Controls.Add(Me.btnDrinkFood)
@@ -238,5 +251,6 @@ Partial Class TableForm
     Friend WithEvents btnDrinkFood As System.Windows.Forms.Button
     Friend WithEvents txtStaffId As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents btnLoadTableForm As System.Windows.Forms.Button
 
 End Class

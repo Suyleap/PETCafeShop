@@ -2,6 +2,7 @@
 
     Public Odpc As New OrderProccessingClass
 
+
     Private Sub OrderForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         FormBorderStyle = Windows.Forms.FormBorderStyle.None
@@ -9,7 +10,6 @@
         Size = SystemInformation.PrimaryMonitorSize
         rdoHot.Checked = True
         rdoFood.Checked = True
-        TableForm.Close()
         Refresh()
     End Sub
 
@@ -41,7 +41,6 @@
         Odpc.CancelPreOrder()
         Refresh()
         Close()
-        TableForm.Close()
     End Sub
 
     Private Sub txtRmd_TextChanged(sender As Object, e As EventArgs) Handles txtRmd.TextChanged
@@ -87,8 +86,8 @@
     Private Sub btnPn_Click(sender As Object, e As EventArgs) Handles btnPn.Click
         Odpc.PayNow(txtSeller.Text, txtTable.Text, txtDiscount.Text)
         'odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
-        odpc.CancelPreOrder()
-        TableForm.Close()
+        Odpc.CancelPreOrder()
+
         Refresh()
         Close()
 
@@ -96,16 +95,15 @@
 
     Private Sub btnPlt_Click(sender As Object, e As EventArgs) Handles btnPlt.Click
         Odpc.PayLatter(txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.CancelPreOrder()
-        TableForm.Close()
+        Odpc.CancelPreOrder()
+
         Refresh()
         Close()
     End Sub
 
     Private Sub btnpdplt_Click(sender As Object, e As EventArgs) Handles btnuplt.Click
         odpc.UpdatePayLatter(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
-        odpc.CancelPreOrder()
-        TableForm.Close()
+        Odpc.CancelPreOrder()
         Refresh()
         Close()
     End Sub
@@ -114,9 +112,9 @@
         odpc.UpdatePayNow(txtInvoice.Text, txtSeller.Text, txtTable.Text, txtDiscount.Text)
         ' odpc.PrintPayNow(txtInvoice.Text, txtTotalDollar.Text, txtTotalRiel.Text, txtSeller.Text, Convert.ToInt16(txtTable.Text), txtDiscount.Text)
         odpc.CancelPreOrder()
-        TableForm.Close()
         Refresh()
         Close()
+        TableForm.btnLoadTableForm.PerformClick()
     End Sub
 
     Private Sub btnpplt_Click(sender As Object, e As EventArgs) Handles btnpplt.Click
@@ -124,4 +122,8 @@
         Refresh()
     End Sub
 
+    Private Sub txtCmd_TextChanged(sender As Object, e As EventArgs) Handles txtCmd.TextChanged
+        txtCmr.Text = Convert.ToDouble(txtCmd.Text) * 4000
+        Refresh()
+    End Sub
 End Class

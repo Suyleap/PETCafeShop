@@ -28,6 +28,7 @@ Partial Class Choose
         Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnBackup = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,7 +66,7 @@ Partial Class Choose
         '
         Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnClose.Location = New System.Drawing.Point(316, 119)
+        Me.btnClose.Location = New System.Drawing.Point(316, 179)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(250, 54)
         Me.btnClose.TabIndex = 4
@@ -75,6 +76,7 @@ Partial Class Choose
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.GroupBox1.Controls.Add(Me.btnBackup)
         Me.GroupBox1.Controls.Add(Me.btnStaff)
         Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Controls.Add(Me.btnRight)
@@ -82,7 +84,7 @@ Partial Class Choose
         Me.GroupBox1.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(43, 97)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(637, 198)
+        Me.GroupBox1.Size = New System.Drawing.Size(637, 251)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ITEAM-CHOOSE"
@@ -96,6 +98,16 @@ Partial Class Choose
         Me.Label2.Size = New System.Drawing.Size(305, 50)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Pet Cafe Shop"
+        '
+        'btnBackup
+        '
+        Me.btnBackup.Font = New System.Drawing.Font("Modern No. 20", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBackup.Location = New System.Drawing.Point(316, 119)
+        Me.btnBackup.Name = "btnBackup"
+        Me.btnBackup.Size = New System.Drawing.Size(250, 54)
+        Me.btnBackup.TabIndex = 5
+        Me.btnBackup.Text = "BackUp"
+        Me.btnBackup.UseVisualStyleBackColor = True
         '
         'Choose
         '
@@ -121,4 +133,5 @@ Partial Class Choose
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents btnBackup As System.Windows.Forms.Button
 End Class

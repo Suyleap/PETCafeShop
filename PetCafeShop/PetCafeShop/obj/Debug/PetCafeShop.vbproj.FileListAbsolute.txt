@@ -57,3 +57,7 @@ E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm
 E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
 E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.UpdateAccount.resources
 E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.dll
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.xml
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbprojResolveAssemblyReference.cache
+D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CrystalReportViewerForm.resources

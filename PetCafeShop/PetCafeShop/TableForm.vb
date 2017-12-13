@@ -7,7 +7,6 @@
         Choose.Close()
         flpnTable.Controls.Clear() '
         flpnTable.Controls.Add(Tbpcc.ShowTableButton(txtStaffId.Text))
-        Refresh()
         txtID.ReadOnly = True
         txtID.Text = tbpcc.AutoGenerateTableID()
         FormBorderStyle = Windows.Forms.FormBorderStyle.None
@@ -42,4 +41,9 @@
         DrinkFoodForm.Show()
         Refresh()
     End Sub
+
+    Private Sub btnLoadTableForm_Click(sender As Object, e As EventArgs) Handles btnLoadTableForm.Click
+        TableForm_Load(Me, New EventArgs)
+    End Sub
+
 End Class

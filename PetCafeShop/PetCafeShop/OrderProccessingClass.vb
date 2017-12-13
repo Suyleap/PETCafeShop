@@ -5,7 +5,7 @@
     Private _flpn As FlowLayoutPanel
 
     Private _bt As Button
-    Private _bta(50) As Button
+    Private ReadOnly _bta(50) As Button
 
     Public Total As Double
     Public Quantity As Integer
@@ -294,8 +294,8 @@
         Con.SqLs = "Select * from PreOrder where Quantity<> 0"
         Con.UseDatabasetoread(Con.SqLs)
         While Con.Reader.Read.ToString
+            InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, True)
             i = i + 1
-            InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, True, DateTime.Today)
         End While
         UpdateTableToFree(table)
 
@@ -307,8 +307,8 @@
         Con.SqLs = "Select * from PreOrder where Quantity<> 0"
         Con.UseDatabasetoread(Con.SqLs)
         While Con.Reader.Read.ToString
+            InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, False)
             i = i + 1
-            InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, False, DateTime.Today)
         End While
         UpdateTableToBusy(table)
 
@@ -328,7 +328,7 @@
             qtt(i) = Con.Reader.Item(1)
             p(i) = Con.Reader.Item(2)
             DeleteOrders_ByDrinkName_Quantity_Table_OrderNumber(dn(i), qtt(i), table, ordernumber)
-            InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, False, DateTime.Today)
+            InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, False)
             j = j + 1
             i = i + 1
         End While
@@ -350,7 +350,7 @@
             qtt(i) = Con.Reader.Item(1)
             p(i) = Con.Reader.Item(2)
             DeleteOrders_ByDrinkName_Quantity_Table_OrderNumber(dn(i), qtt(i), table, ordernumber)
-            InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, True, DateTime.Today)
+            InsertInto_Orders(j, ordernumber, sellname, table, dn(i), qtt(i), p(i), discount, True)
             i = i + 1
             j = j + 1
         End While
@@ -365,9 +365,9 @@
 
     End Sub
 
-    Public Sub InsertInto_Orders(ByVal item As Integer, ByVal ordernumber As Integer, ByVal seller As String, ByVal table As Integer, ByVal drinkname As String, ByVal quantity As Integer, ByVal price As Double, ByVal discount As String, ByVal pay As Boolean, Dates As Date)
+    Public Sub InsertInto_Orders(ByVal item As Integer, ByVal ordernumber As Integer, ByVal seller As String, ByVal table As Integer, ByVal drinkname As String, ByVal quantity As Integer, ByVal price As Double, ByVal discount As String, ByVal pay As Boolean)
 
-        Con.SqLs = "Insert into Orders values(" & item & "," & ordernumber & ",'" & seller & "','" & table & "','" & drinkname & "'," & quantity & "," & price & "," & quantity * price & ",'" & discount & "'," & pay & "," & Dates & ")"
+        Con.SqLs = "Insert into Orders values(" & item & "," & ordernumber & ",'" & seller & "','" & table & "','" & drinkname & "'," & quantity & "," & price & "," & quantity * price & ",'" & discount & "'," & pay & ",'" & DateTime.Today.Date.ToString & "')"
         Con.UseDatabase(Con.SqLs)
 
     End Sub

@@ -46,10 +46,20 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -88,6 +98,12 @@
       <DependentUpon>CreateAcc.vb</DependentUpon>
     </Compile>
     <Compile Include="CreateAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReportViewerForm.Designer.vb">
+      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReportViewerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DrinkFoodClass.vb" />
@@ -164,6 +180,9 @@
     <EmbeddedResource Include="CreateAcc.resx">
       <DependentUpon>CreateAcc.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportViewerForm.resx">
+      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrinkFoodForm.resx">
       <DependentUpon>DrinkFoodForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +224,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\63795646-table-wallpapers.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

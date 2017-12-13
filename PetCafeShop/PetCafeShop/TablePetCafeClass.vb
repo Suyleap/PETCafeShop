@@ -115,15 +115,14 @@
             Con.SqLs = "Insert into PreOrder values('" & Con.Reader.Item(4) & "'," & Convert.ToInt16(Con.Reader.Item(5)) & "," & Convert.ToDouble(Con.Reader.Item(6)) & "," & Convert.ToDouble(Con.Reader.Item(7)) & "," & tablenumberbutton.Name & ")"
             Con.UseDatabase(Con.SqLs)
         End While
-        
 
-        _odf.Show()
         _odf.btnPlt.Visible = False
         _odf.btnPn.Visible = False
         _odf.txtTable.Text = tablenumberbutton.Name
         _odf.txtInvoice.Text = invoice
         _odf.txtSeller.Text = Seller
-        _odf.Refresh()
+        _odf.Show()
+
     End Sub
 
     Private Sub GointoOrderForm_GreenButton(sender As Object, e As EventArgs)
@@ -139,12 +138,12 @@
         tablenumberbutton.Refresh()
         Insert_into_Preorder(tablenumberbutton.Name)
         
-        _odf.Show()
+
         _odf.txtSeller.Text = Seller
         _odf.btnuplt.Visible = False
         _odf.btnupn.Visible = False
         _odf.txtTable.Text = tablenumberbutton.Name
-        _odf.Refresh()
+        _odf.Show()
 
     End Sub
 
