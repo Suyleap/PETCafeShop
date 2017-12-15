@@ -174,7 +174,6 @@
 
     Public Sub HotbuttonClick(ByVal sender As Object, ByVal e As EventArgs)
 
-
         _bt = New Button()
         _bt.Name = sender.ToString.Remove(0, 35)
         Con.SqLs = "Select * from HotDrink Where Name='" & _bt.Name & "'"
@@ -239,11 +238,14 @@
         While Con.Reader.Read.ToString
             Drinkname = Con.Reader.Item(0)
             TableNumber = Con.Reader.Item(4)
-            If TableNumber = TableNumber And Drinkname = TableNumber Then
-                Quantity = Con.Reader.Item(1) + 1
-                Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
-                Con.UseDatabase(Con.SqLs)
-            ElseIf TableNumber = TableNumber And Drinkname = Name Then
+            If Drinkname = TableNumber Then
+                Try
+                    Quantity = Con.Reader.Item(1) + 1
+                    Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
+                    Con.UseDatabase(Con.SqLs)
+                Catch ex As Exception
+                End Try
+            ElseIf Drinkname = Name Then
                 Quantity = Con.Reader.Item(1) + 1
                 Con.SqLs = "Update PreOrder Set Quantity=" & Quantity & ",GrandTotal=" & Price * Quantity & " Where DrinkName='" & Name & "' and Table=" & TableNumber & ""
                 Con.UseDatabase(Con.SqLs)

@@ -151,8 +151,9 @@
 
         Con.SqLs = "Insert into PreOrder values('" & drinkname & "','" & 0 & "'," & 0 & "," & 0 & "," & drinkname & ")"
         Con.UseDatabase(Con.SqLs)
-        
+
     End Sub
+
     Public Function AutoGenerateTableId() As String
 
         Dim stringId As String
@@ -169,7 +170,7 @@
                 TableId = String.Concat("TB", intId)
             End If
         End While
-        
+
         Return TableId
     End Function
 
