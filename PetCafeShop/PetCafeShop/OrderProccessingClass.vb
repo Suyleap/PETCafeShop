@@ -174,7 +174,6 @@
 
     Public Sub HotbuttonClick(ByVal sender As Object, ByVal e As EventArgs)
 
-
         _bt = New Button()
         _bt.Name = sender.ToString.Remove(0, 35)
         Con.SqLs = "Select * from HotDrink Where Name='" & _bt.Name & "'"
@@ -184,7 +183,7 @@
             Price = Con.Reader.Item(2)
         End While
         InsertPreOrder()
-        
+
     End Sub
 
     Public Sub IcebuttonClick(ByVal sender As Object, ByVal e As EventArgs)
@@ -199,7 +198,7 @@
             Price = Con.Reader.Item(2)
         End While
         InsertPreOrder()
-        
+
     End Sub
 
     Public Sub FrabbuttonClick(ByVal sender As Object, ByVal e As EventArgs)
@@ -208,11 +207,11 @@
         _bt = New Button()
         _bt.Name = sender.ToString.Remove(0, 35)
         Con.SqLs = "Select * from FrabDrink Where Name='" & _bt.Name & "'"
-            Con.UseDatabasetoread(Con.SqLs)
-            While Con.Reader.Read
-                Name = Con.Reader.Item(1)
-                Price = Con.Reader.Item(2)
-            End While
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read
+            Name = Con.Reader.Item(1)
+            Price = Con.Reader.Item(2)
+        End While
         InsertPreOrder()
 
     End Sub
@@ -229,7 +228,7 @@
             Price = Con.Reader.Item(2)
         End While
         InsertPreOrder()
-        
+
     End Sub
 
     Public Sub InsertPreOrder()
@@ -239,11 +238,14 @@
         While Con.Reader.Read.ToString
             Drinkname = Con.Reader.Item(0)
             TableNumber = Con.Reader.Item(4)
-            If TableNumber = TableNumber And Drinkname = TableNumber Then
-                Quantity = Con.Reader.Item(1) + 1
-                Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
-                Con.UseDatabase(Con.SqLs)
-            ElseIf TableNumber = TableNumber And Drinkname = Name Then
+            If Drinkname = TableNumber Then
+                Try
+                    Quantity = Con.Reader.Item(1) + 1
+                    Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
+                    Con.UseDatabase(Con.SqLs)
+                Catch ex As Exception
+                End Try
+            ElseIf Drinkname = Name Then
                 Quantity = Con.Reader.Item(1) + 1
                 Con.SqLs = "Update PreOrder Set Quantity=" & Quantity & ",GrandTotal=" & Price * Quantity & " Where DrinkName='" & Name & "' and Table=" & TableNumber & ""
                 Con.UseDatabase(Con.SqLs)
@@ -414,32 +416,32 @@
         
     End Sub
 
-    'Public Sub PrintPayNow(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
-    '    Dim dct As String = ""
-    '    Dim dcts As String
+    Public Sub PrintPayNow(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts As String
 
-    '    Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber=" & ordernumber & ""
-    '    Con.UseDatabasetoread(Con.SqLs)
-    '    While Con.Reader.Read.ToString
-    '        dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
-    '        dct = dct + dcts
-    '    End While
-    '    InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
-    '    DeleteOrders_ByTable_Ordernumber(table, ordernumber)
-    'End Sub
+        Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber=" & ordernumber & ""
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read.ToString
+            dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
+            dct = dct + dcts
+        End While
+        InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
+        DeleteOrders_ByTable_Ordernumber(table, ordernumber)
+    End Sub
 
-    'Public Sub PrintPayLatter(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
-    '    Dim dct As String = ""
-    '    Dim dcts As String
+    Public Sub PrintPayLatter(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts As String
 
-    '    Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
-    '    Con.UseDatabasetoread(Con.SqLs)
-    '    While Con.Reader.Read.ToString
-    '        dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
-    '        dct = dct + dcts
-    '    End While
-    '    InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
-    'End Sub
+        Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber='" & ordernumber & "'"
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read.ToString
+            dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
+            dct = dct + dcts
+        End While
+        InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
+    End Sub
 
     Public Function SelectMaxItem_PrintIvoice() As Integer
         Dim j As Integer
