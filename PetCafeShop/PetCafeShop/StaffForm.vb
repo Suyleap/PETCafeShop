@@ -26,7 +26,7 @@
         Location = New Point(0, 0)
         Size = SystemInformation.PrimaryMonitorSize
         btnNew.Enabled = True
-        Refresh()
+
     End Sub
 
     Private Sub EmptyInput()
@@ -60,7 +60,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Refresh()
+
     End Sub
 
     Private Sub dgvStaff_SelectionChanged(sender As Object, e As EventArgs) Handles dgvStaff.SelectionChanged
@@ -93,7 +93,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Refresh()
+
     End Sub
 
     Private Sub Clear()
@@ -108,12 +108,12 @@
         txtPosition.Text = ""
         txtSalary.Text = ""
         dtpSWD.Text = ""
-        Refresh()
+
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
-        Refresh()
+
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -125,7 +125,7 @@
         Catch ex As Exception
             EmptyInput()
         End Try
-        Refresh()
+
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
@@ -142,7 +142,7 @@
         btnAdd.Enabled = True
         btnDS.PerformClick()
         StaffForm_Load(Me, e)
-        Refresh()
+
     End Sub
 
     Private Sub Moove(sender As Object, e As EventArgs)
@@ -169,7 +169,7 @@
         Catch ex As Exception
             EmptyInput()
         End Try
-        Refresh()
+
     End Sub
 
     Private Sub DisableInput()
@@ -182,7 +182,7 @@
         txtSalary.Enabled = False
         txtPosition.Enabled = False
         txtEmail.Enabled = False
-        Refresh()
+
     End Sub
 
     Private Sub EnableInput()
@@ -195,12 +195,12 @@
         txtSalary.Enabled = True
         txtPosition.Enabled = True
         txtEmail.Enabled = True
-        Refresh()
+
     End Sub
 
     Private Sub dtpDOB_LostFocus(sender As Object, e As EventArgs) Handles dtpDOB.LostFocus
         txtAge.Text = Today.Year - Convert.ToDateTime(dtpDOB.Text).Year
-        Refresh()
+
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -210,14 +210,14 @@
         btnDS.Visible = True
         btnAdd.Enabled = False
         btnNew.Enabled = False
-        Refresh()
+
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         dgvStaff.DataSource = st.SearchAll(txtSearch.Text)
         dgvStaff.Enabled = True
         Clear()
-        Refresh()
+
     End Sub
 
     Private Sub btnDS_Click(sender As Object, e As EventArgs) Handles btnDS.Click
@@ -226,7 +226,7 @@
         btnSearch.Visible = True
         btnDS.Visible = False
         txtSearch.Text = ""
-        Refresh()
+
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
@@ -267,7 +267,7 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Refresh()
+
     End Sub
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
@@ -276,7 +276,7 @@
         objFormAcc.getStaffID = txtID.Text
         objFormAcc.getRightID = ri.autoGenerateRightID()
         objFormAcc.Show()
-        Refresh()
+
     End Sub
 
     Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
@@ -284,7 +284,7 @@
         udpAcc.getStaffID = txtID.Text
         udpAcc.getRightID = Ri.RightId
         udpAcc.Show()
-        Refresh()
+
     End Sub
 
 End Class

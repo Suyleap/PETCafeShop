@@ -66,21 +66,21 @@
 
         Con.SqLs = "INSERT INTO Rightss values('" & text & "','" & accid & "','" & username & "'," & stform & "," & sellforms & "," & right & ")"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub DeleteRight(ByVal text As String)
 
         Con.SqLs = "DELETE * From Rightss where Acc_ID='" & text & "'"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub UpdateRight(ByVal text As String, ByVal stform As Boolean, ByVal sellforms As Boolean, ByVal right As Boolean)
 
         Con.SqLs = "UPDATE Rightss Set [StaffForm]=" & stform & ", [SellForm]= " & sellforms & ", [RightForm] = " & right & " where Right_ID='" & text & "'"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Function Show() As Object
@@ -95,7 +95,7 @@
             rights.Add(right)
             bs.DataSource = right
         End While
-        
+        Con.CloseConnection()
         Return bs
     End Function
 
@@ -111,8 +111,9 @@
             RightSellForm = Con.Reader.Item(4)
             RightRightForm = Con.Reader.Item(5)
         End While
-        
+        Con.CloseConnection()
     End Sub
+
     Public Sub CheckRight(ByVal accid As String)
 
         Con.SqLs = "Select * from Rightss Where Acc_ID='" & accid & "'"
@@ -125,27 +126,27 @@
             RightSellForm = Con.Reader.Item(4)
             RightRightForm = Con.Reader.Item(5)
         End While
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub GotoForm()
         Dim ch As New Choose
         If RightRightForm = True And RightSellForm = True And RightStaffFrom = True Then
-            ch.Show()
+            ch.ShowDialog()
         ElseIf RightRightForm = False And RightStaffFrom = True And RightSellForm = True Then
             ch.btnRight.Enabled = False
-            ch.Show()
+            ch.ShowDialog()
         ElseIf RightRightForm = False And RightStaffFrom = True And RightSellForm = False Then
             ch.btnRight.Enabled = False
             ch.btnSell.Enabled = False
-            ch.Show()
+            ch.ShowDialog()
         ElseIf RightRightForm = True And RightStaffFrom = True And RightSellForm = False Then
             ch.btnSell.Enabled = False
-            ch.Show()
+            ch.ShowDialog()
         ElseIf RightRightForm = False And RightStaffFrom = False And RightSellForm = True Then
             Dim tb As New TableForm
             tb.txtStaffId.Text = Acc.AccUserName
-            tb.Show()
+            tb.ShowDialog()
         Else
             MsgBox("Please Input correct login")
         End If
@@ -167,7 +168,7 @@
                 RightId = String.Concat("RIGHT", intId)
             End If
         End While
-        
+        Con.CloseConnection()
         Return RightId
     End Function
 
@@ -183,7 +184,7 @@
             lri.Add(ri)
             bs.DataSource = lri
         End While
-        
+        Con.CloseConnection()
         Return bs
     End Function
 

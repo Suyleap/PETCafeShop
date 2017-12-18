@@ -17,14 +17,12 @@
         btnSearch.Visible = True
         btnStop.Visible = False
         txtSearch.Enabled = False
-        Refresh()
     End Sub
 
     Private Sub dgvRight_SelectionChanged(sender As Object, e As EventArgs) Handles dgvRight.SelectionChanged
         Ri.SelectedRightChange(dgvRight.CurrentRow.Cells(0).Value.ToString())
         txtUser.Text = Ri.Acc.acc_UserName
         CheckBox()
-        Refresh()
     End Sub
 
     Private Sub CheckBox()
@@ -49,12 +47,11 @@
                 cboRight.Checked = False
                 rig = False
             End If
-        Refresh()
+
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
-        Refresh()
     End Sub
 
     Private Sub GetValue()
@@ -73,13 +70,13 @@
             Else
                 rig = False
             End If
-        Refresh()
+
     End Sub
 
     Private Sub Rm(sender As Object, e As EventArgs)
         dgvRight.DataSource = Ri.Show()
         RemoveHandler MouseLeave, AddressOf Rm
-        Refresh()
+
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
@@ -87,17 +84,17 @@
             ri.UpdateRight(dgvRight.CurrentRow.Cells(0).Value.ToString(), stfrom, sellform, rig)
             AddHandler MouseLeave, AddressOf Rm
             RightForm_Load(Me, e)
-        Refresh()
+
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         dgvRight.DataSource = ri.SearchAll(txtSearch.Text)
-        Refresh()
+
     End Sub
 
     Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
         RightForm_Load(Me, e)
-        Refresh()
+
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -106,6 +103,6 @@
         btnSearch.Visible = False
         btnStop.Enabled = True
         btnStop.Visible = True
-        Refresh()
+
     End Sub
 End Class
