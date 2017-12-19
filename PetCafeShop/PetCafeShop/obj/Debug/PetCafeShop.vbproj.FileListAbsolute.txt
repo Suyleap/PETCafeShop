@@ -1,70 +1,4 @@
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.cache
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\RdlCompile.compiled
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Update_Account.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
-E:\Work\New Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.UpdateAccount.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.UpdateAccount.resources
-E:\Work\Cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.dll
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.xml
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbprojResolveAssemblyReference.cache
-D:\cafe\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CrystalReportViewerForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe.config
-E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
-E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
-E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.exe
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.pdb
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\PetCafeShop.xml
@@ -72,15 +6,20 @@ E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.dll
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\bin\Debug\Dapper.xml
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbprojResolveAssemblyReference.cache
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Background.resources
+E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.BackUpForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Choose.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CreateAcc.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.CrystalReportViewerForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.DrinkFoodForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.LoginForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.OrderForm.resources
+E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.ReportForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.RightForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.StaffForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.TableForm.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.Resources.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.UpdateAccount.resources
 E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.vbproj.GenerateResource.Cache
+E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.exe
+E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.xml
+E:\Work\PetCafeShop\PetCafeShop\PetCafeShop\PetCafeShop\obj\Debug\PetCafeShop.pdb

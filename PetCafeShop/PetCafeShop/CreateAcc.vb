@@ -11,7 +11,6 @@
     Private Sub CreateAcc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Clear()
         cmd()
-        Refresh()
     End Sub
 
     Private Sub Cmd()
@@ -23,14 +22,12 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        Refresh()
     End Sub
 
     Private Sub Clear()
         txtConfirm.Text = ""
         txtPassword.Text = ""
         txtUserName.Text = ""
-        Refresh()
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
@@ -45,12 +42,10 @@
             txtConfirm.Text = ""
             txtPassword.Focus()
         End If
-        Refresh()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
-        Refresh()
     End Sub
 
 End Class

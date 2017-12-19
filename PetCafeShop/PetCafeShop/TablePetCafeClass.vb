@@ -42,14 +42,14 @@
 
         Con.SqLs = "Insert into TablePetCafe values('" & tableid & "','" & tablenumber & "'," & free & ")"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub Deletetable(ByVal text As String)
 
         Con.SqLs = "Delete * from TablePetCafe Where NumberTable=" & Convert.ToInt16(text)
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Function ShowTableButton(sellername As String) As Windows.Forms.FlowLayoutPanel
@@ -115,13 +115,13 @@
             Con.SqLs = "Insert into PreOrder values('" & Con.Reader.Item(4) & "'," & Convert.ToInt16(Con.Reader.Item(5)) & "," & Convert.ToDouble(Con.Reader.Item(6)) & "," & Convert.ToDouble(Con.Reader.Item(7)) & "," & tablenumberbutton.Name & ")"
             Con.UseDatabase(Con.SqLs)
         End While
-
+        Con.CloseConnection()
         _odf.btnPlt.Visible = False
         _odf.btnPn.Visible = False
         _odf.txtTable.Text = tablenumberbutton.Name
         _odf.txtInvoice.Text = invoice
         _odf.txtSeller.Text = Seller
-        _odf.Show()
+        _odf.ShowDialog()
 
     End Sub
 
@@ -143,7 +143,7 @@
         _odf.btnuplt.Visible = False
         _odf.btnupn.Visible = False
         _odf.txtTable.Text = tablenumberbutton.Name
-        _odf.Show()
+        _odf.ShowDialog()
 
     End Sub
 
@@ -151,7 +151,7 @@
 
         Con.SqLs = "Insert into PreOrder values('" & drinkname & "','" & 0 & "'," & 0 & "," & 0 & "," & drinkname & ")"
         Con.UseDatabase(Con.SqLs)
-
+        Con.CloseConnection()
     End Sub
 
     Public Function AutoGenerateTableId() As String
@@ -170,7 +170,7 @@
                 TableId = String.Concat("TB", intId)
             End If
         End While
-
+        Con.CloseConnection()
         Return TableId
     End Function
 

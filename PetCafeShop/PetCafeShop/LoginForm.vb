@@ -25,7 +25,6 @@
         Catch ex As Exception
             MsgBox("Please correct your login")
         End Try
-        Refresh()
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -34,7 +33,6 @@
         txtPassword.PasswordChar = "."
         txtUserName.Focus()
         FormBorderStyle = Windows.Forms.FormBorderStyle.None
-        Refresh()
     End Sub
 
 End Class

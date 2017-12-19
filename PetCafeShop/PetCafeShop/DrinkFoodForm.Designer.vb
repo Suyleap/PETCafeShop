@@ -198,6 +198,7 @@ Partial Class DrinkFoodForm
         '
         'dtg
         '
+        Me.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtg.Location = New System.Drawing.Point(558, 55)
         Me.dtg.Name = "dtg"
