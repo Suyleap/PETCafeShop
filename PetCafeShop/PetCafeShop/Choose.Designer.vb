@@ -27,9 +27,9 @@ Partial Class Choose
         Me.btnSell = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnReport = New System.Windows.Forms.Button()
         Me.btnBackup = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnReport = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,14 +65,15 @@ Partial Class Choose
         '
         'btnClose
         '
+        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClose.ForeColor = System.Drawing.Color.Black
         Me.btnClose.Location = New System.Drawing.Point(316, 179)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(250, 54)
         Me.btnClose.TabIndex = 6
         Me.btnClose.Text = "CLOSE"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -90,6 +91,16 @@ Partial Class Choose
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ITEAM-CHOOSE"
+        '
+        'btnReport
+        '
+        Me.btnReport.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReport.Location = New System.Drawing.Point(316, 119)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(250, 54)
+        Me.btnReport.TabIndex = 4
+        Me.btnReport.Text = "Report"
+        Me.btnReport.UseVisualStyleBackColor = True
         '
         'btnBackup
         '
@@ -110,16 +121,6 @@ Partial Class Choose
         Me.Label2.Size = New System.Drawing.Size(305, 50)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Pet Cafe Shop"
-        '
-        'btnReport
-        '
-        Me.btnReport.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReport.Location = New System.Drawing.Point(316, 119)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(250, 54)
-        Me.btnReport.TabIndex = 4
-        Me.btnReport.Text = "Report"
-        Me.btnReport.UseVisualStyleBackColor = True
         '
         'Choose
         '

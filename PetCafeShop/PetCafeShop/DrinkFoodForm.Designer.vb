@@ -288,7 +288,6 @@ Partial Class DrinkFoodForm
         Me.Controls.Add(Me.gbDrinkFood)
         Me.Controls.Add(Me.Label1)
         Me.Name = "DrinkFoodForm"
-        Me.Text = "DrinkForm"
         CType(Me.dtg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbItem.ResumeLayout(False)
         Me.gbItem.PerformLayout()

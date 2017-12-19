@@ -641,7 +641,6 @@ Partial Class OrderForm
         Me.Controls.Add(Me.btnPn)
         Me.Controls.Add(Me.Label1)
         Me.Name = "OrderForm"
-        Me.Text = "OrderForm"
         Me.gbReceive.ResumeLayout(False)
         Me.gbReceive.PerformLayout()
         Me.gbChange.ResumeLayout(False)

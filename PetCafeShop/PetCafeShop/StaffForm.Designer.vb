@@ -468,7 +468,6 @@ Partial Class StaffForm
         Me.Controls.Add(Me.dgvStaff)
         Me.Name = "StaffForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StaffForm"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbStaffItem.ResumeLayout(False)
         Me.gbStaffItem.PerformLayout()
