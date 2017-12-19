@@ -31,6 +31,7 @@
     End Sub
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
-
+        Dim reportform As New ReportForm
+        reportform.ShowDialog()
     End Sub
 End Class

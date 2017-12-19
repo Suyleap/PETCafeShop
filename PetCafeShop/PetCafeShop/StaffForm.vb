@@ -275,7 +275,7 @@
         objFormAcc.getID = acc.AutoGenerateAccID()
         objFormAcc.getStaffID = txtID.Text
         objFormAcc.getRightID = ri.autoGenerateRightID()
-        objFormAcc.Show()
+        objFormAcc.ShowDialog()
 
     End Sub
 
@@ -283,7 +283,7 @@
         Dim udpAcc As New UpdateAccount
         udpAcc.getStaffID = txtID.Text
         udpAcc.getRightID = Ri.RightId
-        udpAcc.Show()
+        udpAcc.ShowDialog()
 
     End Sub
 

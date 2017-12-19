@@ -35,13 +35,14 @@ Partial Class LoginForm
         '
         'btnOK
         '
+        Me.btnOK.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnOK.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOK.Location = New System.Drawing.Point(117, 243)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(205, 56)
         Me.btnOK.TabIndex = 3
         Me.btnOK.Text = "OK"
-        Me.btnOK.UseVisualStyleBackColor = True
+        Me.btnOK.UseVisualStyleBackColor = False
         '
         'txtUserName
         '
@@ -83,14 +84,15 @@ Partial Class LoginForm
         '
         'btnClose
         '
+        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClose.Font = New System.Drawing.Font("Modern No. 20", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClose.ForeColor = System.Drawing.Color.Black
         Me.btnClose.Location = New System.Drawing.Point(339, 243)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(215, 56)
         Me.btnClose.TabIndex = 4
         Me.btnClose.Text = "CLOSE"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -131,7 +133,6 @@ Partial Class LoginForm
         Me.MinimizeBox = False
         Me.Name = "LoginForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "LoginForm"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

@@ -228,7 +228,6 @@ Partial Class TableForm
         Me.Controls.Add(Me.Label1)
         Me.Name = "TableForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
         Me.gbtable.ResumeLayout(False)
         Me.gbtable.PerformLayout()
         Me.gbTablelable.ResumeLayout(False)

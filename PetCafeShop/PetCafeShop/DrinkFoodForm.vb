@@ -83,6 +83,9 @@
 
     Private Sub DrinkFoodForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TableForm.Close()
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        Location = New Point(0, 0)
+        Size = SystemInformation.PrimaryMonitorSize
         rdoHot.Checked = True
         Refresh()
     End Sub

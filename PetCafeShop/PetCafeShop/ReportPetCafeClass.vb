@@ -90,10 +90,11 @@
         _day = day
     End Sub
 
-    Public Function ShowReport(startday As Date, endday As Date) As Object
+    Public Function ShowReport(startday As String, endday As String) As Object
         Dim report As ReportPetCafeClass
         Dim reports As New List(Of ReportPetCafeClass)
         Dim bs As New BindingSource
+<<<<<<< HEAD
         Con.SqLs = "Select * from IceDrink Where Date >= '" & startday & "' and Date >= '" & endday & "' "
         Con.UseDatabasetoread(Con.SqLs)
         While Con.Reader.Read
@@ -101,10 +102,56 @@
             reports.Add(report)
             bs.DataSource = reports
         End While
+=======
+        Try
+            Con.SqLs = "Select * from PrintInvoice Where Date >= '" & startday & "' and Date <= '" & endday & "' "
+            Con.UseDatabasetoread(Con.SqLs)
+            While Con.Reader.Read
+                report = New ReportPetCafeClass(Con.Reader.Item(1), Con.Reader.Item(2), Con.Reader.Item(3), Con.Reader.Item(4), Con.Reader.Item(5), Con.Reader.Item(6), Con.Reader.Item(7), Con.Reader.Item(8))
+                reports.Add(report)
+                bs.DataSource = reports
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+>>>>>>> 0129b6b2f34487b534ee0a72620179399c38fba5
         Return bs
     End Function
 
+    Public Function TotalDollar(startday As String, endday As String) As Double
+        Dim totaldollars, subtotaldollar As Double
+        Try
+            Con.SqLs = "Select * from PrintInvoice Where Date >= '" & startday & "' and Date <= '" & endday & "' "
+            Con.UseDatabasetoread(Con.SqLs)
+            While Con.Reader.Read
+                totaldollars = Con.Reader.Item(3)
+                subtotaldollar = subtotaldollar + totaldollars
+            End While
 
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Return subtotaldollar
+    End Function
+
+    Public Function TotalRiel(startday As String, endday As String) As Double
+        Dim totalriels, subtotalriel As Double
+        Try
+            Con.SqLs = "Select * from PrintInvoice Where Date >= '" & startday & "' and Date <= '" & endday & "' "
+            Con.UseDatabasetoread(Con.SqLs)
+            While Con.Reader.Read
+                totalriels = Con.Reader.Item(4)
+                subtotalriel = subtotalriel + totalriels
+            End While
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Return subtotalriel
+    End Function
 
 
 End Class
