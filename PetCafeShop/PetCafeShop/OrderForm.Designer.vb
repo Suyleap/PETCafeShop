@@ -627,6 +627,7 @@ Partial Class OrderForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.ControlBox = False
         Me.Controls.Add(Me.gbPrint)
         Me.Controls.Add(Me.gbItem)
         Me.Controls.Add(Me.gbOrders)

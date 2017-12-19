@@ -198,6 +198,7 @@ Partial Class DrinkFoodForm
         '
         'dtg
         '
+        Me.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtg.Location = New System.Drawing.Point(558, 55)
         Me.dtg.Name = "dtg"
@@ -283,6 +284,7 @@ Partial Class DrinkFoodForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.PetCafeShop.My.Resources.Resources._63795646_table_wallpapers
         Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.ControlBox = False
         Me.Controls.Add(Me.gbDrinkFood)
         Me.Controls.Add(Me.Label1)
         Me.Name = "DrinkFoodForm"

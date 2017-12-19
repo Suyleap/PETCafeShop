@@ -134,21 +134,21 @@
 
         Con.SqLs = "INSERT into Staff values('" & id & "','" & name & "','" & gender & "','" & dob.ToString() & "'," & age & ",'" & address & "','" & phone & "','" & email & "','" & position & "','" & salary & "','" & sdw.ToString() & "')"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub UpdateStaff(ByVal id As String, ByVal name As String, ByVal gender As String, ByVal dob As Date, ByVal age As Byte, ByVal address As String, ByVal phone As String, ByVal email As String, ByVal position As String, ByVal salary As Double, ByVal sdw As Date)
 
         Con.SqLs = "UPDATE Staff set Name='" & name & "',Gender ='" & gender & "', BirthDay ='" & dob.ToString() & "',Age =" & age & ",Address ='" & address & "',Phone ='" & phone & "',Email ='" & email & "',Salary =" & salary & ",StartWorkDay ='" & sdw.ToString() & "' Where StaffID='" & id & "'"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub DeleteStaff(ByVal id As String)
 
         Con.SqLs = "DELETE * From Staff Where StaffID=('" & id & "')"
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Function Show() As Object
@@ -164,7 +164,7 @@
             stcls.Add(stcl)
             bs.DataSource = stcls
         End While
-        
+        Con.CloseConnection()
         Return bs
     End Function
 
@@ -185,7 +185,7 @@
             StSalary = Con.Reader.Item(9)
             StStartDateWork = Con.Reader.Item(10)
         End While
-        
+
     End Sub
 
     Public Function AutoGenerateStaffId() As String
@@ -204,7 +204,7 @@
                 Stid = String.Concat("St", intId)
             End If
         End While
-        
+        Con.CloseConnection()
         Return Stid
     End Function
 
@@ -223,7 +223,7 @@
             stcls.Add(stcl)
             bs.DataSource = stcls
         End While
-        
+        Con.CloseConnection()
         Return bs
     End Function
 

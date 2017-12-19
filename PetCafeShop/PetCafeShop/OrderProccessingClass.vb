@@ -51,9 +51,9 @@
         End Set
     End Property
 
-    Public Property Totals As Double
+    ' Public Property Totals As Double
 
-    ' Public Property Sellers As String
+    Public Property MaxItemOrder As Integer
 
     Public Function ShowHotButton() As Windows.Forms.FlowLayoutPanel
 
@@ -174,7 +174,6 @@
 
     Public Sub HotbuttonClick(ByVal sender As Object, ByVal e As EventArgs)
 
-
         _bt = New Button()
         _bt.Name = sender.ToString.Remove(0, 35)
         Con.SqLs = "Select * from HotDrink Where Name='" & _bt.Name & "'"
@@ -239,11 +238,14 @@
         While Con.Reader.Read.ToString
             Drinkname = Con.Reader.Item(0)
             TableNumber = Con.Reader.Item(4)
-            If TableNumber = TableNumber And Drinkname = TableNumber Then
-                Quantity = Con.Reader.Item(1) + 1
-                Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
-                Con.UseDatabase(Con.SqLs)
-            ElseIf TableNumber = TableNumber And Drinkname = Name Then
+            If Drinkname = TableNumber Then
+                Try
+                    Quantity = Con.Reader.Item(1) + 1
+                    Con.SqLs = "Insert into PreOrder values('" & Name & "','" & Quantity & "'," & Price & "," & Price * Quantity & "," & TableNumber & ")"
+                    Con.UseDatabase(Con.SqLs)
+                Catch ex As Exception
+                End Try
+            ElseIf Drinkname = Name Then
                 Quantity = Con.Reader.Item(1) + 1
                 Con.SqLs = "Update PreOrder Set Quantity=" & Quantity & ",GrandTotal=" & Price * Quantity & " Where DrinkName='" & Name & "' and Table=" & TableNumber & ""
                 Con.UseDatabase(Con.SqLs)
@@ -261,6 +263,7 @@
         dtgOrder.Size = New Size(362, 567)
         dtgOrder.Location = New Point(21, 131)
         dtgOrder.ReadOnly = True
+        dtgOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         Dim odpc As OrderProccessingClass
         Dim odpcs As New List(Of OrderProccessingClass)
 
@@ -290,14 +293,14 @@
 
     Public Sub PayNow(ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
         Dim i As Integer = SelectMakItem_Orders()
-        Dim j As Integer = SelectMakOrderNumber_Orders()
+        MaxItemOrder = SelectMakOrderNumber_Orders()
         Con.SqLs = "Select * from PreOrder where Quantity<> 0"
         Con.UseDatabasetoread(Con.SqLs)
         While Con.Reader.Read.ToString
-            InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, True)
+            InsertInto_Orders(i, MaxItemOrder, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, True)
             i = i + 1
         End While
-        UpdateTableToFree(table)
+        ' UpdateTableToFree(table)
 
     End Sub
 
@@ -310,6 +313,7 @@
             InsertInto_Orders(i, j, sellname, table, Con.Reader.Item(0), Con.Reader.Item(1), Con.Reader.Item(2), discount, False)
             i = i + 1
         End While
+
         UpdateTableToBusy(table)
 
     End Sub
@@ -333,7 +337,7 @@
             i = i + 1
         End While
 
-        UpdateTableToBusy(table)
+        '  UpdateTableToBusy(table)
     End Sub
 
     Public Sub UpdatePayNow(ByVal ordernumber As Integer, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
@@ -362,14 +366,14 @@
 
         Con.SqLs = "Delete * from Orders Where DrinkName ='" & drinkname & "' and Quantity<=" & quantity & " and Table=" & table & " and OrderNumber=" & ordernumber & " "
         Con.UseDatabase(Con.SqLs)
-
+        Con.CloseConnection()
     End Sub
 
     Public Sub InsertInto_Orders(ByVal item As Integer, ByVal ordernumber As Integer, ByVal seller As String, ByVal table As Integer, ByVal drinkname As String, ByVal quantity As Integer, ByVal price As Double, ByVal discount As String, ByVal pay As Boolean)
 
         Con.SqLs = "Insert into Orders values(" & item & "," & ordernumber & ",'" & seller & "','" & table & "','" & drinkname & "'," & quantity & "," & price & "," & quantity * price & ",'" & discount & "'," & pay & ",'" & DateTime.Today.Date.ToString & "')"
         Con.UseDatabase(Con.SqLs)
-
+        Con.CloseConnection()
     End Sub
 
     Public Function SelectMakItem_Orders() As Integer
@@ -381,7 +385,7 @@
             j = Con.Reader.Item(0)
         End While
         j = j + 1
-
+        Con.CloseConnection()
         Return j
     End Function
 
@@ -394,7 +398,7 @@
             k = Con.Reader.Item(0)
         End While
         k = k + 1
-
+        Con.CloseConnection()
         Return k
     End Function
 
@@ -403,7 +407,7 @@
         Dim frees As Boolean = False
         Con.SqLs = "Update TablePetCafe Set Frees=" & frees & " Where NumberTable=" & table & ""
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
     Public Sub UpdateTableToBusy(ByVal table As Integer)
@@ -411,22 +415,22 @@
         Dim frees As Boolean = True
         Con.SqLs = "Update TablePetCafe Set Frees=" & frees & " Where NumberTable=" & table & ""
         Con.UseDatabase(Con.SqLs)
-        
+        Con.CloseConnection()
     End Sub
 
-    'Public Sub PrintPayNow(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
-    '    Dim dct As String = ""
-    '    Dim dcts As String
+    Public Sub PrintPayNow(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
+        Dim dct As String = ""
+        Dim dcts As String
 
-    '    Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber=" & ordernumber & ""
-    '    Con.UseDatabasetoread(Con.SqLs)
-    '    While Con.Reader.Read.ToString
-    '        dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
-    '        dct = dct + dcts
-    '    End While
-    '    InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
-    '    DeleteOrders_ByTable_Ordernumber(table, ordernumber)
-    'End Sub
+        Con.SqLs = "Select * from Orders where Table=" & table & " and OrderNumber=" & ordernumber & ""
+        Con.UseDatabasetoread(Con.SqLs)
+        While Con.Reader.Read.ToString
+            dcts = Con.Reader.Item(4) + " " + Con.Reader.Item(5).ToString + " " + Con.Reader.Item(6).ToString + " " + Con.Reader.Item(7).ToString + " " + vbNewLine
+            dct = dct + dcts
+        End While
+        InsertIntoPrintInvoice(SelectMaxItem_PrintIvoice, ordernumber, dct, gttdl, gttr, sellname, table, discount)
+        DeleteOrders_ByTable_Ordernumber(table, ordernumber)
+    End Sub
 
     'Public Sub PrintPayLatter(ByVal ordernumber As Integer, ByVal gttdl As String, ByVal gttr As String, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
     '    Dim dct As String = ""
@@ -450,22 +454,22 @@
             j = Con.Reader.Item(0)
         End While
         j = j + 1
-        
+        Con.CloseConnection()
         Return j
     End Function
 
     Public Sub InsertIntoPrintInvoice(ByVal j As Integer, ByVal ordernumber As Integer, ByVal description As String, ByVal gttdl As Double, ByVal gttr As Double, ByVal sellname As String, ByVal table As Integer, ByVal discount As String)
 
-        Con.SqLs = "Insert into PrintInvoice values(" & j & "," & ordernumber & ",'" & description & "'," & gttdl & "," & gttr & "," & table & ",'" & sellname & "'," & discount & ")"
+        Con.SqLs = "Insert into PrintInvoice values(" & j & "," & ordernumber & ",'" & description & "'," & gttdl & "," & gttr & "," & table & ",'" & sellname & "'," & discount & ",'" & DateTime.Today.Date.ToString & "')"
         Con.UseDatabase(Con.SqLs)
-
+        Con.CloseConnection()
     End Sub
 
     Public Sub DeleteOrders_ByTable_Ordernumber(ByVal table As Integer, ByVal ordernumber As Integer)
 
         Con.SqLs = "Delete * from Orders where Table=" & table & " and OrderNumber=" & ordernumber & ""
         Con.UseDatabase(Con.SqLs)
-
+        Con.CloseConnection()
     End Sub
 
     Public Function CalculateChangeCashDolar(ByVal receivdolar As String) As String
@@ -501,7 +505,7 @@
         While Con.Reader.Read
             grandtotal = grandtotal + Con.Reader.Item(3)
         End While
-        
+        Con.CloseConnection()
         Return grandtotal
     End Function
 

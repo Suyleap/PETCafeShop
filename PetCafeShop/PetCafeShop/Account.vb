@@ -51,19 +51,21 @@
     End Property
 
     Public Sub InsertAcc(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
-            con.SQLs = "INSERT INTO Login_Acc values('" & id.ToString() & "','" & stid.ToString() & "','" & username & "','" & pw & "')"
-            con.UseDatabase(con.SQLs)
-        
+        Con.SqLs = "INSERT INTO Login_Acc values('" & id.ToString() & "','" & stid.ToString() & "','" & username & "','" & pw & "')"
+        Con.UseDatabase(Con.SqLs)
+        Con.CloseConnection()
     End Sub
 
     Public Sub UpdateAcc(ByVal id As String, ByVal stid As String, ByVal username As String, ByVal pw As String)
         Con.SQLs = "UPDATE Login_Acc SET [StaffID]='" & stid & "',[UserName]='" & username & "',[PassWord]='" & pw & "' WHERE [Acc_ID]='" & id & "'"
-        Con.UseDatabase(Con.SQLs)
+        Con.UseDatabase(Con.SqLs)
+        Con.CloseConnection()
     End Sub
 
     Public Sub DeleteAcc(ByVal stid As String)
             Con.SQLs = "DELETE * From Login_Acc where StaffID='" & stid & "'"
-            Con.UseDatabase(Con.SQLs)
+        Con.UseDatabase(Con.SqLs)
+        Con.CloseConnection()
     End Sub
 
     Public Sub Show(ByVal stid As String)
@@ -76,6 +78,7 @@
             acc_UserName = Con.reader.Item(2)
             acc_Password = Con.reader.Item(3)
         End While
+        Con.CloseConnection()
     End Sub
 
     Public Function CheckingAcc(ByVal stid As String) As String
@@ -85,7 +88,7 @@
         While Con.reader.Read()
             St.Stid = Con.reader.Item(1)
         End While
-        
+        Con.CloseConnection()
         Return St.Stid
     End Function
     Public Sub Login(ByVal username As String, ByVal password As String)
@@ -98,7 +101,7 @@
             acc_UserName = Con.reader.Item(2)
             acc_Password = Con.reader.Item(3)
         End While
-        
+        Con.CloseConnection()
     End Sub
 
     Public Function AutoGenerateAccId() As String
@@ -117,7 +120,7 @@
                 acc_ID = String.Concat("ACC", intId)
             End If
         End While
-        
+        Con.CloseConnection()
         Return acc_ID
     End Function
 
